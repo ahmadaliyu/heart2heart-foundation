@@ -1,0 +1,41 @@
+{
+  "name": "heart2heart-foundation",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Heart2Heart Foundation Digital Platform \u2014 privacy-focused counselling, education and support for secondary-school girls and married women.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "test:smoke": "node scripts/smoke.mjs",
+    "test:a11y": "node scripts/a11y.mjs",
+    "test:gaps": "node scripts/gaps.mjs",
+    "verify": "npm run typecheck && npm run lint && npm run build"
+  },
+  "dependencies": {
+    "@eslint/eslintrc": "^3.3.7",
+    "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
+    "lucide-react": "^0.475.0",
+    "next": "^15.5.25",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "server-only": "^0.0.1",
+    "tailwind-merge": "^3.0.2",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.9",
+    "@types/node": "^22.13.5",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "axe-core": "^4.13.0",
+    "eslint": "^9.21.0",
+    "eslint-config-next": "^15.5.25",
+    "playwright": "^1.63.0",
+    "tailwindcss": "^4.0.9",
+    "typescript": "^5.7.3"
+  }
+}

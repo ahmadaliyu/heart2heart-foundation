@@ -1,0 +1,638 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   TYPEFACES — self-hosted, subset, no third-party request (~216 KB total)
+   --------------------------------------------------------------------------
+   Fraunces is a variable face with a real OPTICAL SIZE axis, and the system
+   uses two instances of it rather than one stretched across every size:
+
+     H2H Display   opsz 144, WONK on, wght 600.  Headlines only, >= 1.75rem.
+                   High thick/thin contrast and character. Below ~28px its
+                   hairlines thin out and it looks weak — which is exactly what
+                   the first version of this site did, everywhere.
+     H2H Text      opsz 12, WONK off, wght 600.  Headings 1rem–1.625rem.
+                   Sturdier stems, flatter forms, same voice.
+     H2H Sans      Plus Jakarta Sans — body, controls, everything read at length.
+     H2H Mono      IBM Plex Mono — eyebrows, case references, figures, labels.
+
+   Neither Fraunces cut covers the Hausa Boko letters ɓ ɗ ƙ ƴ, so an 8 KB Noto
+   slice is declared LAST under the same family names with a narrow
+   unicode-range. Later matching declarations win, so those characters — and
+   only those — come from Noto.
+   ========================================================================== */
+
+@font-face {
+  font-family: "H2H Sans";
+  src: url("/fonts/jakarta-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "H2H Sans";
+  src: url("/fonts/jakarta-600.woff2") format("woff2");
+  font-weight: 500 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "H2H Sans";
+  src: url("/fonts/jakarta-700.woff2") format("woff2");
+  font-weight: 700 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "H2H Display";
+  src: url("/fonts/fraunces-display.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "H2H Text";
+  src: url("/fonts/fraunces-text.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "H2H Mono";
+  src: url("/fonts/mono-500.woff2") format("woff2");
+  font-weight: 400 600;
+  font-display: swap;
+}
+
+/* Hausa Boko letters — declared last so they win inside this range. */
+@font-face {
+  font-family: "H2H Sans";
+  src: url("/fonts/hausa-latin-ext.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+  unicode-range: U+0181, U+018A, U+0198-0199, U+01B3-01B4, U+0253, U+0257, U+02BC;
+}
+@font-face {
+  font-family: "H2H Display";
+  src: url("/fonts/hausa-latin-ext.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+  unicode-range: U+0181, U+018A, U+0198-0199, U+01B3-01B4, U+0253, U+0257, U+02BC;
+}
+@font-face {
+  font-family: "H2H Text";
+  src: url("/fonts/hausa-latin-ext.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+  unicode-range: U+0181, U+018A, U+0198-0199, U+01B3-01B4, U+0253, U+0257, U+02BC;
+}
+
+/* ==========================================================================
+   THEME VARIANT
+   --------------------------------------------------------------------------
+   The resolved theme is stamped on <html data-theme> by an inline script
+   before first paint, so there is never a light flash. Because Tailwind v4
+   utilities compile to var(--color-x), redefining those variables under
+   [data-theme="dark"] re-themes every utility at once — no `dark:` prefix
+   needed on the hundreds of places that use a semantic token. The `dark:`
+   variant below exists for the handful of cases that need a different
+   *rule*, not a different value.
+   ========================================================================== */
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme {
+  /* --- Brand: aubergine, extended down into a true night for dark grounds.
+         These stay fixed across themes. They are the *object* colours —
+         a filled button, an avatar, the night bands — and a filled brand
+         object should not change colour when the page does. ---------------- */
+  --color-plum-50: #f6f2fa;
+  --color-plum-100: #ece3f4;
+  --color-plum-200: #d8c8e8;
+  --color-plum-300: #bda2d6;
+  --color-plum-400: #9d77bf;
+  --color-plum-500: #8055a6;
+  --color-plum-600: #6d4491;
+  --color-plum-700: #5b3a7e; /* brief token — Primary */
+  --color-plum-800: #472d63;
+  --color-plum-900: #33204a;
+  --color-plum-950: #241634;
+  --color-night: #180d22;
+  --color-night-soft: #241634;
+
+  /* --- Accent: warm amber. Graphics, rules, figures — never body text. ---- */
+  --color-amber-50: #fdf8ee;
+  --color-amber-100: #faedd4;
+  --color-amber-200: #f4d9a7;
+  --color-amber-300: #eec070;
+  --color-amber-400: #e8a33d; /* brief token — Secondary */
+  --color-amber-500: #d78a20;
+  --color-amber-600: #b56c18;
+  --color-amber-700: #8f5417;
+
+  /* ======================================================================
+     SEMANTIC TOKENS — every one of these is redefined for dark below.
+     Anything that sits *on the page ground* must use these, not the ramps.
+     ====================================================================== */
+
+  /* --- Grounds ---------------------------------------------------------- */
+  --color-canvas: #fbfafc;
+  --color-surface: #ffffff; /* brief token — Surface */
+  --color-lilac: #f6f1fa; /* brief token — Background */
+  --color-cream: #fbf6ee;
+  --color-sand: #f4ece0;
+  --color-sunken: #efe8f5;
+
+  /* --- Text ------------------------------------------------------------- */
+  --color-ink: #2b2530; /* brief token — Text */
+  --color-ink-muted: #6e6577; /* brief token — Muted Text */
+  --color-ink-faint: #736c7e; /* darkened from #8F8898 (3.0:1) to clear AA */
+  --color-ink-inverse: #fdfcfe;
+
+  /* --- Headings and brand-on-ground ------------------------------------- */
+  --color-heading: #33204a;
+  --color-brand: #5b3a7e; /* brand as *text or icon* on the page ground */
+  --color-brand-strong: #472d63;
+  --color-accent: #8f5417; /* amber as text — the amber itself is 2.3:1 */
+
+  /* --- Soft brand-tinted panels ----------------------------------------- */
+  --color-tint: #f6f2fa;
+  --color-tint-strong: #ece3f4;
+  --color-tint-line: #d8c8e8;
+  --color-tint-ink: #33204a;
+
+  /* --- Lines ------------------------------------------------------------ */
+  --color-line: #e6dcef;
+  --color-line-strong: #d9cce8; /* brief token — Border */
+  --color-line-dark: #3a2750;
+
+  /* --- Status. Base colours fill and outline; the "-ink" partners carry
+         text, because the base values sit at ~3.4:1 on their own tints. ---- */
+  --color-success: #3f8f5f;
+  --color-success-ink: #24603c;
+  --color-success-soft: #e7f4ec;
+  --color-warning: #c97a1a;
+  --color-warning-ink: #8a5310;
+  --color-warning-soft: #fdf2e2;
+  --color-danger: #b5443c;
+  --color-danger-ink: #8e2f28;
+  --color-danger-soft: #fbecea;
+  --color-info: #2f6f96;
+  --color-info-ink: #1f5170;
+  --color-info-soft: #e8f2f8;
+
+  /* Emergency is deliberately NOT "danger": a mistyped phone number must
+     never look like a crisis alert. */
+  --color-emergency: #a8322b;
+  --color-emergency-dark: #8a2621;
+  --color-emergency-soft: #fdeeec;
+
+  /* --- Type ------------------------------------------------------------- */
+  --font-sans: "H2H Sans", "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "H2H Display", "H2H Text", ui-serif, Georgia, serif;
+  --font-text: "H2H Text", "H2H Display", ui-serif, Georgia, serif;
+  --font-mono: "H2H Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* Fluid display scale. Large type is where a page earns its confidence.
+     Everything at --text-title and above is set in the display cut; the
+     sizes below it belong to the text cut. */
+  --text-hero: clamp(2.75rem, 6.2vw, 5rem);
+  --text-hero--line-height: 0.97;
+  --text-hero--letter-spacing: -0.035em;
+  --text-display: clamp(2.25rem, 4.4vw, 3.375rem);
+  --text-display--line-height: 1.04;
+  --text-display--letter-spacing: -0.03em;
+  --text-title: clamp(1.75rem, 2.8vw, 2.25rem);
+  --text-title--line-height: 1.12;
+  --text-title--letter-spacing: -0.025em;
+  /* Serif sub-heads, in the text cut. */
+  --text-subtitle: 1.375rem;
+  --text-subtitle--line-height: 1.28;
+  --text-subtitle--letter-spacing: -0.015em;
+  --text-lead: 1.1875rem;
+  --text-lead--line-height: 1.62;
+  --text-eyebrow: 0.6875rem;
+  --text-eyebrow--line-height: 1;
+  --text-eyebrow--letter-spacing: 0.18em;
+
+  /* --- Radii. Pills for actions, generous but not blobby for surfaces. --- */
+  --radius-input: 0.75rem;
+  --radius-card: 1.25rem;
+  --radius-panel: 1.75rem;
+  --radius-hero: 2.25rem;
+
+  /* --- Elevation: low, wide, tinted with the brand rather than grey. ----- */
+  --shadow-xs: 0 1px 2px 0 rgb(36 22 52 / 0.05);
+  --shadow-sm: 0 2px 6px -1px rgb(36 22 52 / 0.07), 0 1px 3px -1px rgb(36 22 52 / 0.05);
+  --shadow-md: 0 10px 24px -8px rgb(36 22 52 / 0.13), 0 3px 8px -4px rgb(36 22 52 / 0.07);
+  --shadow-lg: 0 24px 48px -16px rgb(36 22 52 / 0.20), 0 8px 20px -10px rgb(36 22 52 / 0.10);
+  --shadow-glow: 0 0 0 1px rgb(232 163 61 / 0.28), 0 18px 40px -18px rgb(232 163 61 / 0.35);
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.5, 1);
+}
+
+/* ==========================================================================
+   DARK THEME
+   --------------------------------------------------------------------------
+   Not an inversion. The light theme's ground is a cool near-white; the dark
+   theme's is the same aubergine night the hero already uses, so the two
+   themes are recognisably the same brand rather than a design and its
+   negative. Elevation runs the other way — in the dark, surfaces get
+   *lighter* as they come forward, because a shadow on a dark ground does
+   almost nothing.
+   ========================================================================== */
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-canvas: #140b1c;
+  --color-surface: #1e1329;
+  --color-lilac: #191022;
+  --color-cream: #201525; /* the warm band, warm-shifted rather than lilac */
+  --color-sand: #2a1c2c;
+  --color-sunken: #100a17;
+
+  --color-ink: #f3eef8;
+  --color-ink-muted: #b9afc7;
+  --color-ink-faint: #9a90a8; /* 5.2:1 on canvas */
+  --color-ink-inverse: #1a1024;
+
+  --color-heading: #f6f1fa;
+  --color-brand: #c8a9e0; /* 7.4:1 on canvas */
+  --color-brand-strong: #ddc8ee;
+  --color-accent: #f0c274; /* 9.1:1 on canvas */
+
+  --color-tint: #241733;
+  --color-tint-strong: #2e1e40;
+  --color-tint-line: #3d2a52;
+  --color-tint-ink: #ede4f5;
+
+  --color-line: #2f2140;
+  --color-line-strong: #40304f;
+  --color-line-dark: #4a3760;
+
+  --color-success: #4fae76;
+  --color-success-ink: #86dba7;
+  --color-success-soft: #10281a;
+  --color-warning: #dc9433;
+  --color-warning-ink: #f2bf70;
+  --color-warning-soft: #2c1e0d;
+  --color-danger: #d1594f;
+  --color-danger-ink: #f5a49b;
+  --color-danger-soft: #2c1512;
+  --color-info: #4b93bd;
+  --color-info-ink: #8ecbee;
+  --color-info-soft: #0d2432;
+
+  /* The emergency crimson is a FILL that carries white text, and the "call
+     the helpline" button reverses it on white. Lightening it for the dark
+     theme broke both directions at once, so it stays put — only the tinted
+     panel behind it moves. */
+  --color-emergency-soft: #2c1210;
+
+  /* Shadows read as depth against black only when they are much darker and
+     paired with a lighter surface. */
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.4);
+  --shadow-sm: 0 2px 6px -1px rgb(0 0 0 / 0.5), 0 1px 3px -1px rgb(0 0 0 / 0.4);
+  --shadow-md: 0 10px 24px -8px rgb(0 0 0 / 0.6), 0 3px 8px -4px rgb(0 0 0 / 0.45);
+  --shadow-lg: 0 24px 48px -16px rgb(0 0 0 / 0.7), 0 8px 20px -10px rgb(0 0 0 / 0.5);
+  --shadow-glow: 0 0 0 1px rgb(232 163 61 / 0.34), 0 18px 40px -18px rgb(232 163 61 / 0.4);
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+    color-scheme: light;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern", "liga", "calt";
+  }
+
+  /* Theme transition. Applied only once the toggle has run, so the very
+     first paint is instant and does not animate from the wrong colours. */
+  html.theme-ready body,
+  html.theme-ready body * {
+    transition:
+      background-color 220ms var(--ease-out-soft),
+      border-color 220ms var(--ease-out-soft),
+      color 160ms var(--ease-out-soft);
+  }
+
+  /* --- The optical-size rule ------------------------------------------
+     THE SIZE PICKS THE CUT, NOT THE TAG. This is the thing the first
+     version got wrong: it mapped h1/h2/h3 to the display face and then set
+     h3 at 18px and h2 at 14px, where Fraunces drawn for 144pt has
+     hairlines that disappear. Headings therefore default to the TEXT cut —
+     the same typeface, drawn for these sizes — and only step up to the
+     display cut at the sizes it was drawn for.
+
+     Below ~1rem even the text cut stops helping, so small label headings
+     fall through to the sans. --------------------------------------- */
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-text);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.24;
+    text-wrap: balance;
+    color: var(--color-heading);
+  }
+
+  /* Display sizes: 1.875rem and up. */
+  :is(h1, h2, h3):is(
+      .text-hero,
+      .text-display,
+      .text-title,
+      .text-3xl,
+      .text-4xl,
+      .text-5xl,
+      .text-6xl,
+      .font-display
+    ) {
+    font-family: var(--font-display);
+    letter-spacing: -0.028em;
+    line-height: 1.08;
+  }
+
+  /* Label-sized headings. */
+  :is(h1, h2, h3):is(.text-sm, .text-xs, .eyebrow) {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    letter-spacing: -0.005em;
+  }
+
+  :is(h1, h2, h3).eyebrow {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    letter-spacing: 0.18em;
+  }
+
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--color-ink);
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-plum-500);
+    outline-offset: 2px;
+    border-radius: 0.375rem;
+  }
+
+  [data-theme="dark"] :focus-visible {
+    outline-color: var(--color-plum-300);
+  }
+
+  ::selection {
+    background-color: var(--color-plum-200);
+    color: var(--color-plum-900);
+  }
+
+  [data-theme="dark"] ::selection {
+    background-color: var(--color-plum-700);
+    color: #ffffff;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ==========================================================================
+   UTILITIES
+   ========================================================================== */
+
+@utility container-page {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  max-width: 78rem;
+
+  @media (min-width: 640px) {
+    padding-inline: 2rem;
+  }
+}
+
+@utility container-narrow {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  max-width: 46rem;
+
+  @media (min-width: 640px) {
+    padding-inline: 2rem;
+  }
+}
+
+@utility skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100%;
+  z-index: 100;
+  background: var(--color-plum-700);
+  color: #ffffff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: top 150ms var(--ease-out-soft);
+
+  &:focus {
+    top: 1rem;
+  }
+}
+
+/** Small mono label. Used for eyebrows, section markers and data captions. */
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/** Serif sub-head in the text optical cut. */
+@utility font-text {
+  font-family: var(--font-text);
+}
+
+/** Night ground with a plum-to-black gradient and a warm bloom top-right.
+    Identical in both themes — it is the one surface that was always dark. */
+@utility bg-night-rich {
+  background-color: var(--color-night);
+  background-image:
+    radial-gradient(60rem 40rem at 85% -10%, rgb(232 163 61 / 0.20), transparent 62%),
+    radial-gradient(50rem 36rem at 5% 105%, rgb(128 85 166 / 0.42), transparent 60%),
+    linear-gradient(160deg, #33204a 0%, #1d1029 55%, #180d22 100%);
+}
+
+/** Light equivalent for softer bands. Dims right down in the dark theme —
+    at full strength these washes turn into visible grey clouds. */
+@utility bg-wash {
+  background-color: var(--color-canvas);
+  background-image:
+    radial-gradient(48rem 26rem at 10% -20%, var(--color-tint-strong), transparent 62%),
+    radial-gradient(38rem 22rem at 96% 0%, rgb(232 163 61 / 0.09), transparent 58%);
+}
+
+/** Frosted panel for use over the night ground. */
+@utility glass {
+  background-color: rgb(255 255 255 / 0.06);
+  border: 1px solid rgb(255 255 255 / 0.12);
+  backdrop-filter: blur(14px) saturate(140%);
+}
+
+/** A thin amber rule used as a section marker. */
+@utility rule-accent {
+  &::before {
+    content: "";
+    display: block;
+    width: 2.5rem;
+    height: 3px;
+    border-radius: 999px;
+    background: var(--color-amber-400);
+    margin-bottom: 1.25rem;
+  }
+}
+
+/* ==========================================================================
+   MOTION
+   --------------------------------------------------------------------------
+   Restrained: entrances and hover feedback only, nothing looping in the
+   reader's peripheral vision, and everything is switched off by the
+   reduced-motion block above.
+   ========================================================================== */
+
+@keyframes h2h-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes h2h-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes h2h-draw {
+  from {
+    stroke-dashoffset: var(--dash, 300);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes h2h-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0) scale(1.03);
+  }
+}
+
+/** Entrance for above-the-fold content: no observer needed, plays on mount. */
+@utility enter {
+  animation: h2h-rise 700ms var(--ease-out-soft) both;
+}
+
+/** Scroll-revealed content. The `.is-in` class is added by <Reveal>. */
+@utility reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 640ms var(--ease-out-soft),
+    transform 640ms var(--ease-out-soft);
+
+  &.is-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/** Very slow ambient drift for the decorative hero blobs. */
+@utility drift {
+  animation: h2h-drift 16s ease-in-out infinite;
+}
+
+/** Card hover: a small lift and a warmer edge. */
+@utility lift {
+  transition:
+    transform 320ms var(--ease-out-soft),
+    box-shadow 320ms var(--ease-out-soft),
+    border-color 320ms var(--ease-out-soft);
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-tint-line);
+  }
+}
+
+/** Underline that grows from the left — used on the main navigation. */
+@utility underline-grow {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: 0.35rem;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--color-amber-400);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 300ms var(--ease-out-soft);
+  }
+
+  &:hover::after,
+  &[aria-current="page"]::after {
+    transform: scaleX(1);
+  }
+}

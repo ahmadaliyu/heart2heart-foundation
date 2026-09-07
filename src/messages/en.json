@@ -1,0 +1,948 @@
+{
+  "meta": {
+    "name": "Heart2Heart Foundation",
+    "short": "Heart2Heart",
+    "tagline": "A safe place to talk.",
+    "description": "Compassionate, confidential counselling and therapeutic support for secondary-school girls and married women.",
+    "langLabel": "Language"
+  },
+  "common": {
+    "learnMore": "Learn more",
+    "readMore": "Read more",
+    "viewAll": "View all",
+    "back": "Back",
+    "next": "Next",
+    "continue": "Continue",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "close": "Close",
+    "search": "Search",
+    "filter": "Filter",
+    "loading": "Loading…",
+    "optional": "optional",
+    "required": "required",
+    "menu": "Menu",
+    "skipToContent": "Skip to main content",
+    "showMore": "Show more",
+    "showLess": "Show less",
+    "noResults": "Nothing to show yet.",
+    "of": "of",
+    "step": "Step",
+    "minutes": "min read",
+    "copied": "Copied",
+    "copy": "Copy",
+    "print": "Print",
+    "download": "Download",
+    "watch": "Watch",
+    "all": "All",
+    "yes": "Yes",
+    "no": "No",
+    "notSure": "I'm not sure",
+    "today": "Today",
+    "upcoming": "Upcoming",
+    "verified": "Verified",
+    "themeDark": "Switch to dark mode",
+    "themeLight": "Switch to light mode"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "resources": "Resources",
+    "events": "Events",
+    "contact": "Contact",
+    "donate": "Donate",
+    "getSupport": "Get support",
+    "emergency": "Need help now?",
+    "staffLogin": "Staff login"
+  },
+  "emergency": {
+    "banner": "Need help now?",
+    "bannerAction": "Get urgent help",
+    "title": "Need help now?",
+    "lede": "If you are in immediate danger, or you are worried about your safety or someone else's, please reach out straight away. You do not have to explain everything to get help.",
+    "callNow": "Call the helpline",
+    "whatsapp": "Message on WhatsApp",
+    "contactsTitle": "Verified emergency contacts",
+    "contactsNote": "The Foundation checks and re-confirms every number on this page. If a number does not connect, please tell us so we can correct it.",
+    "urgentRequest": "Request urgent support",
+    "urgentRequestNote": "Send a short message to the Foundation. A member of the team responds during working hours — this is not a 24-hour service.",
+    "notEmergencyService": "Heart2Heart Foundation is not an emergency service and does not operate around the clock. In a life-threatening emergency, please contact the police or the nearest hospital.",
+    "privacyTip": "Browsing privately",
+    "privacyTipBody": "Anyone who uses this device may be able to see the pages you visited. You can use a private or incognito window, and clear your history afterwards.",
+    "categories": {
+      "GENERAL": "General support",
+      "DOMESTIC_VIOLENCE": "Domestic violence",
+      "ABUSE": "Abuse and safeguarding",
+      "MENTAL_HEALTH": "Mental health",
+      "CHILD": "Children and young people"
+    }
+  },
+  "home": {
+    "heroTitle": "A safe place to talk, whenever you are ready.",
+    "heroBody": "Heart2Heart Foundation offers confidential counselling and therapeutic support for secondary-school girls and married women — with no judgement, and at your pace.",
+    "heroPrimary": "Get counselling support",
+    "heroSecondary": "How it works",
+    "heroAssurance": "Private · Free to ask · You choose how we reply",
+    "missionKicker": "Our mission",
+    "visionKicker": "Our vision",
+    "whoTitle": "Who we support",
+    "whoBody": "Two groups, two different kinds of pressure. Both deserve someone who listens properly.",
+    "servicesTitle": "How we help",
+    "servicesBody": "Everything the Foundation offers is supervised by a qualified professional.",
+    "howTitle": "How it works",
+    "howBody": "Four steps, and you can stop at any point.",
+    "steps": {
+      "one": {
+        "title": "Tell us a little",
+        "body": "A short private form. Use any name you like — you do not have to give your real one."
+      },
+      "two": {
+        "title": "We review it",
+        "body": "A qualified therapist reads your request. Nobody else sees it."
+      },
+      "three": {
+        "title": "We agree a time",
+        "body": "We contact you the way you asked us to, and find a time that works."
+      },
+      "four": {
+        "title": "You talk",
+        "body": "A confidential session, plus follow-up or a referral if that would help."
+      }
+    },
+    "privacyTitle": "What you tell us stays private",
+    "privacyBody": "Counselling information is never treated like ordinary website content. Your request is only visible to the Foundation's authorised counselling staff — never to visitors, donors or volunteers.",
+    "privacyPoints": [
+      "You can use a preferred name instead of your real one.",
+      "You choose how we contact you, and when.",
+      "Your request is stored separately from the public website.",
+      "You can ask us to delete your information at any time."
+    ],
+    "privacyLink": "Read our privacy commitment",
+    "resourcesTitle": "Read and learn",
+    "resourcesBody": "Articles, videos and guides you can go through in your own time.",
+    "eventsTitle": "Upcoming events",
+    "eventsBody": "Outreach, workshops and awareness programmes across the community.",
+    "donateTitle": "Help us keep this free",
+    "donateBody": "Every session the Foundation provides is funded by people who believe girls and women deserve somewhere to turn. A gift of any size keeps the door open.",
+    "donateCta": "Support the Foundation",
+    "ctaTitle": "You don't have to work it out alone.",
+    "ctaBody": "Starting the conversation takes a few minutes, and you decide what happens next.",
+    "statSessions": "Counselling sessions held",
+    "statSchools": "Schools reached",
+    "statVolunteers": "Trained facilitators",
+    "statYears": "Years supporting the community"
+  },
+  "about": {
+    "title": "About the Foundation",
+    "lede": "Heart2Heart Foundation exists so that girls and women in our community have somewhere trustworthy to turn when life becomes difficult.",
+    "missionTitle": "Mission",
+    "visionTitle": "Vision",
+    "mission": "To provide accessible and compassionate counselling, and therapeutic support for secondary-school girls and married women, helping them build emotional wellbeing, resilience, and healthier lives.",
+    "vision": "To build a trusted support ecosystem where women and girls can access appropriate counselling, education, guidance, referrals, and support in a safe, respectful, and confidential environment.",
+    "problemEyebrow": "The problem",
+    "problemTitle": "Why this work matters",
+    "problemBody": "Many women and girls experiencing emotional, relationship, family, marital or social difficulties do not have access to an appropriate and trusted place to seek help. The reasons are rarely simple.",
+    "barriersTitle": "The barriers we hear about most",
+    "barriers": [
+      "Stigma around asking for help",
+      "Fear of being judged",
+      "Not knowing this kind of support exists",
+      "Limited access to qualified professionals",
+      "Family pressure",
+      "Relationship difficulties",
+      "No confidential channel to talk through",
+      "Difficulty identifying appropriate professional help",
+      "Few educational resources in plain language"
+    ],
+    "approachTitle": "How we respond",
+    "approachBody": "Professional counselling, therapeutic support, education, awareness programmes, community outreach and appropriate referrals — delivered with respect for privacy at every step.",
+    "valuesEyebrow": "Our principles",
+    "valuesTitle": "What we hold to",
+    "values": [
+      {
+        "title": "Confidentiality first",
+        "body": "Private counselling data is never treated like ordinary website content, and it never appears anywhere a visitor can reach."
+      },
+      {
+        "title": "Professional supervision",
+        "body": "Support areas and clinical decisions are determined and supervised by qualified professionals."
+      },
+      {
+        "title": "No judgement",
+        "body": "People come to us at difficult moments. Our job is to listen properly, not to assess how they got there."
+      },
+      {
+        "title": "Know our limits",
+        "body": "When someone needs specialist care we say so, and we refer them onward rather than holding on."
+      }
+    ],
+    "teamEyebrow": "Who we are",
+    "teamTitle": "The team",
+    "teamBody": "The Foundation currently works with one qualified therapist, supported by trained volunteers and administrative staff. The platform is built so additional therapists can join without disruption.",
+    "safeguardingTitle": "Safeguarding",
+    "safeguardingBody": "Because the Foundation supports women and, in some cases, minors, safeguarding sits at the centre of how we work.",
+    "safeguardingLink": "Read our safeguarding commitment"
+  },
+  "services": {
+    "title": "Counselling and support services",
+    "lede": "Support is shaped around who you are and what you are carrying. Specific services are determined and supervised by qualified professionals.",
+    "girlsTitle": "For secondary-school girls",
+    "girlsBody": "School years bring pressures that are easy for adults to underestimate. You can talk about any of these — or something not on this list.",
+    "womenTitle": "For married women",
+    "womenBody": "Marriage and family life can be hard to talk about honestly with the people closest to you. This is a space where you can.",
+    "girlsAreas": [
+      "Emotional difficulties",
+      "Relationship problems",
+      "Family problems",
+      "Academic pressure",
+      "Bullying",
+      "Social pressure",
+      "Self-esteem",
+      "Personal challenges",
+      "Stigma",
+      "Difficult life situations"
+    ],
+    "womenAreas": [
+      "Marital difficulties",
+      "Relationship problems",
+      "Communication challenges",
+      "Family pressure",
+      "Emotional distress",
+      "Personal wellbeing",
+      "Difficult home situations",
+      "Appropriate referrals"
+    ],
+    "howTitle": "What a session looks like",
+    "how": [
+      {
+        "title": "One-to-one counselling",
+        "body": "A confidential conversation with a qualified therapist, in person or by phone, at a time you agreed in advance."
+      },
+      {
+        "title": "Follow-up",
+        "body": "If it would help, we arrange further sessions. Nothing is decided without you."
+      },
+      {
+        "title": "Referral",
+        "body": "Where specialist care is the right answer, we connect you with an appropriate professional or organisation."
+      },
+      {
+        "title": "Education and awareness",
+        "body": "Workshops, school outreach and resources that make these conversations easier to have."
+      }
+    ],
+    "limitsTitle": "What we are not",
+    "limitsBody": "The Foundation is not an emergency service and cannot provide 24-hour crisis response, medical treatment or legal representation. If you are in immediate danger, please use the emergency page.",
+    "cta": "Request counselling support"
+  },
+  "counselling": {
+    "landingTitle": "Get counselling support",
+    "landingLede": "This form is private. It goes only to the Foundation's counselling staff — no one else can see it, and it never appears on the public website.",
+    "chooseCategory": "Which describes you best?",
+    "categoryHint": "This helps us match you with the right kind of support. You can change it later.",
+    "girlCard": "I am a secondary-school girl",
+    "girlCardBody": "Support with school pressure, friendships, family, bullying, confidence and anything else on your mind.",
+    "womanCard": "I am a married woman",
+    "womanCardBody": "Support with marriage, family pressure, communication, emotional wellbeing and difficult home situations.",
+    "beforeYouStartTitle": "Before you start",
+    "beforeYouStart": [
+      "It takes about five minutes.",
+      "You can use a preferred name — your real name is not required.",
+      "You choose how and when we contact you.",
+      "You can close the form at any point and nothing is saved."
+    ],
+    "startForm": "Start the private form",
+    "alreadyRequested": "Already sent a request?",
+    "checkStatus": "Check the status of your request",
+    "steps": {
+      "about": "About you",
+      "support": "What you'd like help with",
+      "contact": "How to reach you",
+      "timing": "Preferred time",
+      "consent": "Consent",
+      "review": "Review and send"
+    },
+    "fields": {
+      "preferredName": "Preferred name",
+      "preferredNameHint": "Any name you would like us to use. It does not have to be your real name.",
+      "ageRange": "Age range",
+      "ageRangeHint": "This helps the therapist prepare, and tells us which safeguarding steps apply.",
+      "category": "Which describes you",
+      "supportAreas": "What would you like support with?",
+      "supportAreasHint": "Choose as many as you like. You can skip this if you'd rather explain in your own words.",
+      "reason": "In your own words",
+      "reasonHint": "A sentence or two is enough. You do not need to write everything down now — the session is where you can talk properly.",
+      "reasonPlaceholder": "For example: I've been feeling low for a few months and I don't have anyone to talk to about it.",
+      "contactMethod": "How should we contact you?",
+      "contactMethodHint": "Choose whatever is safest and most private for you.",
+      "contactValue": "Contact details",
+      "contactValueHintPhone": "A number we can reach you on.",
+      "contactValueHintEmail": "An email address you check privately.",
+      "safeToContact": "Is it safe for us to contact you on this?",
+      "safeToContactHint": "Tell us if someone else might see or hear our message.",
+      "contactNotes": "Anything we should know about contacting you",
+      "contactNotesPlaceholder": "For example: please only call in the afternoon.",
+      "language": "Preferred language",
+      "preferredDate": "Preferred date",
+      "preferredDateHint": "We'll do our best. If it isn't possible, we'll suggest another time.",
+      "preferredTime": "Preferred time",
+      "guardianAware": "Does a parent or guardian know you are asking for support?",
+      "guardianAwareHint": "There is no wrong answer. It helps the therapist know how to proceed, and it does not stop you getting support.",
+      "safetyQuestion": "Are you currently worried about your immediate safety?",
+      "safetyQuestionHint": "If yes, we will treat your request as urgent. If you are in danger right now, please use the emergency page instead of waiting."
+    },
+    "consent": {
+      "title": "Confidentiality and consent",
+      "body": "Please read this before you send your request.",
+      "points": [
+        "What you share is kept confidential and is seen only by the Foundation's authorised counselling staff.",
+        "Your request is stored separately from the public website and is never published.",
+        "Counselling is voluntary. You can stop at any point, and you can ask us to delete your information.",
+        "If a qualified professional believes you or a child is at serious risk of harm, they may need to involve someone who can help keep you safe. They will talk to you about this wherever possible.",
+        "The Foundation is not an emergency service and cannot respond outside working hours."
+      ],
+      "checkbox": "I have read the above and I would like to request counselling support.",
+      "safeguardingLink": "Read the full safeguarding and privacy notice",
+      "required": "Please confirm you have read the confidentiality notice before sending."
+    },
+    "review": {
+      "title": "Check your request",
+      "body": "Nothing has been sent yet. Please look over your answers — you can go back and change anything.",
+      "editStep": "Edit",
+      "send": "Send my request",
+      "sending": "Sending…"
+    },
+    "submitted": {
+      "title": "Your request has been sent",
+      "body": "Thank you for reaching out. A qualified therapist will review your request and contact you the way you asked.",
+      "refLabel": "Your case reference",
+      "codeLabel": "Your access code",
+      "refHint": "Write these down somewhere safe. Together they let you check your request without giving your name.",
+      "whatNextTitle": "What happens next",
+      "whatNext": [
+        "A therapist reviews your request — usually within two working days.",
+        "We contact you using the method you chose, at a time that suits you.",
+        "If we agree a session, you'll get the date, time and place confirmed.",
+        "You can check the status yourself at any point using your reference and code."
+      ],
+      "urgentNote": "If your situation changes and you need help sooner, please use the emergency page.",
+      "checkStatus": "Check my request status",
+      "backHome": "Back to home",
+      "printNote": "Print or screenshot this page"
+    },
+    "status": {
+      "title": "Check your request",
+      "lede": "Enter the case reference and access code you were given when you sent your request. We will not ask for your name.",
+      "refField": "Case reference",
+      "refPlaceholder": "AAGF-2026-000001",
+      "codeField": "Access code",
+      "codePlaceholder": "6 characters",
+      "check": "Check status",
+      "notFound": "We couldn't find a request with that reference and code. Please check both and try again.",
+      "resultTitle": "Request status",
+      "lastUpdated": "Last updated",
+      "help": "If you've lost your reference, contact the Foundation and we'll help — we may need to confirm a few details first.",
+      "descriptions": {
+        "REQUESTED": "We have your request and it is waiting to be reviewed.",
+        "UNDER_REVIEW": "A therapist is reading your request now.",
+        "APPROVED": "Your request has been approved. We'll be in touch to agree a time.",
+        "REJECTED": "We were not able to take this request forward. Someone from the Foundation will explain and suggest where else to turn.",
+        "SCHEDULED": "A session has been arranged. Check the details we sent you.",
+        "CONFIRMED": "Your session is confirmed.",
+        "COMPLETED": "Your session took place. Thank you for coming.",
+        "CANCELLED": "This appointment was cancelled. Contact us if you'd like another.",
+        "NO_SHOW": "The session was missed. You are welcome to arrange another.",
+        "FOLLOW_UP": "A follow-up has been arranged.",
+        "CLOSED": "This case is closed. You can always start a new request."
+      }
+    },
+    "errors": {
+      "preferredNameRequired": "Please give us a name to use — any name is fine.",
+      "preferredNameShort": "Please use at least two characters.",
+      "categoryRequired": "Please choose the option that describes you.",
+      "ageRequired": "Please choose an age range.",
+      "contactMethodRequired": "Please tell us how to contact you.",
+      "contactValueRequired": "Please give us the details for that contact method.",
+      "contactValueInvalidPhone": "Please check this phone number.",
+      "contactValueInvalidEmail": "Please check this email address.",
+      "reasonLong": "Please keep this under 1000 characters — you can say more in the session.",
+      "dateRequired": "Please choose a preferred date.",
+      "datePast": "Please choose a date in the future.",
+      "timeRequired": "Please choose a preferred time.",
+      "generic": "Something went wrong sending your request. Please try again, or contact the Foundation directly."
+    }
+  },
+  "resources": {
+    "title": "Educational resources",
+    "lede": "Articles, videos and guides on wellbeing, relationships and supporting the people around you. Free to read, free to share.",
+    "articles": "Articles",
+    "videos": "Videos",
+    "materials": "Guides and materials",
+    "featured": "Featured",
+    "byCategory": "Browse by topic",
+    "articleBy": "By",
+    "relatedTitle": "More on this topic",
+    "backToResources": "All resources",
+    "notFound": "That article isn't available.",
+    "materialSize": "file",
+    "videoDuration": "minutes"
+  },
+  "events": {
+    "title": "Events and programmes",
+    "lede": "School outreach, workshops, seminars, community programmes and awareness campaigns.",
+    "upcoming": "Upcoming",
+    "past": "Past events",
+    "register": "Register",
+    "registrationClosed": "Registration closed",
+    "full": "Fully booked",
+    "location": "Location",
+    "organiser": "Organised by",
+    "date": "Date",
+    "time": "Time",
+    "spacesLeft": "spaces left",
+    "noUpcoming": "No events are scheduled at the moment. Please check back soon.",
+    "backToEvents": "All events",
+    "kinds": {
+      "SCHOOL_OUTREACH": "School outreach",
+      "WORKSHOP": "Workshop",
+      "SEMINAR": "Seminar",
+      "COMMUNITY": "Community programme",
+      "AWARENESS": "Awareness campaign",
+      "FOUNDATION": "Foundation event"
+    }
+  },
+  "donate": {
+    "title": "Support the Foundation",
+    "lede": "Counselling is free for everyone who asks. That is only possible because people choose to fund it.",
+    "impactTitle": "What your gift does",
+    "impact": [
+      {
+        "amount": "₦5,000",
+        "body": "Covers printed wellbeing materials for a class of secondary-school girls."
+      },
+      {
+        "amount": "₦15,000",
+        "body": "Funds one counselling session, including follow-up."
+      },
+      {
+        "amount": "₦50,000",
+        "body": "Supports a full school outreach visit."
+      },
+      {
+        "amount": "₦150,000",
+        "body": "Keeps the counselling line running for a month."
+      }
+    ],
+    "amountLabel": "Choose an amount",
+    "customAmount": "Other amount",
+    "currency": "₦",
+    "frequencyLabel": "How often",
+    "oneTime": "One-time",
+    "monthly": "Monthly",
+    "monthlyNote": "Recurring giving is coming soon. Choose one-time for now and we'll be in touch.",
+    "designationLabel": "Where should it go?",
+    "designations": {
+      "GENERAL": "Where it's needed most",
+      "COUNSELLING": "Counselling sessions",
+      "SCHOOL_OUTREACH": "School outreach",
+      "RESOURCES": "Educational resources"
+    },
+    "donorTitle": "Your details",
+    "donorName": "Full name",
+    "donorEmail": "Email address",
+    "donorEmailHint": "For your receipt. We don't add you to anything without asking.",
+    "anonymous": "Give anonymously",
+    "anonymousHint": "Your name won't appear in any Foundation report or acknowledgement.",
+    "cta": "Continue to payment",
+    "paymentNote": "Payments are handled by a licensed Nigerian payment provider. The Foundation never stores your card details.",
+    "thanksTitle": "Thank you",
+    "thanksBody": "Your gift has been received. A receipt is on its way to your email.",
+    "receiptRef": "Reference",
+    "otherWaysTitle": "Other ways to help",
+    "otherWays": [
+      "Volunteer as a trained facilitator for school outreach.",
+      "Invite the Foundation to run a workshop at your school or community group.",
+      "Share our resources with someone who might need them."
+    ]
+  },
+  "contact": {
+    "title": "Contact the Foundation",
+    "lede": "For general enquiries, partnerships, volunteering or media. If you are looking for counselling, please use the private request form instead — it goes straight to our counselling staff.",
+    "counsellingRedirect": "Looking for counselling support?",
+    "counsellingRedirectCta": "Use the private form",
+    "name": "Your name",
+    "email": "Email address",
+    "phone": "Phone number",
+    "subject": "Subject",
+    "message": "Message",
+    "subjects": {
+      "GENERAL": "General enquiry",
+      "PARTNERSHIP": "Partnership",
+      "VOLUNTEER": "Volunteering",
+      "MEDIA": "Media",
+      "OTHER": "Something else"
+    },
+    "send": "Send message",
+    "sending": "Sending…",
+    "sent": "Thank you — your message has been sent. We usually reply within two working days.",
+    "error": "We couldn't send that. Please try again or call us.",
+    "officeTitle": "Office",
+    "hoursTitle": "Opening hours",
+    "hours": "Monday to Friday, 9:00 am – 5:00 pm",
+    "phoneTitle": "Phone",
+    "emailTitle": "Email"
+  },
+  "footer": {
+    "tagline": "Compassionate counselling and therapeutic support for secondary-school girls and married women.",
+    "explore": "Explore",
+    "support": "Support",
+    "legal": "Legal",
+    "privacy": "Privacy",
+    "safeguarding": "Safeguarding",
+    "terms": "Terms of use",
+    "accessibility": "Accessibility",
+    "rights": "All rights reserved.",
+    "emergencyNote": "Heart2Heart Foundation is not an emergency service.",
+    "builtNote": "Built with care for the people who use it."
+  },
+  "privacy": {
+    "title": "Privacy commitment",
+    "lede": "How the Foundation handles what you tell us.",
+    "sections": [
+      {
+        "title": "The principle we work to",
+        "body": "Private counselling data must never be treated like ordinary website content. Counselling requests, case records, session notes, intake information, therapist notes, referral information and appointment details are held separately from everything published on this site, and no public visitor can reach them."
+      },
+      {
+        "title": "What we collect when you request counselling",
+        "body": "A preferred name (which need not be your real one), an age range, the category that describes you, contact details of your choosing, a general reason for seeking support, your preferred language, and a preferred date and time. We ask a safety question so we know how urgently to respond."
+      },
+      {
+        "title": "Who can see it",
+        "body": "Only authorised Foundation counselling staff. Administrative staff see what they need in order to arrange appointments — they do not have access to clinical notes. Volunteers, donors and website visitors never see any of it."
+      },
+      {
+        "title": "How long we keep it",
+        "body": "Case records are retained for as long as the Foundation's professional and legal obligations require, then securely destroyed. You can ask us to delete your information at any time, and we will unless we are required to keep it."
+      },
+      {
+        "title": "The app on your phone",
+        "body": "This site can be installed as an app. Public pages — articles, events, emergency contacts — are stored on your device so they load quickly and work with a poor connection. Counselling pages and anything you type into the private form are deliberately excluded from that offline storage."
+      },
+      {
+        "title": "Your choices",
+        "body": "You can ask what we hold about you, ask us to correct it, ask us to delete it, or withdraw your consent to counselling at any point. None of these requests affect your ability to come back later."
+      }
+    ]
+  },
+  "safeguarding": {
+    "title": "Safeguarding commitment",
+    "lede": "The Foundation supports women and, in some cases, minors. These are the principles our staff work to.",
+    "intro": "Safeguarding is not a policy document that sits in a drawer. It shapes how the intake form is written, who can see a request, and what happens when someone tells us they are not safe.",
+    "sections": [
+      {
+        "title": "Child safeguarding",
+        "body": "Where a beneficiary is under 18, additional protections apply. Staff are trained to recognise risk and to respond in a way that keeps the young person informed and involved wherever possible."
+      },
+      {
+        "title": "Consent",
+        "body": "Counselling is voluntary and consent is asked for explicitly, in plain language, before any request is submitted. Consent can be withdrawn at any time."
+      },
+      {
+        "title": "Confidentiality and its limits",
+        "body": "What you share is confidential. The exception is where a qualified professional judges there is a serious risk of harm to you or to a child — then they may need to involve someone who can help keep you safe. Wherever possible this is discussed with you first."
+      },
+      {
+        "title": "Disclosures",
+        "body": "Disclosures of abuse, domestic violence or sexual abuse are handled by qualified staff following a defined procedure. They are recorded in the confidential case record only, never in ordinary system logs."
+      },
+      {
+        "title": "Risk of self-harm",
+        "body": "Where risk is identified, the therapist follows an agreed escalation route and works with the person on a safety plan appropriate to their situation."
+      },
+      {
+        "title": "Emergency escalation",
+        "body": "Staff have a defined route for urgent situations, including verified emergency contacts and referral partners."
+      },
+      {
+        "title": "Professional boundaries",
+        "body": "Counselling takes place within agreed sessions and agreed channels. Staff do not conduct counselling through personal accounts or outside the Foundation's systems."
+      },
+      {
+        "title": "Referrals",
+        "body": "Where someone needs specialist care the Foundation does not provide, we refer them to an appropriate professional or organisation and follow up that the connection was made."
+      },
+      {
+        "title": "Data protection",
+        "body": "Counselling data is stored separately, access is restricted by role, and every access is logged. See the privacy commitment for detail."
+      }
+    ],
+    "concernTitle": "Raising a concern",
+    "concernBody": "If you are worried about how the Foundation has handled something, or about the conduct of anyone connected with us, please contact us. Concerns are taken seriously and looked into."
+  },
+  "terms": {
+    "title": "Terms of use",
+    "lede": "The basis on which this website and app are offered."
+  },
+  "accessibility": {
+    "title": "Accessibility",
+    "lede": "We want this platform to work for everyone who needs it.",
+    "body": "The site is built to modern accessibility practice: it can be used entirely by keyboard, meets contrast requirements, labels every form field, describes every image, and shows clear focus. If something here does not work for you, please tell us — we will fix it."
+  },
+  "offline": {
+    "title": "You are offline",
+    "body": "This page isn't available without a connection. Saved articles, events and emergency contacts still work.",
+    "emergencyStill": "Emergency contacts",
+    "retry": "Try again"
+  },
+  "notFound": {
+    "title": "We couldn't find that page",
+    "body": "The link may be out of date, or the page may have moved.",
+    "home": "Go to the home page",
+    "support": "Get counselling support"
+  },
+  "error": {
+    "title": "Something went wrong",
+    "body": "Sorry — that didn't work. Please try again. If you were sending a counselling request, nothing has been submitted.",
+    "retry": "Try again",
+    "home": "Go to the home page"
+  },
+  "enums": {
+    "category": {
+      "SCHOOL_GIRL": "Secondary-school girl",
+      "MARRIED_WOMAN": "Married woman"
+    },
+    "categoryShort": {
+      "SCHOOL_GIRL": "School girl",
+      "MARRIED_WOMAN": "Married woman"
+    },
+    "ageRange": {
+      "UNDER_13": "Under 13",
+      "13_15": "13 – 15",
+      "16_17": "16 – 17",
+      "18_24": "18 – 24",
+      "25_34": "25 – 34",
+      "35_44": "35 – 44",
+      "45_PLUS": "45 and over"
+    },
+    "contactMethod": {
+      "PHONE": "Phone call",
+      "WHATSAPP": "WhatsApp",
+      "SMS": "Text message",
+      "EMAIL": "Email",
+      "IN_PERSON": "In person at the office"
+    },
+    "supportArea": {
+      "EMOTIONAL": "Emotional difficulties",
+      "RELATIONSHIP": "Relationship problems",
+      "FAMILY": "Family problems",
+      "MARITAL": "Marital difficulties",
+      "ACADEMIC": "Academic pressure",
+      "BULLYING": "Bullying",
+      "SELF_ESTEEM": "Self-esteem",
+      "COMMUNICATION": "Communication",
+      "SOCIAL_PRESSURE": "Social pressure",
+      "OTHER": "Something else"
+    },
+    "status": {
+      "REQUESTED": "Requested",
+      "UNDER_REVIEW": "Under review",
+      "APPROVED": "Approved",
+      "REJECTED": "Not taken forward",
+      "SCHEDULED": "Scheduled",
+      "CONFIRMED": "Confirmed",
+      "COMPLETED": "Completed",
+      "CANCELLED": "Cancelled",
+      "NO_SHOW": "No show",
+      "FOLLOW_UP": "Follow-up",
+      "CLOSED": "Closed"
+    },
+    "priority": {
+      "STANDARD": "Standard",
+      "PRIORITY": "Priority",
+      "URGENT": "Urgent"
+    },
+    "contentStatus": {
+      "DRAFT": "Draft",
+      "REVIEW": "In review",
+      "PUBLISHED": "Published",
+      "ARCHIVED": "Archived"
+    },
+    "articleCategory": {
+      "EMOTIONAL_WELLBEING": "Emotional wellbeing",
+      "HEALTHY_RELATIONSHIPS": "Healthy relationships",
+      "COMMUNICATION": "Communication",
+      "SELF_ESTEEM": "Self-esteem",
+      "MARRIAGE": "Marriage",
+      "FAMILY": "Family",
+      "SUPPORTING_YOUNG_PEOPLE": "Supporting young people",
+      "MENTAL_HEALTH_AWARENESS": "Mental-health awareness",
+      "PERSONAL_DEVELOPMENT": "Personal development"
+    },
+    "videoKind": {
+      "EDUCATIONAL": "Educational",
+      "AWARENESS": "Awareness campaign",
+      "EXPERT": "Expert discussion",
+      "FOUNDATION": "Foundation activity"
+    },
+    "materialFormat": {
+      "GUIDE": "Guide",
+      "PDF": "PDF",
+      "INFOGRAPHIC": "Infographic",
+      "WORKSHEET": "Worksheet",
+      "AWARENESS": "Awareness material"
+    },
+    "appointmentMode": {
+      "IN_PERSON": "In person",
+      "PHONE": "By phone",
+      "VIDEO": "Video call"
+    },
+    "donationStatus": {
+      "PENDING": "Pending",
+      "SUCCESSFUL": "Successful",
+      "FAILED": "Failed",
+      "REFUNDED": "Refunded"
+    }
+  },
+  "portal": {
+    "title": "Foundation portal",
+    "login": {
+      "title": "Staff sign in",
+      "lede": "This area is for authorised Foundation personnel only.",
+      "email": "Email address",
+      "password": "Password",
+      "signIn": "Sign in",
+      "signingIn": "Signing in…",
+      "error": "That email and password combination wasn't recognised.",
+      "demoNote": "Demo accounts",
+      "asAdmin": "Sign in as administrator",
+      "asTherapist": "Sign in as therapist",
+      "backToSite": "Back to the public site",
+      "confidentialityNote": "Everything behind this screen is confidential counselling information. Do not leave it open on a shared device."
+    },
+    "nav": {
+      "dashboard": "Dashboard",
+      "requests": "Counselling requests",
+      "appointments": "Appointments",
+      "cases": "Cases",
+      "followUps": "Follow-ups",
+      "referrals": "Referrals",
+      "content": "Content",
+      "resources": "Resources",
+      "events": "Events",
+      "donations": "Donations",
+      "emergency": "Emergency resources",
+      "users": "Users",
+      "reports": "Reports",
+      "settings": "Settings",
+      "signOut": "Sign out"
+    },
+    "dashboard": {
+      "greeting": "Good day",
+      "adminSubtitle": "Here's where things stand today.",
+      "therapistSubtitle": "Your day at a glance.",
+      "pendingRequests": "Pending requests",
+      "todayAppointments": "Today's appointments",
+      "upcomingAppointments": "Upcoming appointments",
+      "completedSessions": "Completed sessions",
+      "followUps": "Follow-ups due",
+      "urgentFlags": "Flagged urgent",
+      "recentDonations": "Recent donations",
+      "upcomingEvents": "Upcoming events",
+      "recentContent": "Recent content",
+      "analytics": "This month",
+      "noAppointmentsToday": "No appointments scheduled for today.",
+      "noPending": "No requests waiting for review.",
+      "reviewNow": "Review",
+      "viewCase": "Open case",
+      "thisMonth": "This month",
+      "lastMonth": "vs last month",
+      "newRequests": "New requests",
+      "sessionsHeld": "Sessions held",
+      "casesClosed": "Cases closed",
+      "donationsTotal": "Donations received"
+    },
+    "requests": {
+      "title": "Counselling requests",
+      "lede": "Confidential. Review, approve and schedule.",
+      "search": "Search by case reference",
+      "filterStatus": "Status",
+      "filterCategory": "Category",
+      "filterPriority": "Priority",
+      "empty": "No requests match these filters.",
+      "columns": {
+        "ref": "Reference",
+        "name": "Preferred name",
+        "category": "Category",
+        "received": "Received",
+        "preferred": "Preferred slot",
+        "priority": "Priority",
+        "status": "Status"
+      },
+      "detailTitle": "Request",
+      "intakeTitle": "Intake information",
+      "contactTitle": "Contact",
+      "contactMasked": "Revealed only when you need it",
+      "reveal": "Reveal contact details",
+      "hide": "Hide",
+      "revealAudit": "Revealing contact details is recorded in the access log.",
+      "safeguardingFlag": "Safeguarding flag raised at intake",
+      "safeguardingFlagBody": "This person answered yes to the safety question. Follow the safeguarding escalation procedure.",
+      "guardianAware": "Parent or guardian aware",
+      "minorNotice": "This beneficiary is under 18. Child safeguarding procedures apply.",
+      "actionsTitle": "Actions",
+      "approve": "Approve",
+      "reject": "Not take forward",
+      "startReview": "Start review",
+      "schedule": "Schedule appointment",
+      "assign": "Assign therapist",
+      "unassigned": "Unassigned",
+      "rejectReason": "Reason (internal)",
+      "confirmReject": "Confirm"
+    },
+    "appointments": {
+      "title": "Appointments",
+      "lede": "Confirm, reschedule, cancel and record outcomes.",
+      "newAppointment": "New appointment",
+      "date": "Date",
+      "time": "Time",
+      "duration": "Duration",
+      "mode": "Mode",
+      "location": "Location",
+      "therapist": "Therapist",
+      "confirm": "Confirm appointment",
+      "reschedule": "Reschedule",
+      "cancel": "Cancel appointment",
+      "complete": "Mark completed",
+      "noShow": "Mark no-show",
+      "scheduleFollowUp": "Schedule follow-up",
+      "empty": "No appointments in this view.",
+      "minutes": "minutes"
+    },
+    "cases": {
+      "title": "Cases",
+      "lede": "The full record for each beneficiary the Foundation is supporting.",
+      "openedOn": "Opened",
+      "closedOn": "Closed",
+      "timeline": "Timeline",
+      "notes": "Case notes",
+      "addNote": "Add a note",
+      "notePlaceholder": "Professional notes for this case.",
+      "noteKind": "Note type",
+      "saveNote": "Save note",
+      "referrals": "Referrals",
+      "addReferral": "Add referral",
+      "referralOrg": "Organisation",
+      "referralContact": "Contact",
+      "referralReason": "Reason for referral",
+      "closeCase": "Close case",
+      "closeCaseConfirm": "Closing a case stops follow-up reminders. The record is kept.",
+      "appointmentHistory": "Appointment history",
+      "empty": "No cases match these filters.",
+      "confidentialNotice": "Confidential clinical record. Access is logged."
+    },
+    "content": {
+      "title": "Content",
+      "lede": "Articles, videos and educational materials.",
+      "newArticle": "New article",
+      "publish": "Publish",
+      "unpublish": "Unpublish",
+      "archive": "Archive",
+      "sendToReview": "Send to review",
+      "featured": "Featured",
+      "makeFeatured": "Feature",
+      "removeFeatured": "Unfeature",
+      "columns": {
+        "title": "Title",
+        "category": "Category",
+        "status": "Status",
+        "updated": "Updated"
+      }
+    },
+    "events": {
+      "title": "Events",
+      "lede": "Outreach, workshops and community programmes.",
+      "newEvent": "New event",
+      "columns": {
+        "title": "Title",
+        "kind": "Type",
+        "date": "Date",
+        "location": "Location",
+        "status": "Status",
+        "registered": "Registered"
+      }
+    },
+    "donations": {
+      "title": "Donations",
+      "lede": "Records and reporting.",
+      "total": "Total received",
+      "thisMonth": "This month",
+      "average": "Average gift",
+      "recurring": "Recurring donors",
+      "export": "Export CSV",
+      "columns": {
+        "reference": "Reference",
+        "donor": "Donor",
+        "amount": "Amount",
+        "designation": "Designation",
+        "date": "Date",
+        "status": "Status"
+      },
+      "anonymousLabel": "Anonymous donor"
+    },
+    "emergency": {
+      "title": "Emergency resources",
+      "lede": "Only verified contacts appear on the public emergency page.",
+      "verify": "Mark verified",
+      "unverify": "Needs re-checking",
+      "lastVerified": "Last verified",
+      "neverVerified": "Never verified",
+      "addContact": "Add contact"
+    },
+    "users": {
+      "title": "Users",
+      "lede": "Foundation staff and their access.",
+      "invite": "Invite user",
+      "columns": {
+        "name": "Name",
+        "role": "Role",
+        "email": "Email",
+        "status": "Status",
+        "lastActive": "Last active"
+      },
+      "active": "Active",
+      "inactive": "Inactive",
+      "roles": {
+        "ADMIN": "Administrator",
+        "THERAPIST": "Therapist"
+      }
+    },
+    "reports": {
+      "title": "Reports",
+      "lede": "Aggregate figures only. No report can identify an individual beneficiary."
+    },
+    "settings": {
+      "title": "Settings",
+      "lede": "Foundation details, languages and system preferences.",
+      "orgTitle": "Foundation details",
+      "localeTitle": "Languages",
+      "localeBody": "Languages offered to visitors. Adding a language requires a translation file.",
+      "safeguardingTitle": "Safeguarding",
+      "safeguardingBody": "The escalation contact shown to staff when a request is flagged at intake.",
+      "retentionTitle": "Data retention",
+      "retentionBody": "How long case records are kept before secure destruction."
+    },
+    "common": {
+      "confidential": "Confidential",
+      "accessLogged": "Access logged",
+      "assignedTo": "Assigned to",
+      "updated": "Updated",
+      "created": "Created",
+      "actions": "Actions",
+      "backTo": "Back to",
+      "demoBanner": "Demo data — this build uses an in-memory store, not a live database."
+    }
+  }
+}

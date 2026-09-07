@@ -1,0 +1,949 @@
+{
+  "_note": "Hausa (Boko) translation. Drafted for the Foundation and MUST be reviewed by a native speaker before launch — particularly the counselling, consent and safeguarding sections, where wording carries clinical and legal weight. Keys mirror en.json exactly; see src/messages/README.md.",
+  "meta": {
+    "name": "Gidauniyar Heart2Heart",
+    "short": "Heart2Heart",
+    "tagline": "Wuri mai aminci don yin magana.",
+    "description": "Shawarwari da tallafi na tunani cikin sirri ga 'yan mata na sakandare da mata masu aure.",
+    "langLabel": "Harshe"
+  },
+  "common": {
+    "learnMore": "Ƙara sani",
+    "readMore": "Karanta ƙari",
+    "viewAll": "Duba duka",
+    "back": "Koma baya",
+    "next": "Na gaba",
+    "continue": "Ci gaba",
+    "submit": "Aika",
+    "cancel": "Soke",
+    "save": "Ajiye",
+    "close": "Rufe",
+    "search": "Nema",
+    "filter": "Tace",
+    "loading": "Ana ɗauka…",
+    "optional": "na zaɓi",
+    "required": "wajibi",
+    "menu": "Menu",
+    "skipToContent": "Tsallake zuwa babban abun ciki",
+    "showMore": "Nuna ƙari",
+    "showLess": "Nuna kaɗan",
+    "noResults": "Babu abin da za a nuna tukuna.",
+    "of": "daga",
+    "step": "Mataki",
+    "minutes": "minti na karatu",
+    "copied": "An kwafa",
+    "copy": "Kwafa",
+    "print": "Buga",
+    "download": "Sauke",
+    "watch": "Kalla",
+    "all": "Duka",
+    "yes": "Eh",
+    "no": "A'a",
+    "notSure": "Ban tabbata ba",
+    "today": "Yau",
+    "upcoming": "Masu zuwa",
+    "verified": "An tabbatar",
+    "themeDark": "Sauya zuwa yanayin duhu",
+    "themeLight": "Sauya zuwa yanayin haske"
+  },
+  "nav": {
+    "home": "Gida",
+    "about": "Game da mu",
+    "services": "Ayyuka",
+    "resources": "Kayan koyo",
+    "events": "Abubuwan da ke faruwa",
+    "contact": "Tuntuɓe mu",
+    "donate": "Ba da gudummawa",
+    "getSupport": "Nemi tallafi",
+    "emergency": "Kana buƙatar taimako yanzu?",
+    "staffLogin": "Shiga ma'aikata"
+  },
+  "emergency": {
+    "banner": "Kana buƙatar taimako yanzu?",
+    "bannerAction": "Nemi taimako cikin gaggawa",
+    "title": "Kana buƙatar taimako yanzu?",
+    "lede": "Idan kina cikin haɗari nan take, ko kina damuwa game da lafiyarki ko ta wani, ki tuntuɓe mu nan da nan. Ba lallai ne ki bayyana komai ba kafin ki sami taimako.",
+    "callNow": "Kira layin taimako",
+    "whatsapp": "Aika saƙo ta WhatsApp",
+    "contactsTitle": "Lambobin gaggawa da aka tabbatar",
+    "contactsNote": "Gidauniyar tana duba tare da tabbatar da kowace lamba a wannan shafi. Idan lamba ba ta shiga ba, don Allah ki sanar da mu domin mu gyara.",
+    "urgentRequest": "Nemi tallafi na gaggawa",
+    "urgentRequestNote": "Aika gajeren saƙo zuwa Gidauniyar. Wani daga cikin ƙungiyar zai amsa a lokutan aiki — wannan ba hidima ce ta awa 24 ba.",
+    "notEmergencyService": "Gidauniyar Heart2Heart ba hidimar gaggawa ba ce kuma ba ta aiki cikin awa 24. A cikin gaggawa mai barazana ga rai, don Allah a tuntuɓi 'yan sanda ko asibitin da ke kusa.",
+    "privacyTip": "Yin binciken sirri",
+    "privacyTipBody": "Duk wanda ya yi amfani da wannan na'urar zai iya ganin shafukan da kika ziyarta. Za ki iya amfani da taga mai sirri, sannan ki share tarihin daga baya.",
+    "categories": {
+      "GENERAL": "Tallafi na gaba ɗaya",
+      "DOMESTIC_VIOLENCE": "Cin zarafi a gida",
+      "ABUSE": "Cin zarafi da kariya",
+      "MENTAL_HEALTH": "Lafiyar ƙwaƙwalwa",
+      "CHILD": "Yara da matasa"
+    }
+  },
+  "home": {
+    "heroTitle": "Wuri mai aminci don yin magana, duk lokacin da kika shirya.",
+    "heroBody": "Gidauniyar Heart2Heart tana ba da shawarwari da tallafi na tunani cikin sirri ga 'yan mata na sakandare da mata masu aure — ba tare da yanke hukunci ba, kuma bisa yadda kika iya.",
+    "heroPrimary": "Nemi shawarwari",
+    "heroSecondary": "Yadda ake yi",
+    "heroAssurance": "Sirri · Kyauta don tambaya · Ke kika zaɓi yadda za mu amsa",
+    "missionKicker": "Manufarmu",
+    "visionKicker": "Hangen nesanmu",
+    "whoTitle": "Wa muke tallafa wa",
+    "whoBody": "Ƙungiyoyi biyu, matsi iri biyu. Dukansu sun cancanci a saurare su da kyau.",
+    "servicesTitle": "Yadda muke taimakawa",
+    "servicesBody": "Duk abin da Gidauniyar ke bayarwa yana ƙarƙashin kulawar ƙwararre.",
+    "howTitle": "Yadda ake yi",
+    "howBody": "Matakai huɗu, kuma za ki iya tsayawa a kowane lokaci.",
+    "steps": {
+      "one": {
+        "title": "Ki gaya mana kaɗan",
+        "body": "Gajeren fom na sirri. Ki yi amfani da duk sunan da kike so — ba dole ne ki ba da sunanki na gaskiya ba."
+      },
+      "two": {
+        "title": "Muna dubawa",
+        "body": "Ƙwararren mai ba da shawara zai karanta buƙatarki. Babu wani daban da zai gani."
+      },
+      "three": {
+        "title": "Mu tsara lokaci",
+        "body": "Za mu tuntuɓe ki ta yadda kika nema, mu nemo lokacin da ya dace."
+      },
+      "four": {
+        "title": "Ki yi magana",
+        "body": "Zama na sirri, tare da bibiya ko turawa ga wani ƙwararre idan hakan zai taimaka."
+      }
+    },
+    "privacyTitle": "Abin da kika gaya mana yana nan cikin sirri",
+    "privacyBody": "Ba a taɓa ɗaukar bayanan shawarwari kamar abun ciki na yau da kullum na gidan yanar gizo ba. Ma'aikatan Gidauniyar da aka ba izini kaɗai ke ganin buƙatarki — ba baƙi, ba masu bayarwa, ba masu sa kai.",
+    "privacyPoints": [
+      "Za ki iya amfani da sunan da kika zaɓa maimakon na gaskiya.",
+      "Ke kika zaɓi yadda za mu tuntuɓe ki, da kuma lokacin.",
+      "An ajiye buƙatarki daban da gidan yanar gizo na jama'a.",
+      "Za ki iya neman mu goge bayananki a kowane lokaci."
+    ],
+    "privacyLink": "Karanta alƙawarinmu na sirri",
+    "resourcesTitle": "Karanta ki koya",
+    "resourcesBody": "Labarai, bidiyo da jagorori da za ki bi cikin lokacinki.",
+    "eventsTitle": "Abubuwan da ke tafe",
+    "eventsBody": "Wayar da kai, tarurruka da shirye-shirye a cikin al'umma.",
+    "donateTitle": "Taimaka mana mu ci gaba da bayarwa kyauta",
+    "donateBody": "Kowane zama da Gidauniyar ke bayarwa ana biyansa ne daga mutanen da suka yi imani cewa 'yan mata da mata sun cancanci wurin da za su juya. Gudummawa kowane girma tana buɗe ƙofa.",
+    "donateCta": "Tallafa wa Gidauniyar",
+    "ctaTitle": "Ba sai kin fuskanci wannan ita kaɗai ba.",
+    "ctaBody": "Fara maganar yana ɗaukar 'yan mintuna, kuma ke kika yanke abin da zai biyo baya.",
+    "statSessions": "Zaman shawarwari da aka gudanar",
+    "statSchools": "Makarantun da aka kai",
+    "statVolunteers": "Masu sauƙaƙawa da aka horar",
+    "statYears": "Shekaru muna tallafa wa al'umma"
+  },
+  "about": {
+    "title": "Game da Gidauniyar",
+    "lede": "Gidauniyar Heart2Heart tana nan ne domin 'yan mata da mata a cikin al'ummarmu su sami wurin da za su amince da shi lokacin da rayuwa ta yi wuya.",
+    "missionTitle": "Manufa",
+    "visionTitle": "Hangen nesa",
+    "mission": "Bayar da shawarwari da tallafi na tunani cikin sauƙi da tausayi ga 'yan mata na sakandare da mata masu aure, muna taimaka musu su gina lafiyar tunani, juriya, da rayuwa mai koshin lafiya.",
+    "vision": "Gina tsarin tallafi amintacce inda mata da 'yan mata za su iya samun shawarwari da suka dace, ilimi, jagora, turawa ga ƙwararru, da tallafi a cikin yanayi mai aminci, mai girmamawa, kuma na sirri.",
+    "problemEyebrow": "Matsalar",
+    "problemTitle": "Dalilin da ya sa wannan aikin ke da muhimmanci",
+    "problemBody": "Mata da 'yan mata da yawa da ke fuskantar matsalolin tunani, dangantaka, iyali, aure ko zamantakewa ba su da wurin da ya dace kuma amintacce da za su nemi taimako. Dalilan ba su da sauƙi.",
+    "barriersTitle": "Matsalolin da muka fi ji",
+    "barriers": [
+      "Kunyar neman taimako",
+      "Tsoron a yanke musu hukunci",
+      "Rashin sanin cewa irin wannan tallafin yana nan",
+      "Ƙarancin damar samun ƙwararru",
+      "Matsin lamba daga iyali",
+      "Matsalolin dangantaka",
+      "Rashin hanyar sirri ta tattaunawa",
+      "Wahalar gano ƙwararren taimakon da ya dace",
+      "Ƙarancin kayan koyo cikin sauƙin harshe"
+    ],
+    "approachTitle": "Yadda muke amsawa",
+    "approachBody": "Shawarwari na ƙwararru, tallafi na tunani, ilimi, shirye-shiryen wayar da kai, kai ziyara ga al'umma da turawa ga ƙwararru — duk tare da girmama sirri a kowane mataki.",
+    "valuesEyebrow": "Ƙa'idodinmu",
+    "valuesTitle": "Abin da muke riƙe da shi",
+    "values": [
+      {
+        "title": "Sirri da farko",
+        "body": "Ba a taɓa ɗaukar bayanan shawarwari kamar abun ciki na gidan yanar gizo ba, kuma ba sa bayyana a inda baƙo zai iya kaiwa."
+      },
+      {
+        "title": "Kulawar ƙwararru",
+        "body": "Ƙwararru ne ke ƙayyade tare da kula da fannonin tallafi da yanke shawara na asibiti."
+      },
+      {
+        "title": "Babu yanke hukunci",
+        "body": "Mutane suna zuwa gare mu a lokutan wahala. Aikinmu shi ne mu saurara da kyau, ba mu tantance yadda suka isa nan ba."
+      },
+      {
+        "title": "Sanin iyakarmu",
+        "body": "Idan mutum yana buƙatar kulawa ta musamman, muna faɗi hakan, mu tura shi gaba maimakon mu riƙe shi."
+      }
+    ],
+    "teamEyebrow": "Su wane ne mu",
+    "teamTitle": "Ƙungiyar",
+    "teamBody": "A yanzu Gidauniyar tana aiki da ƙwararren mai ba da shawara guda ɗaya, tare da masu sa kai da aka horar da ma'aikatan gudanarwa. An gina dandalin ta yadda ƙarin ƙwararru za su iya shiga ba tare da tangarɗa ba.",
+    "safeguardingTitle": "Kariya",
+    "safeguardingBody": "Tunda Gidauniyar tana tallafa wa mata kuma, a wasu lokuta, ƙananan yara, kariya tana tsakiyar yadda muke aiki.",
+    "safeguardingLink": "Karanta alƙawarinmu na kariya"
+  },
+  "services": {
+    "title": "Ayyukan shawarwari da tallafi",
+    "lede": "An tsara tallafi bisa waye ke da abin da kike ɗauke da shi. Ƙwararru ne ke ƙayyade tare da kula da takamaiman ayyuka.",
+    "girlsTitle": "Ga 'yan matan sakandare",
+    "girlsBody": "Shekarun makaranta suna kawo matsi da manya ke saurin raina. Za ki iya magana kan kowanne daga cikin waɗannan — ko wani abu da ba ya cikin jerin.",
+    "womenTitle": "Ga mata masu aure",
+    "womenBody": "Aure da rayuwar iyali na iya yin wuya a tattauna da gaskiya da mutanen da suka fi kusa da ke. Wannan wuri ne inda za ki iya.",
+    "girlsAreas": [
+      "Matsalolin tunani",
+      "Matsalolin dangantaka",
+      "Matsalolin iyali",
+      "Matsin karatu",
+      "Cin zarafi daga abokan karatu",
+      "Matsin zamantakewa",
+      "Girman kai da amincewa da kai",
+      "Ƙalubale na kai",
+      "Kunya",
+      "Yanayi mai wuya na rayuwa"
+    ],
+    "womenAreas": [
+      "Matsalolin aure",
+      "Matsalolin dangantaka",
+      "Ƙalubalen sadarwa",
+      "Matsin lamba daga iyali",
+      "Damuwa ta tunani",
+      "Lafiyar kai",
+      "Yanayi mai wuya a gida",
+      "Turawa ga ƙwararru masu dacewa"
+    ],
+    "howTitle": "Yadda zama yake",
+    "how": [
+      {
+        "title": "Shawarwari ɗaya-da-ɗaya",
+        "body": "Tattaunawa ta sirri da ƙwararren mai ba da shawara, fuska da fuska ko ta waya, a lokacin da aka amince a gaba."
+      },
+      {
+        "title": "Bibiya",
+        "body": "Idan zai taimaka, muna shirya ƙarin zama. Ba a yanke komai ba tare da ke ba."
+      },
+      {
+        "title": "Turawa ga ƙwararre",
+        "body": "Inda kulawa ta musamman ita ce amsar da ta dace, muna haɗa ki da ƙwararre ko ƙungiya mai dacewa."
+      },
+      {
+        "title": "Ilimi da wayar da kai",
+        "body": "Tarurruka, ziyarar makarantu da kayan koyo da ke sauƙaƙa waɗannan tattaunawa."
+      }
+    ],
+    "limitsTitle": "Abin da ba mu ba",
+    "limitsBody": "Gidauniyar ba hidimar gaggawa ba ce kuma ba ta iya ba da amsa ta rikici na awa 24, magani, ko wakilcin shari'a. Idan kina cikin haɗari nan take, don Allah ki yi amfani da shafin gaggawa.",
+    "cta": "Nemi shawarwari"
+  },
+  "counselling": {
+    "landingTitle": "Nemi shawarwari",
+    "landingLede": "Wannan fom na sirri ne. Yana zuwa ga ma'aikatan shawarwari na Gidauniyar kaɗai — babu wani da zai gani, kuma ba ya bayyana a gidan yanar gizo na jama'a.",
+    "chooseCategory": "Wanne ya fi bayyana ki?",
+    "categoryHint": "Wannan yana taimaka mana mu haɗa ki da tallafin da ya dace. Za ki iya canza shi daga baya.",
+    "girlCard": "Ni 'yar makarantar sakandare ce",
+    "girlCardBody": "Tallafi kan matsin karatu, abokantaka, iyali, cin zarafi, amincewa da kai da duk abin da ke damun ki.",
+    "womanCard": "Ni mace mai aure ce",
+    "womanCardBody": "Tallafi kan aure, matsin iyali, sadarwa, lafiyar tunani da yanayi mai wuya a gida.",
+    "beforeYouStartTitle": "Kafin ki fara",
+    "beforeYouStart": [
+      "Yana ɗaukar kimanin minti biyar.",
+      "Za ki iya amfani da sunan da kika zaɓa — ba a buƙatar sunanki na gaskiya.",
+      "Ke kika zaɓi yadda da lokacin da za mu tuntuɓe ki.",
+      "Za ki iya rufe fom ɗin a kowane lokaci kuma ba a ajiye komai ba."
+    ],
+    "startForm": "Fara fom ɗin sirri",
+    "alreadyRequested": "Kin riga kin aika buƙata?",
+    "checkStatus": "Duba matsayin buƙatarki",
+    "steps": {
+      "about": "Game da ke",
+      "support": "Abin da kike son taimako a kai",
+      "contact": "Yadda za a same ki",
+      "timing": "Lokacin da kika fi so",
+      "consent": "Yarda",
+      "review": "Duba ki aika"
+    },
+    "fields": {
+      "preferredName": "Sunan da kika zaɓa",
+      "preferredNameHint": "Duk sunan da kike son mu yi amfani da shi. Ba lallai ne ya zama sunanki na gaskiya ba.",
+      "ageRange": "Matsayin shekaru",
+      "ageRangeHint": "Wannan yana taimaka wa mai ba da shawara ya shirya, kuma yana gaya mana matakan kariya da suka dace.",
+      "category": "Wanne ya bayyana ki",
+      "supportAreas": "A kan me kike son tallafi?",
+      "supportAreasHint": "Ki zaɓi kowanne da kike so. Za ki iya tsallake wannan idan kin gwammace ki bayyana da kalmominki.",
+      "reason": "Da kalmominki",
+      "reasonHint": "Jimla ɗaya ko biyu ya isa. Ba sai kin rubuta komai yanzu ba — zaman shi ne inda za ki yi magana sosai.",
+      "reasonPlaceholder": "Misali: Ina jin baƙin ciki tun watanni kuma ba ni da wanda zan yi masa magana.",
+      "contactMethod": "Ta yaya za mu tuntuɓe ki?",
+      "contactMethodHint": "Ki zaɓi abin da ya fi aminci kuma ya fi sirri a gare ki.",
+      "contactValue": "Bayanan tuntuɓa",
+      "contactValueHintPhone": "Lambar da za mu iya samun ki a kai.",
+      "contactValueHintEmail": "Adireshin imel da kike duba shi kaɗai.",
+      "safeToContact": "Yana da aminci mu tuntuɓe ki a kan wannan?",
+      "safeToContactHint": "Ki gaya mana idan wani zai iya gani ko jin saƙonmu.",
+      "contactNotes": "Wani abu da ya kamata mu sani game da tuntuɓar ki",
+      "contactNotesPlaceholder": "Misali: don Allah a kira da rana kawai.",
+      "language": "Harshen da kika fi so",
+      "preferredDate": "Ranar da kika fi so",
+      "preferredDateHint": "Za mu yi iya ƙoƙarinmu. Idan bai yiwu ba, za mu ba da shawarar wani lokaci.",
+      "preferredTime": "Lokacin da kika fi so",
+      "guardianAware": "Iyaye ko mai kula ya san kina neman tallafi?",
+      "guardianAwareHint": "Babu amsa mara kyau. Yana taimaka wa mai ba da shawara ya san yadda zai ci gaba, kuma ba ya hana ki samun tallafi.",
+      "safetyQuestion": "A yanzu kina damuwa game da lafiyarki nan take?",
+      "safetyQuestionHint": "Idan eh, za mu ɗauki buƙatarki a matsayin gaggawa. Idan kina cikin haɗari yanzu, don Allah ki yi amfani da shafin gaggawa maimakon jira."
+    },
+    "consent": {
+      "title": "Sirri da yarda",
+      "body": "Don Allah ki karanta wannan kafin ki aika buƙatarki.",
+      "points": [
+        "Abin da kika bayyana yana nan cikin sirri kuma ma'aikatan shawarwari da aka ba izini kaɗai ke gani.",
+        "An ajiye buƙatarki daban da gidan yanar gizo na jama'a kuma ba a taɓa buga ta ba.",
+        "Shawarwari na son rai ne. Za ki iya tsayawa a kowane lokaci, kuma za ki iya neman mu goge bayananki.",
+        "Idan ƙwararre ya ga cewa ke ko wani yaro yana cikin haɗarin cutarwa mai tsanani, ƙila ya buƙaci ya haɗa wanda zai iya taimakawa wajen kiyaye ki. Zai tattauna wannan da ke duk inda hakan ya yiwu.",
+        "Gidauniyar ba hidimar gaggawa ba ce kuma ba za ta iya amsawa bayan lokutan aiki ba."
+      ],
+      "checkbox": "Na karanta abin da ke sama kuma ina son neman shawarwari.",
+      "safeguardingLink": "Karanta cikakken sanarwar kariya da sirri",
+      "required": "Don Allah ki tabbatar kin karanta sanarwar sirri kafin aikawa."
+    },
+    "review": {
+      "title": "Duba buƙatarki",
+      "body": "Ba a aika komai ba tukuna. Don Allah ki duba amsoshinki — za ki iya komawa ki canza kowane abu.",
+      "editStep": "Gyara",
+      "send": "Aika buƙatata",
+      "sending": "Ana aikawa…"
+    },
+    "submitted": {
+      "title": "An aika buƙatarki",
+      "body": "Na gode da kika tuntuɓe mu. Ƙwararren mai ba da shawara zai duba buƙatarki ya tuntuɓe ki yadda kika nema.",
+      "refLabel": "Lambar shari'arki",
+      "codeLabel": "Lambar shiga",
+      "refHint": "Ki rubuta waɗannan a wuri mai aminci. Tare suna ba ki damar duba buƙatarki ba tare da bayar da sunanki ba.",
+      "whatNextTitle": "Abin da zai biyo baya",
+      "whatNext": [
+        "Mai ba da shawara zai duba buƙatarki — yawanci cikin kwanaki biyu na aiki.",
+        "Za mu tuntuɓe ki ta hanyar da kika zaɓa, a lokacin da ya dace da ke.",
+        "Idan muka amince da zama, za ki sami tabbacin rana, lokaci da wuri.",
+        "Za ki iya duba matsayi da kanki a kowane lokaci ta amfani da lambarki da lambar shiga."
+      ],
+      "urgentNote": "Idan yanayinki ya canza kuma kina buƙatar taimako da wuri, don Allah ki yi amfani da shafin gaggawa.",
+      "checkStatus": "Duba matsayin buƙatata",
+      "backHome": "Koma gida",
+      "printNote": "Buga ko ɗauki hoton wannan shafin"
+    },
+    "status": {
+      "title": "Duba buƙatarki",
+      "lede": "Ki shigar da lambar shari'a da lambar shiga da aka ba ki lokacin da kika aika buƙatarki. Ba za mu tambayi sunanki ba.",
+      "refField": "Lambar shari'a",
+      "refPlaceholder": "AAGF-2026-000001",
+      "codeField": "Lambar shiga",
+      "codePlaceholder": "Haruffa 6",
+      "check": "Duba matsayi",
+      "notFound": "Ba mu sami buƙata da wannan lamba da lambar shiga ba. Don Allah ki duba duka biyu ki sake gwadawa.",
+      "resultTitle": "Matsayin buƙata",
+      "lastUpdated": "An sabunta ta ƙarshe",
+      "help": "Idan kin rasa lambarki, ki tuntuɓi Gidauniyar za mu taimaka — ƙila mu buƙaci mu tabbatar da wasu bayanai da farko.",
+      "descriptions": {
+        "REQUESTED": "Mun karɓi buƙatarki kuma tana jiran a duba ta.",
+        "UNDER_REVIEW": "Mai ba da shawara yana karanta buƙatarki yanzu.",
+        "APPROVED": "An amince da buƙatarki. Za mu tuntuɓe ki don tsara lokaci.",
+        "REJECTED": "Ba mu iya ci gaba da wannan buƙatar ba. Wani daga Gidauniyar zai bayyana kuma ya ba da shawarar inda za ki juya.",
+        "SCHEDULED": "An shirya zama. Ki duba bayanan da muka aika miki.",
+        "CONFIRMED": "An tabbatar da zamanki.",
+        "COMPLETED": "Zamanki ya gudana. Na gode da zuwanki.",
+        "CANCELLED": "An soke wannan alƙawari. Ki tuntuɓe mu idan kina son wani.",
+        "NO_SHOW": "An rasa zaman. Kina maraba da shirya wani.",
+        "FOLLOW_UP": "An shirya bibiya.",
+        "CLOSED": "An rufe wannan shari'a. Kullum za ki iya fara sabuwar buƙata."
+      }
+    },
+    "errors": {
+      "preferredNameRequired": "Don Allah ki ba mu suna da za mu yi amfani da shi — kowane suna ya dace.",
+      "preferredNameShort": "Don Allah ki yi amfani da aƙalla haruffa biyu.",
+      "categoryRequired": "Don Allah ki zaɓi zaɓin da ya bayyana ki.",
+      "ageRequired": "Don Allah ki zaɓi matsayin shekaru.",
+      "contactMethodRequired": "Don Allah ki gaya mana yadda za mu tuntuɓe ki.",
+      "contactValueRequired": "Don Allah ki ba mu bayanan wannan hanyar tuntuɓa.",
+      "contactValueInvalidPhone": "Don Allah ki duba wannan lambar waya.",
+      "contactValueInvalidEmail": "Don Allah ki duba wannan adireshin imel.",
+      "reasonLong": "Don Allah ki riƙe wannan ƙasa da haruffa 1000 — za ki iya faɗi ƙari a zaman.",
+      "dateRequired": "Don Allah ki zaɓi ranar da kika fi so.",
+      "datePast": "Don Allah ki zaɓi rana mai zuwa.",
+      "timeRequired": "Don Allah ki zaɓi lokacin da kika fi so.",
+      "generic": "Wani abu ya faskara wajen aika buƙatarki. Don Allah ki sake gwadawa, ko ki tuntuɓi Gidauniyar kai tsaye."
+    }
+  },
+  "resources": {
+    "title": "Kayan koyo",
+    "lede": "Labarai, bidiyo da jagorori kan lafiyar tunani, dangantaka da tallafa wa mutanen da ke kewaye da ke. Kyauta a karanta, kyauta a raba.",
+    "articles": "Labarai",
+    "videos": "Bidiyo",
+    "materials": "Jagorori da kayan aiki",
+    "featured": "Zaɓaɓɓu",
+    "byCategory": "Bincike bisa batu",
+    "articleBy": "Daga",
+    "relatedTitle": "Ƙari kan wannan batu",
+    "backToResources": "Duk kayan koyo",
+    "notFound": "Wannan labarin ba ya nan.",
+    "materialSize": "fayil",
+    "videoDuration": "minti"
+  },
+  "events": {
+    "title": "Abubuwan da ke faruwa da shirye-shirye",
+    "lede": "Ziyarar makarantu, tarurruka, taro, shirye-shiryen al'umma da yaƙin wayar da kai.",
+    "upcoming": "Masu zuwa",
+    "past": "Waɗanda suka wuce",
+    "register": "Yi rajista",
+    "registrationClosed": "An rufe rajista",
+    "full": "An cika",
+    "location": "Wuri",
+    "organiser": "Wanda ya shirya",
+    "date": "Rana",
+    "time": "Lokaci",
+    "spacesLeft": "wurare saura",
+    "noUpcoming": "Babu wani abu da aka tsara a yanzu. Don Allah ki sake dubawa nan ba da jimawa ba.",
+    "backToEvents": "Duk abubuwan",
+    "kinds": {
+      "SCHOOL_OUTREACH": "Ziyarar makaranta",
+      "WORKSHOP": "Taron horo",
+      "SEMINAR": "Taro",
+      "COMMUNITY": "Shirin al'umma",
+      "AWARENESS": "Yaƙin wayar da kai",
+      "FOUNDATION": "Taron Gidauniya"
+    }
+  },
+  "donate": {
+    "title": "Tallafa wa Gidauniyar",
+    "lede": "Shawarwari kyauta ne ga duk wanda ya nema. Hakan yana yiwuwa ne kawai saboda mutane sun zaɓi su ba da kuɗi.",
+    "impactTitle": "Abin da gudummawarki ke yi",
+    "impact": [
+      {
+        "amount": "₦5,000",
+        "body": "Yana biyan kayan koyo da aka buga ga aji ɗaya na 'yan matan sakandare."
+      },
+      {
+        "amount": "₦15,000",
+        "body": "Yana biyan zaman shawarwari ɗaya, tare da bibiya."
+      },
+      {
+        "amount": "₦50,000",
+        "body": "Yana tallafa wa cikakkiyar ziyarar makaranta."
+      },
+      {
+        "amount": "₦150,000",
+        "body": "Yana kiyaye layin shawarwari yana aiki har wata ɗaya."
+      }
+    ],
+    "amountLabel": "Zaɓi adadi",
+    "customAmount": "Wani adadi",
+    "currency": "₦",
+    "frequencyLabel": "Sau nawa",
+    "oneTime": "Sau ɗaya",
+    "monthly": "Kowane wata",
+    "monthlyNote": "Bayarwa akai-akai na zuwa nan ba da jimawa ba. Ki zaɓi sau ɗaya a yanzu za mu tuntuɓe ki.",
+    "designationLabel": "Ina zai je?",
+    "designations": {
+      "GENERAL": "Inda aka fi buƙata",
+      "COUNSELLING": "Zaman shawarwari",
+      "SCHOOL_OUTREACH": "Ziyarar makarantu",
+      "RESOURCES": "Kayan koyo"
+    },
+    "donorTitle": "Bayananki",
+    "donorName": "Cikakken suna",
+    "donorEmail": "Adireshin imel",
+    "donorEmailHint": "Don rasitinki. Ba ma saka ki cikin komai ba tare da tambaya ba.",
+    "anonymous": "Ba da gudummawa ba tare da suna ba",
+    "anonymousHint": "Sunanki ba zai bayyana a kowane rahoto ko godiya ta Gidauniyar ba.",
+    "cta": "Ci gaba zuwa biyan kuɗi",
+    "paymentNote": "Wani kamfani mai lasisi na biyan kuɗi na Najeriya ne ke sarrafa biyan kuɗi. Gidauniyar ba ta taɓa ajiye bayanan katinki ba.",
+    "thanksTitle": "Na gode",
+    "thanksBody": "An karɓi gudummawarki. Rasiti yana kan hanya zuwa imel ɗinki.",
+    "receiptRef": "Lamba",
+    "otherWaysTitle": "Wasu hanyoyin taimakawa",
+    "otherWays": [
+      "Ki yi sa kai a matsayin mai sauƙaƙawa da aka horar don ziyarar makarantu.",
+      "Ki gayyaci Gidauniyar ta gudanar da taron horo a makarantarki ko ƙungiyar al'ummarki.",
+      "Ki raba kayan koyonmu da wanda zai iya buƙatarsu."
+    ]
+  },
+  "contact": {
+    "title": "Tuntuɓi Gidauniyar",
+    "lede": "Don tambayoyi na gaba ɗaya, haɗin gwiwa, sa kai ko kafofin watsa labarai. Idan kina neman shawarwari, don Allah ki yi amfani da fom ɗin sirri — yana zuwa kai tsaye ga ma'aikatan shawarwari.",
+    "counsellingRedirect": "Kina neman shawarwari?",
+    "counsellingRedirectCta": "Yi amfani da fom ɗin sirri",
+    "name": "Sunanki",
+    "email": "Adireshin imel",
+    "phone": "Lambar waya",
+    "subject": "Batu",
+    "message": "Saƙo",
+    "subjects": {
+      "GENERAL": "Tambaya ta gaba ɗaya",
+      "PARTNERSHIP": "Haɗin gwiwa",
+      "VOLUNTEER": "Sa kai",
+      "MEDIA": "Kafofin watsa labarai",
+      "OTHER": "Wani abu daban"
+    },
+    "send": "Aika saƙo",
+    "sending": "Ana aikawa…",
+    "sent": "Na gode — an aika saƙonki. Yawanci muna amsawa cikin kwanaki biyu na aiki.",
+    "error": "Ba mu iya aika hakan ba. Don Allah ki sake gwadawa ko ki kira mu.",
+    "officeTitle": "Ofis",
+    "hoursTitle": "Lokutan aiki",
+    "hours": "Litinin zuwa Juma'a, 9:00 na safe – 5:00 na yamma",
+    "phoneTitle": "Waya",
+    "emailTitle": "Imel"
+  },
+  "footer": {
+    "tagline": "Shawarwari da tallafi na tunani cikin tausayi ga 'yan matan sakandare da mata masu aure.",
+    "explore": "Bincika",
+    "support": "Tallafi",
+    "legal": "Shari'a",
+    "privacy": "Sirri",
+    "safeguarding": "Kariya",
+    "terms": "Sharuɗɗan amfani",
+    "accessibility": "Sauƙin amfani",
+    "rights": "Duk haƙƙoƙi na kiyaye.",
+    "emergencyNote": "Gidauniyar Heart2Heart ba hidimar gaggawa ba ce.",
+    "builtNote": "An gina da kulawa ga mutanen da ke amfani da shi."
+  },
+  "privacy": {
+    "title": "Alƙawarin sirri",
+    "lede": "Yadda Gidauniyar ke sarrafa abin da kika gaya mana.",
+    "sections": [
+      {
+        "title": "Ƙa'idar da muke aiki da ita",
+        "body": "Kada a taɓa ɗaukar bayanan shawarwari na sirri kamar abun ciki na yau da kullum na gidan yanar gizo. Buƙatun shawarwari, bayanan shari'a, bayanan zama, bayanan shiga, bayanan mai ba da shawara, bayanan turawa da bayanan alƙawari ana ajiye su daban da duk abin da aka buga a wannan shafin, kuma babu baƙo da zai iya kaiwa gare su."
+      },
+      {
+        "title": "Abin da muke tattarawa lokacin da kika nemi shawarwari",
+        "body": "Sunan da kika zaɓa (ba lallai na gaskiya ba), matsayin shekaru, rukunin da ya bayyana ki, bayanan tuntuɓa da kika zaɓa, dalilin neman tallafi gaba ɗaya, harshen da kika fi so, da ranar da lokacin da kika fi so. Muna yin tambaya kan lafiya domin mu san gaggawar amsawa."
+      },
+      {
+        "title": "Wa zai iya gani",
+        "body": "Ma'aikatan shawarwari na Gidauniyar da aka ba izini kaɗai. Ma'aikatan gudanarwa suna ganin abin da suke buƙata don shirya alƙawura — ba su da damar shiga bayanan asibiti. Masu sa kai, masu bayarwa da baƙin gidan yanar gizo ba sa ganin komai daga cikinsu."
+      },
+      {
+        "title": "Tsawon lokacin da muke ajiyewa",
+        "body": "Ana adana bayanan shari'a muddin wajibcin ƙwararru da na shari'a na Gidauniyar ya buƙata, sannan a lalata su cikin aminci. Za ki iya neman mu goge bayananki a kowane lokaci, kuma za mu yi hakan sai dai in an wajabta mana mu ajiye su."
+      },
+      {
+        "title": "Manhajar da ke wayarki",
+        "body": "Ana iya sanya wannan shafin a matsayin manhaja. Shafukan jama'a — labarai, abubuwan da ke faruwa, lambobin gaggawa — ana ajiye su a na'urarki don su buɗe da sauri kuma su yi aiki da rashin ingantaccen sadarwa. An cire shafukan shawarwari da duk abin da kika rubuta a fom ɗin sirri daga wannan ajiyar da gangan."
+      },
+      {
+        "title": "Zaɓinki",
+        "body": "Za ki iya tambaya abin da muke da shi game da ke, ki nemi mu gyara shi, ki nemi mu goge shi, ko ki janye yardarki ga shawarwari a kowane lokaci. Babu ɗaya daga cikin waɗannan da zai hana ki dawowa daga baya."
+      }
+    ]
+  },
+  "safeguarding": {
+    "title": "Alƙawarin kariya",
+    "lede": "Gidauniyar tana tallafa wa mata kuma, a wasu lokuta, ƙananan yara. Waɗannan su ne ƙa'idodin da ma'aikatanmu ke aiki da su.",
+    "intro": "Kariya ba takarda ce da ke zaune a aljihu ba. Tana tsara yadda aka rubuta fom ɗin shiga, wa zai iya ganin buƙata, da abin da ke faruwa lokacin da wani ya gaya mana ba shi da aminci.",
+    "sections": [
+      {
+        "title": "Kariyar yara",
+        "body": "Inda mai amfana ke ƙasa da shekara 18, ƙarin kariya na aiki. An horar da ma'aikata su gane haɗari kuma su amsa ta hanyar da ke sanar da matashiya tare da haɗa ta duk inda hakan ya yiwu."
+      },
+      {
+        "title": "Yarda",
+        "body": "Shawarwari na son rai ne kuma ana neman yarda a fili, cikin sauƙin harshe, kafin a aika kowace buƙata. Ana iya janye yarda a kowane lokaci."
+      },
+      {
+        "title": "Sirri da iyakarsa",
+        "body": "Abin da kika bayyana yana cikin sirri. Banda shi ne inda ƙwararre ya ga cewa akwai haɗarin cutarwa mai tsanani ga ke ko ga yaro — a nan ƙila ya buƙaci ya haɗa wanda zai iya taimakawa wajen kiyaye ki. Duk inda ya yiwu ana tattauna wannan da ke da farko."
+      },
+      {
+        "title": "Bayyana cin zarafi",
+        "body": "Ƙwararrun ma'aikata ne ke sarrafa bayyana cin zarafi, cin zarafi a gida ko cin zarafin jima'i bisa tsarin da aka ƙayyade. Ana rubuta su a cikin bayanan shari'a na sirri kaɗai, ba a cikin bayanan tsarin na yau da kullum ba."
+      },
+      {
+        "title": "Haɗarin cutar da kai",
+        "body": "Inda aka gano haɗari, mai ba da shawara yana bin hanyar ɗaukaka da aka amince da ita kuma yana aiki da mutumin kan shirin aminci da ya dace da yanayinsa."
+      },
+      {
+        "title": "Ɗaukaka gaggawa",
+        "body": "Ma'aikata suna da hanyar da aka ƙayyade don yanayi na gaggawa, tare da lambobin gaggawa da aka tabbatar da abokan turawa."
+      },
+      {
+        "title": "Iyakokin ƙwararru",
+        "body": "Shawarwari yana faruwa cikin zaman da aka amince da hanyoyin da aka amince. Ma'aikata ba sa gudanar da shawarwari ta asusun kansu ko wajen tsarin Gidauniyar."
+      },
+      {
+        "title": "Turawa ga ƙwararru",
+        "body": "Inda wani ke buƙatar kulawa ta musamman da Gidauniyar ba ta bayarwa, muna tura shi ga ƙwararre ko ƙungiya mai dacewa kuma muna bibiyar cewa an yi haɗin."
+      },
+      {
+        "title": "Kariyar bayanai",
+        "body": "Ana ajiye bayanan shawarwari daban, an taƙaita damar shiga bisa matsayi, kuma ana rubuta kowace shiga. Duba alƙawarin sirri don ƙarin bayani."
+      }
+    ],
+    "concernTitle": "Bayyana damuwa",
+    "concernBody": "Idan kina damuwa game da yadda Gidauniyar ta sarrafa wani abu, ko game da halin duk wanda ke da alaƙa da mu, don Allah ki tuntuɓe mu. Ana ɗaukar damuwa da muhimmanci kuma ana bincika su."
+  },
+  "terms": {
+    "title": "Sharuɗɗan amfani",
+    "lede": "Tushen da aka bayar da wannan gidan yanar gizo da manhaja."
+  },
+  "accessibility": {
+    "title": "Sauƙin amfani",
+    "lede": "Muna son wannan dandalin ya yi aiki ga duk wanda ke buƙatarsa.",
+    "body": "An gina shafin bisa ƙa'idar sauƙin amfani ta zamani: ana iya amfani da shi gaba ɗaya da madanni, ya cika buƙatun bambancin launi, ya sanya lakabi ga kowane filin fom, ya bayyana kowane hoto, kuma ya nuna mayar da hankali a fili. Idan wani abu a nan bai yi aiki a gare ki ba, don Allah ki gaya mana — za mu gyara shi."
+  },
+  "offline": {
+    "title": "Ba ki da sadarwa",
+    "body": "Wannan shafin ba ya samuwa ba tare da sadarwa ba. Labarai, abubuwan da ke faruwa da lambobin gaggawa da aka ajiye har yanzu suna aiki.",
+    "emergencyStill": "Lambobin gaggawa",
+    "retry": "Sake gwadawa"
+  },
+  "notFound": {
+    "title": "Ba mu sami wannan shafin ba",
+    "body": "Ƙila hanyar ta tsufa, ko kuma an motsa shafin.",
+    "home": "Je zuwa shafin gida",
+    "support": "Nemi shawarwari"
+  },
+  "error": {
+    "title": "Wani abu ya faskara",
+    "body": "Yi haƙuri — hakan bai yi aiki ba. Don Allah ki sake gwadawa. Idan kina aika buƙatar shawarwari, ba a aika komai ba.",
+    "retry": "Sake gwadawa",
+    "home": "Je zuwa shafin gida"
+  },
+  "enums": {
+    "category": {
+      "SCHOOL_GIRL": "'Yar makarantar sakandare",
+      "MARRIED_WOMAN": "Mace mai aure"
+    },
+    "categoryShort": {
+      "SCHOOL_GIRL": "'Yar makaranta",
+      "MARRIED_WOMAN": "Mace mai aure"
+    },
+    "ageRange": {
+      "UNDER_13": "Ƙasa da 13",
+      "13_15": "13 – 15",
+      "16_17": "16 – 17",
+      "18_24": "18 – 24",
+      "25_34": "25 – 34",
+      "35_44": "35 – 44",
+      "45_PLUS": "45 zuwa sama"
+    },
+    "contactMethod": {
+      "PHONE": "Kiran waya",
+      "WHATSAPP": "WhatsApp",
+      "SMS": "Saƙon rubutu",
+      "EMAIL": "Imel",
+      "IN_PERSON": "Fuska da fuska a ofis"
+    },
+    "supportArea": {
+      "EMOTIONAL": "Matsalolin tunani",
+      "RELATIONSHIP": "Matsalolin dangantaka",
+      "FAMILY": "Matsalolin iyali",
+      "MARITAL": "Matsalolin aure",
+      "ACADEMIC": "Matsin karatu",
+      "BULLYING": "Cin zarafi daga abokan karatu",
+      "SELF_ESTEEM": "Amincewa da kai",
+      "COMMUNICATION": "Sadarwa",
+      "SOCIAL_PRESSURE": "Matsin zamantakewa",
+      "OTHER": "Wani abu daban"
+    },
+    "status": {
+      "REQUESTED": "An nema",
+      "UNDER_REVIEW": "Ana dubawa",
+      "APPROVED": "An amince",
+      "REJECTED": "Ba a ci gaba ba",
+      "SCHEDULED": "An tsara",
+      "CONFIRMED": "An tabbatar",
+      "COMPLETED": "An kammala",
+      "CANCELLED": "An soke",
+      "NO_SHOW": "Bai halarta ba",
+      "FOLLOW_UP": "Bibiya",
+      "CLOSED": "An rufe"
+    },
+    "priority": {
+      "STANDARD": "Na yau da kullum",
+      "PRIORITY": "Mai fifiko",
+      "URGENT": "Gaggawa"
+    },
+    "contentStatus": {
+      "DRAFT": "Daftari",
+      "REVIEW": "Ana dubawa",
+      "PUBLISHED": "An buga",
+      "ARCHIVED": "An adana"
+    },
+    "articleCategory": {
+      "EMOTIONAL_WELLBEING": "Lafiyar tunani",
+      "HEALTHY_RELATIONSHIPS": "Dangantaka mai kyau",
+      "COMMUNICATION": "Sadarwa",
+      "SELF_ESTEEM": "Amincewa da kai",
+      "MARRIAGE": "Aure",
+      "FAMILY": "Iyali",
+      "SUPPORTING_YOUNG_PEOPLE": "Tallafa wa matasa",
+      "MENTAL_HEALTH_AWARENESS": "Wayar da kai kan lafiyar ƙwaƙwalwa",
+      "PERSONAL_DEVELOPMENT": "Ci gaban kai"
+    },
+    "videoKind": {
+      "EDUCATIONAL": "Na ilimi",
+      "AWARENESS": "Yaƙin wayar da kai",
+      "EXPERT": "Tattaunawar ƙwararru",
+      "FOUNDATION": "Ayyukan Gidauniya"
+    },
+    "materialFormat": {
+      "GUIDE": "Jagora",
+      "PDF": "PDF",
+      "INFOGRAPHIC": "Zane mai bayani",
+      "WORKSHEET": "Takardar aiki",
+      "AWARENESS": "Kayan wayar da kai"
+    },
+    "appointmentMode": {
+      "IN_PERSON": "Fuska da fuska",
+      "PHONE": "Ta waya",
+      "VIDEO": "Kiran bidiyo"
+    },
+    "donationStatus": {
+      "PENDING": "Ana jira",
+      "SUCCESSFUL": "Ya yi nasara",
+      "FAILED": "Ya faskara",
+      "REFUNDED": "An mayar"
+    }
+  },
+  "portal": {
+    "title": "Dandalin Gidauniya",
+    "login": {
+      "title": "Shiga ma'aikata",
+      "lede": "Wannan wuri na ma'aikatan Gidauniyar da aka ba izini kaɗai ne.",
+      "email": "Adireshin imel",
+      "password": "Kalmar sirri",
+      "signIn": "Shiga",
+      "signingIn": "Ana shiga…",
+      "error": "Ba a gane wannan haɗin imel da kalmar sirri ba.",
+      "demoNote": "Asusun gwaji",
+      "asAdmin": "Shiga a matsayin mai gudanarwa",
+      "asTherapist": "Shiga a matsayin mai ba da shawara",
+      "backToSite": "Koma shafin jama'a",
+      "confidentialityNote": "Duk abin da ke bayan wannan allon bayanan shawarwari ne na sirri. Kada a bar shi a buɗe a na'urar da ake raba ta."
+    },
+    "nav": {
+      "dashboard": "Dashboard",
+      "requests": "Buƙatun shawarwari",
+      "appointments": "Alƙawura",
+      "cases": "Shari'o'i",
+      "followUps": "Bibiya",
+      "referrals": "Turawa",
+      "content": "Abun ciki",
+      "resources": "Kayan koyo",
+      "events": "Abubuwan da ke faruwa",
+      "donations": "Gudummawa",
+      "emergency": "Kayan gaggawa",
+      "users": "Masu amfani",
+      "reports": "Rahotanni",
+      "settings": "Saituna",
+      "signOut": "Fita"
+    },
+    "dashboard": {
+      "greeting": "Barka da rana",
+      "adminSubtitle": "Ga yadda abubuwa suke a yau.",
+      "therapistSubtitle": "Ranarka a taƙaice.",
+      "pendingRequests": "Buƙatun da ke jira",
+      "todayAppointments": "Alƙawuran yau",
+      "upcomingAppointments": "Alƙawuran da ke tafe",
+      "completedSessions": "Zaman da aka kammala",
+      "followUps": "Bibiyar da ta kamata",
+      "urgentFlags": "An yiwa alama gaggawa",
+      "recentDonations": "Gudummawa na kwanan nan",
+      "upcomingEvents": "Abubuwan da ke tafe",
+      "recentContent": "Abun ciki na kwanan nan",
+      "analytics": "Wannan wata",
+      "noAppointmentsToday": "Babu alƙawarin da aka tsara na yau.",
+      "noPending": "Babu buƙatar da ke jiran dubawa.",
+      "reviewNow": "Duba",
+      "viewCase": "Buɗe shari'a",
+      "thisMonth": "Wannan wata",
+      "lastMonth": "idan aka kwatanta da watan jiya",
+      "newRequests": "Sabbin buƙatu",
+      "sessionsHeld": "Zaman da aka gudanar",
+      "casesClosed": "Shari'o'in da aka rufe",
+      "donationsTotal": "Gudummawar da aka karɓa"
+    },
+    "requests": {
+      "title": "Buƙatun shawarwari",
+      "lede": "Na sirri. Duba, amince kuma tsara.",
+      "search": "Nema ta lambar shari'a",
+      "filterStatus": "Matsayi",
+      "filterCategory": "Rukuni",
+      "filterPriority": "Fifiko",
+      "empty": "Babu buƙatar da ta dace da waɗannan matattara.",
+      "columns": {
+        "ref": "Lamba",
+        "name": "Sunan da aka zaɓa",
+        "category": "Rukuni",
+        "received": "An karɓa",
+        "preferred": "Lokacin da aka fi so",
+        "priority": "Fifiko",
+        "status": "Matsayi"
+      },
+      "detailTitle": "Buƙata",
+      "intakeTitle": "Bayanan shiga",
+      "contactTitle": "Tuntuɓa",
+      "contactMasked": "Ana bayyana kawai lokacin da ake buƙata",
+      "reveal": "Bayyana bayanan tuntuɓa",
+      "hide": "Ɓoye",
+      "revealAudit": "Ana rubuta bayyana bayanan tuntuɓa a cikin bayanan shiga.",
+      "safeguardingFlag": "An ɗaga alamar kariya a lokacin shiga",
+      "safeguardingFlagBody": "Wannan mutumin ya amsa eh ga tambayar lafiya. Bi tsarin ɗaukaka kariya.",
+      "guardianAware": "Iyaye ko mai kula ya sani",
+      "minorNotice": "Wannan mai amfana yana ƙasa da 18. Tsarin kariyar yara na aiki.",
+      "actionsTitle": "Ayyuka",
+      "approve": "Amince",
+      "reject": "Kar a ci gaba",
+      "startReview": "Fara dubawa",
+      "schedule": "Tsara alƙawari",
+      "assign": "Ba wa mai ba da shawara",
+      "unassigned": "Ba a ba wa kowa ba",
+      "rejectReason": "Dalili (na cikin gida)",
+      "confirmReject": "Tabbatar"
+    },
+    "appointments": {
+      "title": "Alƙawura",
+      "lede": "Tabbatar, sake tsarawa, soke da rubuta sakamako.",
+      "newAppointment": "Sabon alƙawari",
+      "date": "Rana",
+      "time": "Lokaci",
+      "duration": "Tsawon lokaci",
+      "mode": "Hanya",
+      "location": "Wuri",
+      "therapist": "Mai ba da shawara",
+      "confirm": "Tabbatar da alƙawari",
+      "reschedule": "Sake tsarawa",
+      "cancel": "Soke alƙawari",
+      "complete": "Yiwa alama an kammala",
+      "noShow": "Yiwa alama bai halarta ba",
+      "scheduleFollowUp": "Tsara bibiya",
+      "empty": "Babu alƙawari a wannan gani.",
+      "minutes": "minti"
+    },
+    "cases": {
+      "title": "Shari'o'i",
+      "lede": "Cikakken bayani ga kowane mai amfana da Gidauniyar ke tallafa wa.",
+      "openedOn": "An buɗe",
+      "closedOn": "An rufe",
+      "timeline": "Jerin lokuta",
+      "notes": "Bayanan shari'a",
+      "addNote": "Ƙara bayani",
+      "notePlaceholder": "Bayanan ƙwararru na wannan shari'a.",
+      "noteKind": "Nau'in bayani",
+      "saveNote": "Ajiye bayani",
+      "referrals": "Turawa",
+      "addReferral": "Ƙara turawa",
+      "referralOrg": "Ƙungiya",
+      "referralContact": "Tuntuɓa",
+      "referralReason": "Dalilin turawa",
+      "closeCase": "Rufe shari'a",
+      "closeCaseConfirm": "Rufe shari'a yana dakatar da tunatarwar bibiya. Ana kiyaye bayanan.",
+      "appointmentHistory": "Tarihin alƙawura",
+      "empty": "Babu shari'ar da ta dace da waɗannan matattara.",
+      "confidentialNotice": "Bayanan asibiti na sirri. Ana rubuta shiga."
+    },
+    "content": {
+      "title": "Abun ciki",
+      "lede": "Labarai, bidiyo da kayan koyo.",
+      "newArticle": "Sabon labari",
+      "publish": "Buga",
+      "unpublish": "Cire buga",
+      "archive": "Adana",
+      "sendToReview": "Aika don dubawa",
+      "featured": "Zaɓaɓɓe",
+      "makeFeatured": "Zaɓa",
+      "removeFeatured": "Cire zaɓi",
+      "columns": {
+        "title": "Take",
+        "category": "Rukuni",
+        "status": "Matsayi",
+        "updated": "An sabunta"
+      }
+    },
+    "events": {
+      "title": "Abubuwan da ke faruwa",
+      "lede": "Ziyarar makarantu, tarurruka da shirye-shiryen al'umma.",
+      "newEvent": "Sabon abu",
+      "columns": {
+        "title": "Take",
+        "kind": "Nau'i",
+        "date": "Rana",
+        "location": "Wuri",
+        "status": "Matsayi",
+        "registered": "An yi rajista"
+      }
+    },
+    "donations": {
+      "title": "Gudummawa",
+      "lede": "Bayanai da rahotanni.",
+      "total": "Jimillar da aka karɓa",
+      "thisMonth": "Wannan wata",
+      "average": "Matsakaicin gudummawa",
+      "recurring": "Masu bayarwa akai-akai",
+      "export": "Fitar da CSV",
+      "columns": {
+        "reference": "Lamba",
+        "donor": "Mai bayarwa",
+        "amount": "Adadi",
+        "designation": "Manufa",
+        "date": "Rana",
+        "status": "Matsayi"
+      },
+      "anonymousLabel": "Mai bayarwa ba tare da suna ba"
+    },
+    "emergency": {
+      "title": "Kayan gaggawa",
+      "lede": "Lambobin da aka tabbatar kaɗai ke bayyana a shafin gaggawa na jama'a.",
+      "verify": "Yiwa alama an tabbatar",
+      "unverify": "Yana buƙatar sake dubawa",
+      "lastVerified": "An tabbatar ta ƙarshe",
+      "neverVerified": "Ba a taɓa tabbatarwa ba",
+      "addContact": "Ƙara lamba"
+    },
+    "users": {
+      "title": "Masu amfani",
+      "lede": "Ma'aikatan Gidauniya da damar su.",
+      "invite": "Gayyaci mai amfani",
+      "columns": {
+        "name": "Suna",
+        "role": "Matsayi",
+        "email": "Imel",
+        "status": "Matsayi",
+        "lastActive": "Aiki na ƙarshe"
+      },
+      "active": "Yana aiki",
+      "inactive": "Ba ya aiki",
+      "roles": {
+        "ADMIN": "Mai gudanarwa",
+        "THERAPIST": "Mai ba da shawara"
+      }
+    },
+    "reports": {
+      "title": "Rahotanni",
+      "lede": "Jimillar lambobi kaɗai. Babu rahoton da zai iya gano wani mai amfana."
+    },
+    "settings": {
+      "title": "Saituna",
+      "lede": "Bayanan Gidauniya, harsuna da saitunan tsarin.",
+      "orgTitle": "Bayanan Gidauniya",
+      "localeTitle": "Harsuna",
+      "localeBody": "Harsunan da aka bayar ga baƙi. Ƙara harshe yana buƙatar fayil ɗin fassara.",
+      "safeguardingTitle": "Kariya",
+      "safeguardingBody": "Lambar ɗaukaka da ake nuna wa ma'aikata lokacin da aka yiwa buƙata alama.",
+      "retentionTitle": "Adana bayanai",
+      "retentionBody": "Tsawon lokacin da ake ajiye bayanan shari'a kafin a lalata su cikin aminci."
+    },
+    "common": {
+      "confidential": "Na sirri",
+      "accessLogged": "An rubuta shiga",
+      "assignedTo": "An ba wa",
+      "updated": "An sabunta",
+      "created": "An ƙirƙira",
+      "actions": "Ayyuka",
+      "backTo": "Koma zuwa",
+      "demoBanner": "Bayanan gwaji — wannan ginin yana amfani da ajiya na ɗan lokaci, ba bayanan gaske ba."
+    }
+  }
+}
