@@ -95,6 +95,14 @@ def cover(seed: str) -> str:
 content = pathlib.Path("src/lib/data/content.ts").read_text()
 names = re.findall(r'slug: "([a-z0-9-]+)"', content) + re.findall(r'id: "(vid_\d+)"', content)
 
+# The five areas of work, plus the two audiences, all of which have an image
+# slot on the site.
+names += [
+    "area-child-abuse", "area-drug-abuse", "area-sexual-abuse",
+    "area-social-inclusion", "area-gender-based-violence",
+    "audience-teenagers", "audience-married-couples",
+]
+
 out = pathlib.Path("public/covers")
 out.mkdir(parents=True, exist_ok=True)
 for name in sorted(set(names)):

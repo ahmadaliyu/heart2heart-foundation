@@ -13,6 +13,7 @@ import { useScrolled } from "@/components/motion";
 import { useI18n } from "@/lib/i18n/client";
 import { localePath, stripLocale } from "@/lib/i18n/config";
 import { cn } from "@/lib/utils";
+import { features } from "@/lib/features";
 
 /**
  * Six items, deliberately — the brief rules out crowded navigation, and the
@@ -95,15 +96,17 @@ export function SiteHeader() {
             className="hidden sm:inline-flex"
           />
 
-          <ButtonLink
-            href={localePath(locale, "/counselling")}
-            size="sm"
-            variant={overHero ? "inverse" : "primary"}
-            className="hidden sm:inline-flex"
-          >
-            {t("nav.getSupport")}
-            <ArrowRight aria-hidden="true" className={cn("size-3.5", iconShift)} />
-          </ButtonLink>
+          {features.counselling ? (
+            <ButtonLink
+              href={localePath(locale, "/counselling")}
+              size="sm"
+              variant={overHero ? "inverse" : "primary"}
+              className="hidden sm:inline-flex"
+            >
+              {t("nav.getSupport")}
+              <ArrowRight aria-hidden="true" className={cn("size-3.5", iconShift)} />
+            </ButtonLink>
+          ) : null}
 
           <button
             type="button"
@@ -148,18 +151,20 @@ export function SiteHeader() {
               </Link>
             ))}
 
-            <Link
-              href={localePath(locale, "/counselling")}
-              style={{ animationDelay: "290ms" }}
-              className={buttonClass({
-                size: "lg",
-                fullWidth: true,
-                className: "enter mt-6",
-              })}
-            >
-              {t("nav.getSupport")}
-              <ArrowRight aria-hidden="true" className="size-4" />
-            </Link>
+            {features.counselling ? (
+              <Link
+                href={localePath(locale, "/counselling")}
+                style={{ animationDelay: "290ms" }}
+                className={buttonClass({
+                  size: "lg",
+                  fullWidth: true,
+                  className: "enter mt-6",
+                })}
+              >
+                {t("nav.getSupport")}
+                <ArrowRight aria-hidden="true" className="size-4" />
+              </Link>
+            ) : null}
 
             <div className="mt-5 flex items-center justify-between gap-4">
               <span className="eyebrow text-ink-faint">{t("meta.langLabel")}</span>

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, Clock } from "lucide-react";
 
 import { getTranslations } from "@/lib/i18n/server";
+import { supportHref } from "@/lib/support-link";
 import { localePath } from "@/lib/i18n/config";
 import { Badge } from "@/components/ui/badge";
 import { ButtonLink } from "@/components/ui/button";
@@ -102,12 +103,12 @@ export default async function ArticlePage({
           </div>
 
           <aside className="mt-12 rounded-2xl border border-tint-line bg-tint p-7">
-            <h2 className="text-lg">{t("counselling.landingTitle")}</h2>
+            <h2 className="text-lg">{t("services.audiencesTitle")}</h2>
             <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-              {t("counselling.landingLede")}
+              {t("services.limitsBody")}
             </p>
             <div className="mt-5">
-              <ButtonLink href={localePath(locale, "/counselling")}>
+              <ButtonLink href={supportHref(locale)}>
                 {t("services.cta")}
               </ButtonLink>
             </div>

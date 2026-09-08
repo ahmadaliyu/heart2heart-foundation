@@ -1,8 +1,9 @@
 # Heart2Heart Foundation — Digital Platform
 
-Privacy-focused counselling, education and support platform for secondary-school
-girls and married women. Next.js frontend, installable as a Progressive Web App,
-in English and Hausa.
+Counselling, education and community support on child abuse, drug abuse, sexual
+abuse and harassment, social inclusion and gender-based violence — for teenagers,
+youths and married couples. Next.js frontend, installable as a Progressive Web
+App, in English and Hausa.
 
 ```bash
 npm install
@@ -31,14 +32,21 @@ inputs a deployment dashboard actually produces.
 | --- | --- | --- |
 | Public website | `/[locale]` | Home, About, Services, Resources, Events, Donate, Contact |
 | Emergency pathway | `/[locale]/emergency` | Verified contacts, browsing-safety guidance |
-| Counselling | `/[locale]/counselling` | Category choice → 6-step private intake → case reference |
-| Status lookup | `/[locale]/counselling/status` | Reference + access code, no account needed |
-| Staff portal | `/[locale]/portal` | Dashboard, requests, appointments, cases, CMS, events, donations, emergency resources, users, settings |
+| Counselling | `/[locale]/counselling` | **Switched off.** Category choice → 6-step private intake → case reference |
+| Status lookup | `/[locale]/counselling/status` | **Switched off.** Reference + access code, no account needed |
+| Staff portal | `/[locale]/portal` | **Switched off.** Dashboard, requests, appointments, cases, CMS, events, donations, emergency resources, users, settings |
 
-Sign in to the portal at `/en/portal/login`. The demo build has no password
+With the portal on, sign in at `/en/portal/login`. The demo build has no password
 check — pick an account. **Hauwa Bello** is an administrator, **Dr. Amina
 Yusuf** is the therapist; the two see different navigation and different data.
 
+> **The site is currently informational.** Counselling requests and the staff
+> portal are switched off in `src/lib/features.ts` — a flag each, rather than
+> commented-out code across two dozen files. Their routes 404 while off, so a
+> disabled feature is unreachable by URL and not merely unlinked, and the
+> entry points that would have pointed at them go to Contact instead of
+> nowhere. Flip a flag and run `npm run verify` to bring one back.
+>
 > **There is no API in this build.** Every form resolves locally against dummy
 > data and nothing is recorded: submitting the intake form issues a case
 > reference that will not appear in the portal, and the contact and donation
@@ -237,6 +245,12 @@ screens import from `src/lib/data` (the in-memory fixtures); anything a form
 submits goes through `src/lib/demo.ts`. Neither is imported from a fixture file
 directly, so connecting the real API means editing those functions and nothing
 else.
+
+**Photography: the slots are ready, the pictures are not.** Every image on the
+site resolves through `src/lib/data/images.ts` — a list of paths. Each can be a
+local file or a remote URL (`images.unsplash.com` is already allowed in
+`next.config.ts`), so putting real photographs in is that one file and nothing
+else. It currently holds generated placeholders.
 
 **Cover art is abstract on purpose.** Stock photography of distressed women is
 the last thing this audience should meet before asking for help, so article and

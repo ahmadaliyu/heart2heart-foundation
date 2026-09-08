@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { BadgeCheck, Clock, EyeOff, MessageCircle, Phone, TriangleAlert } from "lucide-react";
 
 import { getTranslations } from "@/lib/i18n/server";
+import { supportHref } from "@/lib/support-link";
 import { getDictionary } from "@/lib/i18n/dictionary";
-import { isLocale, localePath } from "@/lib/i18n/config";
+import { isLocale } from "@/lib/i18n/config";
 import { Card } from "@/components/ui/card";
 import { Alert } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
@@ -183,7 +184,7 @@ export default async function EmergencyPage({
               {t("emergency.urgentRequestNote")}
             </p>
             <div className="mt-6">
-              <ButtonLink href={localePath(locale, "/counselling/request")} size="lg">
+              <ButtonLink href={supportHref(locale)} size="lg">
                 {t("emergency.urgentRequest")}
               </ButtonLink>
             </div>

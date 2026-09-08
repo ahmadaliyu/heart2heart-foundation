@@ -36,7 +36,7 @@ const STEPS = ["about", "support", "contact", "timing", "consent", "review"] as 
 type Step = (typeof STEPS)[number];
 
 const AREAS_BY_CATEGORY: Record<BeneficiaryCategory, SupportArea[]> = {
-  SCHOOL_GIRL: [
+  TEEN_YOUTH: [
     "EMOTIONAL",
     "ACADEMIC",
     "BULLYING",
@@ -46,7 +46,7 @@ const AREAS_BY_CATEGORY: Record<BeneficiaryCategory, SupportArea[]> = {
     "SOCIAL_PRESSURE",
     "OTHER",
   ],
-  MARRIED_WOMAN: [
+  MARRIED_COUPLE: [
     "MARITAL",
     "RELATIONSHIP",
     "COMMUNICATION",
@@ -299,7 +299,7 @@ export function IntakeForm({
                   </span>
                 </legend>
                 <div className="mt-3 grid gap-3">
-                  {(["SCHOOL_GIRL", "MARRIED_WOMAN"] as const).map((value) => (
+                  {(["TEEN_YOUTH", "MARRIED_COUPLE"] as const).map((value) => (
                     <ChoiceCard
                       key={value}
                       name="category"

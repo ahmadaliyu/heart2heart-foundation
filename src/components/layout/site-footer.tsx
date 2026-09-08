@@ -4,10 +4,15 @@ import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import { Logo } from "@/components/brand/logo";
 import { LocaleSwitcher } from "@/components/layout/locale-switcher";
 import { ThemeToggle } from "@/components/layout/theme";
+import { features } from "@/lib/features";
 import { localePath, type Locale } from "@/lib/i18n/config";
 import { translatorFor } from "@/lib/i18n/server";
 import { foundationLine } from "@/lib/data";
 
+/**
+ * Links that only make sense while their feature is on are marked, and filtered
+ * out below rather than deleted — turning the flag back on restores them.
+ */
 const COLUMNS = [
   {
     heading: "footer.explore",
@@ -21,7 +26,7 @@ const COLUMNS = [
   {
     heading: "footer.support",
     links: [
-      { href: "/counselling", key: "nav.getSupport" },
+      { href: "/counselling", key: "nav.getSupport", needs: "counselling" as const },
       { href: "/emergency", key: "nav.emergency" },
       { href: "/donate", key: "nav.donate" },
       { href: "/contact", key: "nav.contact" },
@@ -94,7 +99,9 @@ export function SiteFooter({ locale }: { locale: Locale }) {
             <nav key={column.heading} aria-label={t(column.heading)}>
               <h2 className="eyebrow text-amber-300">{t(column.heading)}</h2>
               <ul className="mt-6 space-y-3.5">
-                {column.links.map((link) => (
+                {column.links
+                  .filter((link) => !("needs" in link) || features[link.needs])
+                  .map((link) => (
                   <li key={link.href}>
                     <Link
                       href={localePath(locale, link.href)}
@@ -107,7 +114,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
                       />
                     </Link>
                   </li>
-                ))}
+                  ))}
               </ul>
             </nav>
           ))}
@@ -123,12 +130,14 @@ export function SiteFooter({ locale }: { locale: Locale }) {
           <div className="flex items-center gap-5">
             <LocaleSwitcher tone="dark" />
             <ThemeToggle tone="dark" />
-            <Link
-              href={localePath(locale, "/portal/login")}
-              className="eyebrow text-plum-300 transition-colors hover:text-white"
-            >
-              {t("nav.staffLogin")}
-            </Link>
+            {features.staffPortal ? (
+              <Link
+                href={localePath(locale, "/portal/login")}
+                className="eyebrow text-plum-300 transition-colors hover:text-white"
+              >
+                {t("nav.staffLogin")}
+              </Link>
+            ) : null}
           </div>
         </div>
       </div>

@@ -26,24 +26,11 @@ const PAGES = [
   "/en/emergency",
   "/en/privacy",
   "/en/safeguarding",
-  "/en/counselling",
-  "/en/counselling/request?category=SCHOOL_GIRL",
-  "/en/counselling/status",
-  "/en/portal/login",
   "/ha",
-  "/ha/counselling",
   "/ha/emergency",
 ];
 
-const PORTAL = [
-  "/en/portal/dashboard",
-  "/en/portal/requests",
-  "/en/portal/appointments",
-  "/en/portal/cases",
-  "/en/portal/donations",
-  "/en/portal/users",
-  "/en/portal/settings",
-];
+const PORTAL = [];
 
 const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
 
@@ -115,11 +102,8 @@ for (const scheme of ["light", "dark"]) {
   await openContext(scheme);
   for (const url of PAGES) await audit(url);
 
-  // Sign in so the portal surfaces can be audited too.
-  await page.goto(`${BASE}/en/portal/login`, { waitUntil: "networkidle" });
-  await page.getByRole("button", { name: /Hauwa Bello/i }).click();
-  await page.waitForURL(/dashboard/, { timeout: 15000 });
-  for (const url of PORTAL) await audit(url);
+  // The staff portal is switched off in src/lib/features.ts, so there is
+  // nothing to sign in to. Turn the flag back on and these return.
 }
 
 await browser.close();

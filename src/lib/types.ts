@@ -12,7 +12,7 @@ import type { Locale } from "@/lib/i18n/config";
 /* Counselling                                                                 */
 /* -------------------------------------------------------------------------- */
 
-export const beneficiaryCategories = ["SCHOOL_GIRL", "MARRIED_WOMAN"] as const;
+export const beneficiaryCategories = ["TEEN_YOUTH", "MARRIED_COUPLE"] as const;
 export type BeneficiaryCategory = (typeof beneficiaryCategories)[number];
 
 export const ageRanges = [

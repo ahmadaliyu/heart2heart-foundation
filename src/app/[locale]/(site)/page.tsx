@@ -75,7 +75,7 @@ export default async function HomePage({
               style={{ animationDelay: "240ms" }}
             >
               <ButtonLink
-                href={localePath(locale, "/counselling")}
+                href={localePath(locale, "/services")}
                 size="xl"
                 variant="inverse"
               >
@@ -92,7 +92,7 @@ export default async function HomePage({
               style={{ animationDelay: "320ms" }}
             >
               {[
-                { icon: Lock, label: t("counselling.beforeYouStartTitle") },
+                { icon: Lock, label: t("home.privacyTitle") },
                 { icon: UserCheck, label: t("about.teamTitle") },
                 { icon: ShieldCheck, label: t("footer.safeguarding") },
               ].map((item) => (
@@ -179,16 +179,16 @@ export default async function HomePage({
             {[
               {
                 icon: GraduationCap,
-                title: t("services.girlsTitle"),
-                body: t("services.girlsBody"),
-                areas: t.list("services.girlsAreas").slice(0, 7),
+                title: t("services.youthTitle"),
+                body: t("services.youthBody"),
+                areas: t.list("services.youthAreas").slice(0, 7),
                 dark: true,
               },
               {
                 icon: HeartHandshake,
-                title: t("services.womenTitle"),
-                body: t("services.womenBody"),
-                areas: t.list("services.womenAreas").slice(0, 7),
+                title: t("services.couplesTitle"),
+                body: t("services.couplesBody"),
+                areas: t.list("services.couplesAreas").slice(0, 7),
                 dark: false,
               },
             ].map((group, index) => (
@@ -243,7 +243,7 @@ export default async function HomePage({
       <Section id="how" tone="surface" className="scroll-mt-24 border-y border-line">
         <div className="container-page">
           <SectionHeading
-            eyebrow={t("counselling.landingTitle")}
+            eyebrow={t("services.areasTitle")}
             title={t("home.howTitle")}
             body={t("home.howBody")}
             align="center"
@@ -271,7 +271,7 @@ export default async function HomePage({
           </ol>
 
           <Reveal delay={200} className="mt-12 text-center">
-            <ButtonLink href={localePath(locale, "/counselling")} size="xl">
+            <ButtonLink href={localePath(locale, "/services")} size="xl">
               {t("home.heroPrimary")}
               <ArrowRight aria-hidden="true" className={`size-5 ${iconShift}`} />
             </ButtonLink>
@@ -383,7 +383,7 @@ export default async function HomePage({
             </p>
             <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
               <ButtonLink
-                href={localePath(locale, "/counselling")}
+                href={localePath(locale, "/services")}
                 size="xl"
                 variant="inverse"
               >

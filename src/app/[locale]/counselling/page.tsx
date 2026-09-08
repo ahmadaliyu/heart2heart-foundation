@@ -16,13 +16,13 @@ export default async function CounsellingLandingPage({
 
   const categories = [
     {
-      value: "SCHOOL_GIRL",
+      value: "TEEN_YOUTH",
       icon: GraduationCap,
       title: t("counselling.girlCard"),
       body: t("counselling.girlCardBody"),
     },
     {
-      value: "MARRIED_WOMAN",
+      value: "MARRIED_COUPLE",
       icon: HeartHandshake,
       title: t("counselling.womanCard"),
       body: t("counselling.womanCardBody"),

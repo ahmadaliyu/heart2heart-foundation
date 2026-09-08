@@ -3,7 +3,7 @@
     "name": "Heart2Heart Foundation",
     "short": "Heart2Heart",
     "tagline": "A safe place to talk.",
-    "description": "Compassionate, confidential counselling and therapeutic support for secondary-school girls and married women.",
+    "description": "Counselling, education and community support on child abuse, drug abuse, sexual abuse, social inclusion and gender-based violence — for teenagers, youths and married couples.",
     "langLabel": "Language"
   },
   "common": {
@@ -82,43 +82,43 @@
   },
   "home": {
     "heroTitle": "A safe place to talk, whenever you are ready.",
-    "heroBody": "Heart2Heart Foundation offers confidential counselling and therapeutic support for secondary-school girls and married women — with no judgement, and at your pace.",
-    "heroPrimary": "Get counselling support",
-    "heroSecondary": "How it works",
-    "heroAssurance": "Private · Free to ask · You choose how we reply",
+    "heroBody": "Heart2Heart Foundation works on child abuse, drug abuse, sexual abuse and harassment, social inclusion and gender-based violence — with teenagers, youths and married couples, and with the communities around them.",
+    "heroPrimary": "See what we do",
+    "heroSecondary": "About the Foundation",
+    "heroAssurance": "Counselling · Education · Outreach · Referral",
     "missionKicker": "Our mission",
     "visionKicker": "Our vision",
-    "whoTitle": "Who we support",
+    "whoTitle": "Who we work with",
     "whoBody": "Two groups, two different kinds of pressure. Both deserve someone who listens properly.",
-    "servicesTitle": "How we help",
-    "servicesBody": "Everything the Foundation offers is supervised by a qualified professional.",
-    "howTitle": "How it works",
-    "howBody": "Four steps, and you can stop at any point.",
+    "servicesTitle": "What we work on",
+    "servicesBody": "Five areas, all supervised by a qualified professional.",
+    "howTitle": "How the Foundation works",
+    "howBody": "Four commitments that shape everything on this page.",
     "steps": {
       "one": {
-        "title": "Tell us a little",
-        "body": "A short private form. Use any name you like — you do not have to give your real one."
+        "title": "Professional supervision",
+        "body": "Support areas and clinical decisions are determined and supervised by a qualified professional."
       },
       "two": {
-        "title": "We review it",
-        "body": "A qualified therapist reads your request. Nobody else sees it."
+        "title": "Confidentiality",
+        "body": "What is said is not shared. Anything that would ever be recorded is kept apart from the public side of this site."
       },
       "three": {
-        "title": "We agree a time",
-        "body": "We contact you the way you asked us to, and find a time that works."
+        "title": "Education and outreach",
+        "body": "Schools, community programmes and awareness campaigns, alongside one-to-one support."
       },
       "four": {
-        "title": "You talk",
-        "body": "A confidential session, plus follow-up or a referral if that would help."
+        "title": "Referral",
+        "body": "Where someone needs specialist or legal help, the Foundation says so and refers onward rather than holding on."
       }
     },
-    "privacyTitle": "What you tell us stays private",
-    "privacyBody": "Counselling information is never treated like ordinary website content. Your request is only visible to the Foundation's authorised counselling staff — never to visitors, donors or volunteers.",
+    "privacyTitle": "What is said here stays private",
+    "privacyBody": "Anything shared with the Foundation is treated as confidential. It is never handled like ordinary website content, and it is never visible to visitors, donors or volunteers.",
     "privacyPoints": [
-      "You can use a preferred name instead of your real one.",
-      "You choose how we contact you, and when.",
-      "Your request is stored separately from the public website.",
-      "You can ask us to delete your information at any time."
+      "What is discussed is treated as confidential.",
+      "You choose how much you say, and when.",
+      "Nothing is published or shared with visitors, donors or volunteers.",
+      "Where specialist help is needed, the Foundation refers onward."
     ],
     "privacyLink": "Read our privacy commitment",
     "resourcesTitle": "Read and learn",
@@ -126,25 +126,25 @@
     "eventsTitle": "Upcoming events",
     "eventsBody": "Outreach, workshops and awareness programmes across the community.",
     "donateTitle": "Help us keep this free",
-    "donateBody": "Every session the Foundation provides is funded by people who believe girls and women deserve somewhere to turn. A gift of any size keeps the door open.",
+    "donateBody": "The Foundation's work is funded by people who believe young people and families deserve somewhere to turn. A gift of any size keeps the door open.",
     "donateCta": "Support the Foundation",
-    "ctaTitle": "You don't have to work it out alone.",
-    "ctaBody": "Starting the conversation takes a few minutes, and you decide what happens next.",
-    "statSessions": "Counselling sessions held",
+    "ctaTitle": "Nobody should have to work it out alone.",
+    "ctaBody": "Read about the work, or get in touch with the Foundation directly.",
+    "statSessions": "People supported",
     "statSchools": "Schools reached",
     "statVolunteers": "Trained facilitators",
     "statYears": "Years supporting the community"
   },
   "about": {
     "title": "About the Foundation",
-    "lede": "Heart2Heart Foundation exists so that girls and women in our community have somewhere trustworthy to turn when life becomes difficult.",
+    "lede": "Heart2Heart Foundation exists so that young people and families in our community have somewhere trustworthy to turn when life becomes difficult.",
     "missionTitle": "Mission",
     "visionTitle": "Vision",
-    "mission": "To provide accessible and compassionate counselling, and therapeutic support for secondary-school girls and married women, helping them build emotional wellbeing, resilience, and healthier lives.",
-    "vision": "To build a trusted support ecosystem where women and girls can access appropriate counselling, education, guidance, referrals, and support in a safe, respectful, and confidential environment.",
+    "mission": "To provide accessible and compassionate counselling, and therapeutic support for teenagers, youths and married couples, helping them build emotional wellbeing, resilience, and healthier lives.",
+    "vision": "To build a trusted support ecosystem where young people and families can access appropriate counselling, education, guidance, referrals, and support in a safe, respectful, and confidential environment.",
     "problemEyebrow": "The problem",
     "problemTitle": "Why this work matters",
-    "problemBody": "Many women and girls experiencing emotional, relationship, family, marital or social difficulties do not have access to an appropriate and trusted place to seek help. The reasons are rarely simple.",
+    "problemBody": "Many young people and families experiencing abuse, violence, exclusion or emotional difficulty do not have access to an appropriate and trusted place to seek help. The reasons are rarely simple.",
     "barriersTitle": "The barriers we hear about most",
     "barriers": [
       "Stigma around asking for help",
@@ -187,13 +187,70 @@
     "safeguardingLink": "Read our safeguarding commitment"
   },
   "services": {
-    "title": "Counselling and support services",
-    "lede": "Support is shaped around who you are and what you are carrying. Specific services are determined and supervised by qualified professionals.",
-    "girlsTitle": "For secondary-school girls",
-    "girlsBody": "School years bring pressures that are easy for adults to underestimate. You can talk about any of these — or something not on this list.",
-    "womenTitle": "For married women",
-    "womenBody": "Marriage and family life can be hard to talk about honestly with the people closest to you. This is a space where you can.",
-    "girlsAreas": [
+    "title": "What we work on",
+    "lede": "Five areas the Foundation supports, through counselling, education, community outreach and referral to appropriate professional help. What is offered in any individual case is determined and supervised by a qualified professional.",
+    "areasEyebrow": "What we do",
+    "areasTitle": "Our areas of work",
+    "areasLede": "Each of these can be talked about in confidence, and none of them has to be named before someone is willing to listen.",
+    "areas": [
+      {
+        "title": "Child abuse",
+        "body": "Support and guidance where a child's safety or wellbeing is at risk, and referral to the people whose job it is to act.",
+        "includes": [
+          "Early and child marriage",
+          "Child trafficking",
+          "Neglect and exploitation",
+          "Safeguarding referral"
+        ]
+      },
+      {
+        "title": "Drug abuse",
+        "body": "For those using, and for the families around them. Substance use is treated as something to understand and work through, not something to be shamed for.",
+        "includes": [
+          "Substance use and dependency",
+          "Effects on the family",
+          "Recovery support",
+          "Referral to specialist care"
+        ]
+      },
+      {
+        "title": "Sexual abuse and harassment",
+        "body": "A confidential place to talk about what happened, at whatever pace suits, with no pressure to report before someone is ready.",
+        "includes": [
+          "Support after disclosure",
+          "Harassment at school",
+          "Harassment at work",
+          "Referral to specialist and legal services"
+        ]
+      },
+      {
+        "title": "Social inclusion",
+        "body": "Work with people pushed to the edges of community life, and with the communities themselves.",
+        "includes": [
+          "Isolation and exclusion",
+          "Stigma",
+          "Disability inclusion",
+          "Out-of-school young people",
+          "Community participation"
+        ]
+      },
+      {
+        "title": "Gender-based violence",
+        "body": "Violence takes more forms than the ones that leave marks. All of them are recognised here.",
+        "includes": [
+          "Physical",
+          "Psychological",
+          "Emotional",
+          "Economic",
+          "Sexual"
+        ]
+      }
+    ],
+    "audiencesEyebrow": "Who it is for",
+    "audiencesTitle": "Who we work with",
+    "youthTitle": "Teenagers and youths",
+    "youthBody": "Young people face pressures that adults consistently underestimate. Any of this can be talked about — or something not on this list.",
+    "youthAreas": [
       "Emotional difficulties",
       "Relationship problems",
       "Family problems",
@@ -205,47 +262,49 @@
       "Stigma",
       "Difficult life situations"
     ],
-    "womenAreas": [
+    "couplesTitle": "Married couples",
+    "couplesBody": "Marriage and family life can be hard to talk about honestly with the people closest to you. This is a space where that is possible — together or separately.",
+    "couplesAreas": [
       "Marital difficulties",
-      "Relationship problems",
-      "Communication challenges",
+      "Communication breakdown",
       "Family pressure",
       "Emotional distress",
+      "Financial strain at home",
       "Personal wellbeing",
       "Difficult home situations",
       "Appropriate referrals"
     ],
-    "howTitle": "What a session looks like",
+    "howTitle": "How the Foundation works",
     "how": [
       {
-        "title": "One-to-one counselling",
-        "body": "A confidential conversation with a qualified therapist, in person or by phone, at a time you agreed in advance."
+        "title": "Professional supervision",
+        "body": "Support areas and clinical decisions are determined and supervised by a qualified professional."
       },
       {
-        "title": "Follow-up",
-        "body": "If it would help, we arrange further sessions. Nothing is decided without you."
+        "title": "Confidentiality",
+        "body": "What is said is not shared. Anything that would ever be recorded is kept apart from the public side of this site."
+      },
+      {
+        "title": "Education and outreach",
+        "body": "Schools, community programmes and awareness campaigns, alongside one-to-one support."
       },
       {
         "title": "Referral",
-        "body": "Where specialist care is the right answer, we connect you with an appropriate professional or organisation."
-      },
-      {
-        "title": "Education and awareness",
-        "body": "Workshops, school outreach and resources that make these conversations easier to have."
+        "body": "Where someone needs specialist or legal help, the Foundation says so and refers onward rather than holding on."
       }
     ],
-    "limitsTitle": "What we are not",
-    "limitsBody": "The Foundation is not an emergency service and cannot provide 24-hour crisis response, medical treatment or legal representation. If you are in immediate danger, please use the emergency page.",
-    "cta": "Request counselling support"
+    "limitsTitle": "What the Foundation is not",
+    "limitsBody": "Heart2Heart Foundation is not an emergency service and does not operate around the clock. In immediate danger, contact the police or the nearest hospital — the emergency page lists verified numbers.",
+    "cta": "Contact the Foundation"
   },
   "counselling": {
     "landingTitle": "Get counselling support",
     "landingLede": "This form is private. It goes only to the Foundation's counselling staff — no one else can see it, and it never appears on the public website.",
     "chooseCategory": "Which describes you best?",
     "categoryHint": "This helps us match you with the right kind of support. You can change it later.",
-    "girlCard": "I am a secondary-school girl",
+    "girlCard": "I am a teenager or youth",
     "girlCardBody": "Support with school pressure, friendships, family, bullying, confidence and anything else on your mind.",
-    "womanCard": "I am a married woman",
+    "womanCard": "I am part of a married couple",
     "womanCardBody": "Support with marriage, family pressure, communication, emotional wellbeing and difficult home situations.",
     "beforeYouStartTitle": "Before you start",
     "beforeYouStart": [
@@ -422,7 +481,7 @@
     "impact": [
       {
         "amount": "₦5,000",
-        "body": "Covers printed wellbeing materials for a class of secondary-school girls."
+        "body": "Covers printed wellbeing materials for a class of secondary-school students."
       },
       {
         "amount": "₦15,000",
@@ -497,7 +556,7 @@
     "emailTitle": "Email"
   },
   "footer": {
-    "tagline": "Compassionate counselling and therapeutic support for secondary-school girls and married women.",
+    "tagline": "Counselling, education and community support for teenagers, youths and married couples.",
     "explore": "Explore",
     "support": "Support",
     "legal": "Legal",
@@ -613,12 +672,12 @@
   },
   "enums": {
     "category": {
-      "SCHOOL_GIRL": "Secondary-school girl",
-      "MARRIED_WOMAN": "Married woman"
+      "TEEN_YOUTH": "Teenager or youth",
+      "MARRIED_COUPLE": "Married couple"
     },
     "categoryShort": {
-      "SCHOOL_GIRL": "School girl",
-      "MARRIED_WOMAN": "Married woman"
+      "TEEN_YOUTH": "School girl",
+      "MARRIED_COUPLE": "Married couple"
     },
     "ageRange": {
       "UNDER_13": "Under 13",

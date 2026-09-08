@@ -1,281 +1,146 @@
 /**
- * End-to-end smoke test: a beneficiary submits a private counselling request,
- * then a member of staff finds it in the portal and moves it through review.
+ * End-to-end smoke test.
  *
- * Run against a production build:  node scripts/smoke.mjs http://localhost:3100
+ * The site is currently informational — counselling requests and the staff
+ * portal are switched off in src/lib/features.ts — so this checks what the site
+ * actually claims to do: every public page renders in both languages, the
+ * disabled features are genuinely unreachable rather than merely unlinked, and
+ * the pages that carry safety information carry it.
+ *
+ * Turn a feature back on and the assertions below that name it will need to
+ * grow back with it; they are marked.
+ *
+ *   node scripts/smoke.mjs http://localhost:3100
  */
 import { chromium } from "playwright";
 
 const BASE = process.argv[2] || "http://localhost:3100";
-const results = [];
-const check = (name, ok, detail = "") => {
-  results.push({ name, ok, detail });
-  console.log(`${ok ? "PASS" : "FAIL"}  ${name}${detail ? ` — ${detail}` : ""}`);
-};
+
+const PUBLIC_PAGES = [
+  "/",
+  "/about",
+  "/services",
+  "/resources",
+  "/events",
+  "/donate",
+  "/contact",
+  "/emergency",
+  "/privacy",
+  "/safeguarding",
+  "/accessibility",
+  "/terms",
+];
+
+/** Switched off in src/lib/features.ts — these must not be reachable. */
+const DISABLED = [
+  "/en/counselling",
+  "/en/counselling/request",
+  "/en/counselling/status",
+  "/en/portal",
+  "/en/portal/login",
+  "/en/portal/dashboard",
+  "/ha/counselling",
+];
+
+let passed = 0;
+let failed = 0;
+function check(label, ok, detail = "") {
+  if (ok) {
+    passed++;
+    console.log(`PASS  ${label}${detail ? ` — ${detail}` : ""}`);
+  } else {
+    failed++;
+    console.log(`FAIL  ${label}${detail ? ` — ${detail}` : ""}`);
+  }
+}
 
 const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
-const ctx = await browser.newContext({ viewport: { width: 1280, height: 1000 } });
-const page = await ctx.newPage();
+const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+const page = await context.newPage();
 
 const errors = [];
 const badResponses = [];
 page.on("pageerror", (e) => errors.push(String(e)));
+let expectingNotFound = false;
 page.on("console", (m) => {
-  if (m.type() === "error") errors.push(m.text());
+  // The disabled routes are visited on purpose below, and a 404 logs a console
+  // error of its own. Counting those would make the deliberate check fail the
+  // health check next to it.
+  if (m.type() === "error" && !expectingNotFound) errors.push(m.text());
 });
 page.on("response", (r) => {
-  if (r.status() >= 400) badResponses.push(`${r.status()} ${r.url()}`);
+  // The disabled routes are *expected* to 404; that is the check below.
+  const expected404 = DISABLED.some((path) => r.url().endsWith(path));
+  if (r.status() >= 400 && !expected404) badResponses.push(`${r.status()} ${r.url()}`);
 });
 
-/* ------------------------------- intake flow ------------------------------ */
-
-await page.goto(`${BASE}/en/counselling`, { waitUntil: "networkidle" });
-await page.getByRole("link", { name: /I am a secondary-school girl/i }).click();
-await page.waitForURL(/counselling\/request/);
-check("intake: category card opens the form", true);
-
-// Step 1 — about you
-await page.getByLabel(/Preferred name/i).fill("Test User");
-await page.getByLabel(/Age range/i).selectOption("16_17");
-await page.getByRole("button", { name: /Continue/i }).click();
-
-// Validation guard: leaving a required field empty must block progress.
-check(
-  "intake: step 1 accepted",
-  await page.getByRole("heading", { name: /What you'd like help with/i }).isVisible(),
-);
-
-// Step 2 — support
-await page.getByText("Academic pressure", { exact: true }).click();
-await page.getByLabel(/In your own words/i).fill("Automated smoke test entry.");
-await page.getByRole("button", { name: /Continue/i }).click();
-
-// Step 3 — contact
-await page.getByText("Phone call", { exact: true }).click();
-await page.getByRole("button", { name: /Continue/i }).click();
-check(
-  "intake: blocks continue when contact details are missing",
-  await page.getByText(/Please give us the details/i).isVisible(),
-);
-
-await page.getByLabel(/Contact details/i).fill("+234 800 111 2222");
-await page.getByRole("button", { name: /Continue/i }).click();
-
-// Step 4 — timing
-const future = new Date(Date.now() + 5 * 86400000).toISOString().slice(0, 10);
-await page.getByLabel(/Preferred date/i).fill(future);
-await page.getByRole("button", { name: "10:00 am" }).click();
-await page.getByRole("button", { name: /Continue/i }).click();
-
-// Step 5 — consent
-check(
-  "intake: consent step reached",
-  await page.getByRole("heading", { name: /^Consent$/i }).isVisible(),
-);
-// Under-18 age range must surface the guardian question.
-check(
-  "intake: guardian question shown for a minor",
-  await page.getByText(/Does a parent or guardian know/i).isVisible(),
-);
-
-await page.getByRole("button", { name: /Continue/i }).click();
-check(
-  "intake: blocks submission without consent",
-  await page.getByText(/Please confirm you have read/i).isVisible(),
-);
-
-await page.getByText(/I have read the above/i).click();
-await page.getByRole("button", { name: /Continue/i }).click();
-
-// Step 6 — review and send
-check(
-  "intake: review step reached",
-  await page.getByRole("heading", { name: /Review and send/i }).isVisible(),
-);
-await page.getByRole("button", { name: /Send my request/i }).click();
-
-await page.waitForSelector("text=Your request has been sent", { timeout: 15000 });
-const caseRef = (await page.locator("p.font-mono").first().innerText()).trim();
-const accessCode = (await page.locator("p.font-mono").nth(1).innerText()).trim();
-check("intake: request submitted", /^AAGF-\d{4}-\d{6}$/.test(caseRef), caseRef);
-check("intake: access code issued", /^[A-Z2-9]{6}$/.test(accessCode), accessCode);
-
-/* ------------------------------ status lookup ----------------------------- */
-
-// Nothing is stored in this build, so the reference just issued is not
-// findable — the lookup answers for the sample pair in src/lib/demo.ts.
-const SAMPLE_REF = "AAGF-2026-000001";
-const SAMPLE_CODE = "K7HMQ4";
-
-await page.goto(`${BASE}/en/counselling/status`, { waitUntil: "networkidle" });
-await page.getByLabel(/Case reference/i).fill(SAMPLE_REF);
-await page.getByLabel(/Access code/i).fill(SAMPLE_CODE);
-await page.getByRole("button", { name: /Check status/i }).click();
-await page.waitForSelector("text=Request status", { timeout: 10000 });
-check(
-  "status lookup: sample reference and code returns the status",
-  await page.getByText(SAMPLE_REF).first().isVisible(),
-);
-
-await page.goto(`${BASE}/en/counselling/status`, { waitUntil: "networkidle" });
-await page.getByLabel(/Case reference/i).fill(SAMPLE_REF);
-await page.getByLabel(/Access code/i).fill("WRONG1");
-await page.getByRole("button", { name: /Check status/i }).click();
-await page.waitForTimeout(1200);
-check(
-  "status lookup: wrong code is rejected",
-  await page.getByText(/couldn't find a request/i).isVisible(),
-);
-
-/* --------------------------------- portal --------------------------------- */
-
-await page.goto(`${BASE}/en/portal/dashboard`, { waitUntil: "networkidle" });
-check(
-  "portal: unauthenticated visit redirects to login",
-  page.url().includes("/portal/login"),
-  page.url(),
-);
-
-await page.getByRole("button", { name: /Dr. Amina Yusuf/i }).click();
-await page.waitForURL(/portal\/dashboard/, { timeout: 15000 });
-check("portal: therapist sign-in reaches the dashboard", true);
-
-// A therapist must not see the administrator-only surfaces.
-check(
-  "portal: therapist navigation excludes admin sections",
-  !(await page.getByRole("link", { name: /^Donations$/ }).count()),
-);
-
-await page.goto(`${BASE}/en/portal/donations`, { waitUntil: "networkidle" });
-check(
-  "portal: therapist is redirected away from an admin page",
-  page.url().includes("/portal/dashboard"),
-  page.url(),
-);
-
-// Seeded request 3 is the one left at REQUESTED with a safeguarding flag.
-const SEEDED_REF = `AAGF-${new Date().getFullYear()}-000003`;
-await page.goto(`${BASE}/en/portal/requests/${SEEDED_REF}`, { waitUntil: "networkidle" });
-check(
-  "portal: a pending request is visible to staff",
-  await page.getByText(SEEDED_REF).first().isVisible(),
-);
-check(
-  "portal: contact details are masked by default",
-  !(await page.getByText("+234 809 000 0033").count()),
-);
-await page.getByRole("button", { name: /Reveal contact details/i }).click();
-check(
-  "portal: contact details reveal on request",
-  await page.getByText("+234 809 000 0033").isVisible(),
-);
-
-// Status machine: only legal transitions are offered.
-//
-// Written against the invariant rather than a fixed starting status. The demo
-// store lives in the server process, so advancing a case here persists for the
-// life of that process — asserting "REQUESTED offers Under review" passes on a
-// fresh server and fails on the second run. What actually needs to hold is
-// that the buttons on offer are always the legal moves from wherever the case
-// currently is, which is true every run.
-const LEGAL = {
-  Requested: ["Under review", "Not taken forward"],
-  "Under review": ["Approved", "Not taken forward"],
-  Approved: ["Schedule", "Not taken forward"],
-  Scheduled: ["Confirmed", "Reschedule", "Cancelled"],
-  Confirmed: ["Completed", "Did not attend", "Reschedule", "Cancelled"],
-  Completed: ["Follow-up", "Referral", "Close case"],
-  "Follow-up": ["Completed", "Close case", "Referral"],
-};
-
-const statusNow = (await page.locator("[data-status-badge]").first().innerText().catch(() => ""))
-  .trim();
-const offered = (await page.locator("form button[type=submit]").allInnerTexts())
-  .map((s) => s.trim())
-  .filter((s) => s && s !== "Save");
-
-const legal = LEGAL[statusNow];
-check(
-  `portal: transitions offered from ${statusNow || "(unknown)"} are all legal`,
-  Boolean(legal) && offered.every((o) => legal.some((l) => o.toLowerCase().includes(l.toLowerCase()))),
-  `status=${statusNow} offered=[${offered.join(", ")}] legal=[${(legal || []).join(", ")}]`,
-);
-
-// Completing a case that has not been scheduled is the illegal move that
-// matters most — it would mark a session held that never happened.
-check(
-  "portal: a case cannot jump straight to Completed",
-  ["Requested", "Under review", "Approved"].includes(statusNow)
-    ? !offered.some((x) => /^completed$/i.test(x))
-    : true,
-  offered.join(", "),
-);
-
-// Advance by whichever legal move is on offer, and confirm it took.
-if (offered.length) {
-  const move = offered[0];
-  await page.getByRole("button", { name: move, exact: false }).first().click();
-  await page.waitForTimeout(1800);
-  const after = (await page.locator("[data-status-badge]").first().innerText().catch(() => "")).trim();
-  check("portal: the status advanced", after !== statusNow, `${statusNow} -> ${after}`);
-}
-
-/* ------------------------------ admin surfaces ---------------------------- */
-
-await page.getByRole("button", { name: /Sign out/i }).first().click();
-await page.waitForURL(/portal\/login/, { timeout: 15000 });
-check("portal: sign out returns to the login screen", true);
-await page.getByRole("button", { name: /Hauwa Bello/i }).click();
-await page.waitForURL(/portal\/dashboard/, { timeout: 15000 });
-
-for (const path of [
-  "requests",
-  "appointments",
-  "cases",
-  "content",
-  "events",
-  "donations",
-  "emergency",
-  "users",
-  "settings",
-]) {
-  const res = await page.goto(`${BASE}/en/portal/${path}`, { waitUntil: "networkidle" });
-  check(`portal (admin): /${path} renders`, res.status() === 200, `HTTP ${res.status()}`);
-}
-
-/* ------------------------------ public pages ------------------------------ */
+/* ------------------------------- public site ------------------------------ */
 
 for (const locale of ["en", "ha"]) {
-  for (const path of [
-    "",
-    "/about",
-    "/services",
-    "/resources",
-    "/events",
-    "/donate",
-    "/contact",
-    "/emergency",
-    "/privacy",
-    "/safeguarding",
-    "/terms",
-    "/accessibility",
-    "/counselling",
-  ]) {
-    const res = await page.goto(`${BASE}/${locale}${path}`, { waitUntil: "domcontentloaded" });
-    if (res.status() !== 200) check(`page ${locale}${path}`, false, `HTTP ${res.status()}`);
+  for (const path of PUBLIC_PAGES) {
+    const url = `${BASE}/${locale}${path === "/" ? "" : path}`;
+    const res = await page.goto(url, { waitUntil: "networkidle" });
+    if (res?.status() !== 200) {
+      check(`page ${locale}${path}`, false, `HTTP ${res?.status()}`);
+    }
   }
 }
 check("public pages: all render in both locales", true);
 
-/* --------------------------------- report --------------------------------- */
+/* --------------------------------- content -------------------------------- */
 
-const realErrors = errors.filter(
-  (e) =>
-    !/Download the React DevTools/i.test(e) &&
-    // The deliberate 404 above surfaces here as a generic resource message.
-    !(badResponses.length === 0 && /Failed to load resource/i.test(e)),
+await page.goto(`${BASE}/en/services`, { waitUntil: "networkidle" });
+const body = await page.locator("body").innerText();
+const AREAS = [
+  "Child abuse",
+  "Drug abuse",
+  "Sexual abuse and harassment",
+  "Social inclusion",
+  "Gender-based violence",
+];
+for (const area of AREAS) {
+  check(`services: "${area}" is listed`, body.includes(area));
+}
+check(
+  "services: both audiences are named with the current wording",
+  body.includes("Teenagers and youths") && body.includes("Married couples"),
 );
-check("no page errors", realErrors.length === 0, realErrors.slice(0, 3).join(" | "));
+check(
+  "services: the superseded wording is gone",
+  !/secondary-school girls|married women/i.test(body),
+  "no 'secondary-school girls' or 'married women'",
+);
+
+await page.goto(`${BASE}/en/emergency`, { waitUntil: "networkidle" });
+const emergency = await page.locator("body").innerText();
+check(
+  "emergency: verified contacts are shown",
+  emergency.includes("Verified") && /\+234/.test(emergency),
+);
+check(
+  "emergency: the page says plainly this is not a 24-hour service",
+  /not an emergency service/i.test(emergency),
+);
+
+/* ---------------------------- disabled features --------------------------- */
+
+expectingNotFound = true;
+for (const path of DISABLED) {
+  const res = await page.goto(`${BASE}${path}`, { waitUntil: "domcontentloaded" });
+  check(`disabled: ${path} is not reachable`, res?.status() === 404, `HTTP ${res?.status()}`);
+}
+expectingNotFound = false;
+
+await page.goto(`${BASE}/en`, { waitUntil: "networkidle" });
+const home = await page.locator("body").innerText();
+check(
+  "disabled: no counselling or staff-login entry points are offered",
+  !/get support/i.test(home) && !/staff login/i.test(home),
+);
+
+/* --------------------------------- health --------------------------------- */
+
+check("no page errors", errors.length === 0, errors.slice(0, 3).join(" | "));
 check(
   "no failing network requests",
   badResponses.length === 0,
@@ -284,6 +149,5 @@ check(
 
 await browser.close();
 
-const failed = results.filter((r) => !r.ok);
-console.log(`\n${results.length - failed.length}/${results.length} checks passed`);
-process.exit(failed.length ? 1 : 0);
+console.log(`\n${passed}/${passed + failed} checks passed`);
+process.exit(failed ? 1 : 0);

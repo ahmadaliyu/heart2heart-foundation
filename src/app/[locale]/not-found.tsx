@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Compass } from "lucide-react";
 
 import { useI18n } from "@/lib/i18n/client";
+import { supportHref } from "@/lib/support-link";
 import { localePath } from "@/lib/i18n/config";
 import { buttonClass } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -25,7 +26,7 @@ export default function NotFound() {
             {t("notFound.home")}
           </Link>
           <Link
-            href={localePath(locale, "/counselling")}
+            href={supportHref(locale)}
             className={buttonClass({ variant: "secondary" })}
           >
             {t("notFound.support")}

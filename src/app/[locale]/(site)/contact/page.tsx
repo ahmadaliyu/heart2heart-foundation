@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Clock, Mail, MapPin, MessageCircleHeart, Phone } from "lucide-react";
 
 import { getTranslations } from "@/lib/i18n/server";
+import { features } from "@/lib/features";
 import { getDictionary } from "@/lib/i18n/dictionary";
 import { isLocale, localePath } from "@/lib/i18n/config";
 import { Card } from "@/components/ui/card";
@@ -34,23 +35,28 @@ export default async function ContactPage({
 
       <div className="container-page grid gap-10 py-12 lg:grid-cols-[1fr_1.2fr] lg:gap-14 lg:py-16">
         <div className="space-y-6">
-          {/* People looking for counselling often land on Contact first. Send
-              them to the private form rather than letting them describe
-              something sensitive in a general enquiry inbox. */}
-          <Card className="border-tint-line bg-tint p-6">
-            <div className="flex size-11 items-center justify-center rounded-xl bg-surface text-brand">
-              <MessageCircleHeart aria-hidden="true" className="size-5" />
-            </div>
-            <h2 className="mt-4 text-lg">{t("contact.counsellingRedirect")}</h2>
-            <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-              {t("counselling.landingLede")}
-            </p>
-            <div className="mt-5">
-              <ButtonLink href={localePath(locale, "/counselling")}>
-                {t("contact.counsellingRedirectCta")}
-              </ButtonLink>
-            </div>
-          </Card>
+          {/* People looking for counselling often land on Contact first, so
+              this normally sends them to the private form rather than letting
+              them describe something sensitive in a general enquiry inbox.
+              With counselling switched off there is no form to send them to,
+              and pointing at a disabled route would be worse than saying
+              nothing — so the card only appears with the feature. */}
+          {features.counselling ? (
+            <Card className="border-tint-line bg-tint p-6">
+              <div className="flex size-11 items-center justify-center rounded-xl bg-surface text-brand">
+                <MessageCircleHeart aria-hidden="true" className="size-5" />
+              </div>
+              <h2 className="mt-4 text-lg">{t("contact.counsellingRedirect")}</h2>
+              <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+                {t("counselling.landingLede")}
+              </p>
+              <div className="mt-5">
+                <ButtonLink href={localePath(locale, "/counselling")}>
+                  {t("contact.counsellingRedirectCta")}
+                </ButtonLink>
+              </div>
+            </Card>
+          ) : null}
 
           <Card className="p-6">
             {/* Each dt/dd pair stays adjacent inside its wrapper — putting the

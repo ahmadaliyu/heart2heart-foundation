@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { features } from "@/lib/features";
 import { Lock } from "lucide-react";
 
 import { EmergencyBar } from "@/components/layout/emergency-bar";
@@ -29,6 +30,10 @@ export default async function CounsellingLayout({
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }) {
+  // Switched off in src/lib/features.ts. Guarding the layout means a
+  // disabled feature cannot be reached by typing the URL either.
+  if (!features.counselling) notFound();
+
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   const dict = getDictionary(locale);

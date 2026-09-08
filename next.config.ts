@@ -45,6 +45,15 @@ const confidentialPaths = [
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  // Hosts allowed to serve imagery. Covers are plain <img> today, so this only
+  // matters if next/image is adopted later — but declaring it now means adding
+  // a photograph in src/lib/data/images.ts is genuinely a one-line change.
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "images.unsplash.com" },
+      { protocol: "https", hostname: "plus.unsplash.com" },
+    ],
+  },
   async headers() {
     return [
       { source: "/:path*", headers: securityHeaders },

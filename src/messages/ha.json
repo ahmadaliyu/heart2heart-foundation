@@ -4,7 +4,7 @@
     "name": "Gidauniyar Heart2Heart",
     "short": "Heart2Heart",
     "tagline": "Wuri mai aminci don yin magana.",
-    "description": "Shawarwari da tallafi na tunani cikin sirri ga 'yan mata na sakandare da mata masu aure.",
+    "description": "Shawarwari, ilimi da tallafin al'umma kan cin zarafin yara, shan ƙwayoyi, cin zarafi ta jima'i, haɗa kai a al'umma da cin zarafi bisa jinsi — ga matasa, samari da ma'aurata.",
     "langLabel": "Harshe"
   },
   "common": {
@@ -82,44 +82,44 @@
     }
   },
   "home": {
-    "heroTitle": "Wuri mai aminci don yin magana, duk lokacin da kika shirya.",
-    "heroBody": "Gidauniyar Heart2Heart tana ba da shawarwari da tallafi na tunani cikin sirri ga 'yan mata na sakandare da mata masu aure — ba tare da yanke hukunci ba, kuma bisa yadda kika iya.",
-    "heroPrimary": "Nemi shawarwari",
-    "heroSecondary": "Yadda ake yi",
-    "heroAssurance": "Sirri · Kyauta don tambaya · Ke kika zaɓi yadda za mu amsa",
+    "heroTitle": "Wuri mai aminci don yin magana, duk lokacin da ka shirya.",
+    "heroBody": "Gidauniyar Heart2Heart tana aiki kan cin zarafin yara, shan ƙwayoyi, cin zarafi da tsangwama ta jima'i, haɗa kai a al'umma da cin zarafi bisa jinsi — tare da matasa, samari da ma'aurata, da kuma al'ummar da ke kewaye da su.",
+    "heroPrimary": "Duba abin da muke yi",
+    "heroSecondary": "Game da Gidauniyar",
+    "heroAssurance": "Shawarwari · Ilimi · Wayar da kai · Turawa",
     "missionKicker": "Manufarmu",
     "visionKicker": "Hangen nesanmu",
-    "whoTitle": "Wa muke tallafa wa",
+    "whoTitle": "Waɗanda muke aiki da su",
     "whoBody": "Ƙungiyoyi biyu, matsi iri biyu. Dukansu sun cancanci a saurare su da kyau.",
-    "servicesTitle": "Yadda muke taimakawa",
-    "servicesBody": "Duk abin da Gidauniyar ke bayarwa yana ƙarƙashin kulawar ƙwararre.",
-    "howTitle": "Yadda ake yi",
-    "howBody": "Matakai huɗu, kuma za ki iya tsayawa a kowane lokaci.",
+    "servicesTitle": "Abin da muke aiki a kai",
+    "servicesBody": "Fannoni biyar, duk ƙarƙashin kulawar ƙwararre.",
+    "howTitle": "Yadda Gidauniyar ke aiki",
+    "howBody": "Alƙawura huɗu da suka tsara duk abin da ke wannan shafin.",
     "steps": {
       "one": {
-        "title": "Ki gaya mana kaɗan",
-        "body": "Gajeren fom na sirri. Ki yi amfani da duk sunan da kike so — ba dole ne ki ba da sunanki na gaskiya ba."
+        "title": "Kulawar ƙwararru",
+        "body": "Ƙwararre ne ke tantance fannonin tallafi da yanke shawarwarin kiwon lafiya, kuma yana kula da su."
       },
       "two": {
-        "title": "Muna dubawa",
-        "body": "Ƙwararren mai ba da shawara zai karanta buƙatarki. Babu wani daban da zai gani."
+        "title": "Sirri",
+        "body": "Ba a bayyana abin da aka faɗa. Duk abin da za a taɓa rubutawa ana ajiye shi daban da sashen jama'a na wannan shafin."
       },
       "three": {
-        "title": "Mu tsara lokaci",
-        "body": "Za mu tuntuɓe ki ta yadda kika nema, mu nemo lokacin da ya dace."
+        "title": "Ilimi da wayar da kai",
+        "body": "Makarantu, shirye-shiryen al'umma da yaƙin neman wayar da kai, tare da tallafi na mutum ɗaya."
       },
       "four": {
-        "title": "Ki yi magana",
-        "body": "Zama na sirri, tare da bibiya ko turawa ga wani ƙwararre idan hakan zai taimaka."
+        "title": "Turawa",
+        "body": "Idan wani na buƙatar ƙwararren taimako ko na shari'a, Gidauniyar tana faɗa tare da turawa gaba maimakon riƙe shi."
       }
     },
-    "privacyTitle": "Abin da kika gaya mana yana nan cikin sirri",
-    "privacyBody": "Ba a taɓa ɗaukar bayanan shawarwari kamar abun ciki na yau da kullum na gidan yanar gizo ba. Ma'aikatan Gidauniyar da aka ba izini kaɗai ke ganin buƙatarki — ba baƙi, ba masu bayarwa, ba masu sa kai.",
+    "privacyTitle": "Abin da aka faɗa a nan yana nan cikin sirri",
+    "privacyBody": "Duk abin da aka raba da Gidauniyar ana ɗaukarsa a matsayin sirri. Ba a taɓa ɗaukarsa kamar abun ciki na yau da kullum na gidan yanar gizo ba, kuma baƙi, masu bayarwa ko masu sa kai ba sa ganinsa.",
     "privacyPoints": [
-      "Za ki iya amfani da sunan da kika zaɓa maimakon na gaskiya.",
-      "Ke kika zaɓi yadda za mu tuntuɓe ki, da kuma lokacin.",
-      "An ajiye buƙatarki daban da gidan yanar gizo na jama'a.",
-      "Za ki iya neman mu goge bayananki a kowane lokaci."
+      "Ana ɗaukar abin da aka tattauna a matsayin sirri.",
+      "Kai ka zaɓi yawan abin da za ka faɗa, da lokacin.",
+      "Ba a buga komai ko raba shi da baƙi, masu bayarwa ko masu sa kai ba.",
+      "Inda ake buƙatar ƙwararren taimako, Gidauniyar tana turawa gaba."
     ],
     "privacyLink": "Karanta alƙawarinmu na sirri",
     "resourcesTitle": "Karanta ki koya",
@@ -127,25 +127,25 @@
     "eventsTitle": "Abubuwan da ke tafe",
     "eventsBody": "Wayar da kai, tarurruka da shirye-shirye a cikin al'umma.",
     "donateTitle": "Taimaka mana mu ci gaba da bayarwa kyauta",
-    "donateBody": "Kowane zama da Gidauniyar ke bayarwa ana biyansa ne daga mutanen da suka yi imani cewa 'yan mata da mata sun cancanci wurin da za su juya. Gudummawa kowane girma tana buɗe ƙofa.",
+    "donateBody": "Aikin Gidauniyar ana biyansa ne daga mutanen da suka yi imani cewa matasa da iyalai sun cancanci wurin da za su juya. Gudummawa kowane girma tana buɗe ƙofa.",
     "donateCta": "Tallafa wa Gidauniyar",
-    "ctaTitle": "Ba sai kin fuskanci wannan ita kaɗai ba.",
-    "ctaBody": "Fara maganar yana ɗaukar 'yan mintuna, kuma ke kika yanke abin da zai biyo baya.",
-    "statSessions": "Zaman shawarwari da aka gudanar",
+    "ctaTitle": "Bai kamata kowa ya fuskanci wannan shi kaɗai ba.",
+    "ctaBody": "Karanta game da aikin, ko ka tuntuɓi Gidauniyar kai tsaye.",
+    "statSessions": "Mutanen da aka taimaka",
     "statSchools": "Makarantun da aka kai",
     "statVolunteers": "Masu sauƙaƙawa da aka horar",
     "statYears": "Shekaru muna tallafa wa al'umma"
   },
   "about": {
     "title": "Game da Gidauniyar",
-    "lede": "Gidauniyar Heart2Heart tana nan ne domin 'yan mata da mata a cikin al'ummarmu su sami wurin da za su amince da shi lokacin da rayuwa ta yi wuya.",
+    "lede": "Gidauniyar Heart2Heart tana nan ne domin matasa da iyalai a cikin al'ummarmu su sami wurin da za su amince da shi lokacin da rayuwa ta yi wuya.",
     "missionTitle": "Manufa",
     "visionTitle": "Hangen nesa",
-    "mission": "Bayar da shawarwari da tallafi na tunani cikin sauƙi da tausayi ga 'yan mata na sakandare da mata masu aure, muna taimaka musu su gina lafiyar tunani, juriya, da rayuwa mai koshin lafiya.",
-    "vision": "Gina tsarin tallafi amintacce inda mata da 'yan mata za su iya samun shawarwari da suka dace, ilimi, jagora, turawa ga ƙwararru, da tallafi a cikin yanayi mai aminci, mai girmamawa, kuma na sirri.",
+    "mission": "Bayar da shawarwari da tallafi na tunani cikin sauƙi da tausayi ga matasa, samari da ma'aurata, muna taimaka musu su gina lafiyar tunani, juriya, da rayuwa mai koshin lafiya.",
+    "vision": "Gina tsarin tallafi amintacce inda matasa da iyalai za su iya samun shawarwari da suka dace, ilimi, jagora, turawa ga ƙwararru, da tallafi a cikin yanayi mai aminci, mai girmamawa, kuma na sirri.",
     "problemEyebrow": "Matsalar",
     "problemTitle": "Dalilin da ya sa wannan aikin ke da muhimmanci",
-    "problemBody": "Mata da 'yan mata da yawa da ke fuskantar matsalolin tunani, dangantaka, iyali, aure ko zamantakewa ba su da wurin da ya dace kuma amintacce da za su nemi taimako. Dalilan ba su da sauƙi.",
+    "problemBody": "Matasa da iyalai da yawa da ke fuskantar cin zarafi, tashin hankali, warewa ko damuwa ta tunani ba su da wurin da ya dace kuma amintacce da za su nemi taimako. Dalilan ba su da sauƙi.",
     "barriersTitle": "Matsalolin da muka fi ji",
     "barriers": [
       "Kunyar neman taimako",
@@ -188,63 +188,122 @@
     "safeguardingLink": "Karanta alƙawarinmu na kariya"
   },
   "services": {
-    "title": "Ayyukan shawarwari da tallafi",
-    "lede": "An tsara tallafi bisa waye ke da abin da kike ɗauke da shi. Ƙwararru ne ke ƙayyade tare da kula da takamaiman ayyuka.",
-    "girlsTitle": "Ga 'yan matan sakandare",
-    "girlsBody": "Shekarun makaranta suna kawo matsi da manya ke saurin raina. Za ki iya magana kan kowanne daga cikin waɗannan — ko wani abu da ba ya cikin jerin.",
-    "womenTitle": "Ga mata masu aure",
-    "womenBody": "Aure da rayuwar iyali na iya yin wuya a tattauna da gaskiya da mutanen da suka fi kusa da ke. Wannan wuri ne inda za ki iya.",
-    "girlsAreas": [
+    "title": "Abin da muke aiki a kai",
+    "lede": "Fannoni biyar da Gidauniyar ke bayar da tallafi a kansu, ta hanyar shawarwari, ilimi, wayar da kai a cikin al'umma, da turawa ga ƙwararrun da suka dace. Abin da ake bayarwa a kowane hali ƙwararre ne ke tantancewa da kuma kulawa da shi.",
+    "areasEyebrow": "Abin da muke yi",
+    "areasTitle": "Fannonin aikinmu",
+    "areasLede": "Ana iya tattauna kowanne daga cikin waɗannan cikin sirri, kuma ba lallai ne a ambaci sunansa ba kafin wani ya saurara.",
+    "areas": [
+      {
+        "title": "Cin zarafin yara",
+        "body": "Tallafi da jagora inda lafiya ko walwalar yaro ke cikin haɗari, da turawa ga waɗanda aikinsu ne su ɗauki mataki.",
+        "includes": [
+          "Auren wuri da auren yara",
+          "Fataucin yara",
+          "Sakaci da cin gajiya",
+          "Turawa ga kariyar yara"
+        ]
+      },
+      {
+        "title": "Shan ƙwayoyi",
+        "body": "Ga masu sha, da kuma iyalan da ke kewaye da su. Ana ɗaukar shan ƙwayoyi a matsayin abin da za a fahimta a kuma yi aiki a kai, ba abin kunya ba.",
+        "includes": [
+          "Shan ƙwayoyi da jaraba",
+          "Tasiri kan iyali",
+          "Tallafin farfaɗowa",
+          "Turawa ga ƙwararrun kulawa"
+        ]
+      },
+      {
+        "title": "Cin zarafi da tsangwama ta jima'i",
+        "body": "Wuri na sirri don yin magana a kan abin da ya faru, cikin saurin da ya dace, ba tare da matsin kai rahoto ba kafin a shirya.",
+        "includes": [
+          "Tallafi bayan bayyanawa",
+          "Tsangwama a makaranta",
+          "Tsangwama a wurin aiki",
+          "Turawa ga ƙwararru da hidimomin shari'a"
+        ]
+      },
+      {
+        "title": "Haɗa kai a cikin al'umma",
+        "body": "Aiki tare da mutanen da aka ware daga rayuwar al'umma, da kuma tare da al'ummar kanta.",
+        "includes": [
+          "Kaɗaici da warewa",
+          "Kunya da wulaƙanci",
+          "Haɗa masu naƙasa",
+          "Matasan da ba sa zuwa makaranta",
+          "Shiga cikin al'umma"
+        ]
+      },
+      {
+        "title": "Cin zarafi bisa jinsi",
+        "body": "Cin zarafi yana da nau'i fiye da waɗanda ke barin alama. Duk an gane su a nan.",
+        "includes": [
+          "Na jiki",
+          "Na tunani",
+          "Na zuciya",
+          "Na tattalin arziki",
+          "Na jima'i"
+        ]
+      }
+    ],
+    "audiencesEyebrow": "Ga wa ake yi",
+    "audiencesTitle": "Waɗanda muke aiki da su",
+    "youthTitle": "Matasa da samari",
+    "youthBody": "Matasa suna fuskantar matsi da manya ke raina shi. Ana iya tattauna kowanne daga cikin waɗannan — ko wani abu da ba ya cikin jerin.",
+    "youthAreas": [
       "Matsalolin tunani",
       "Matsalolin dangantaka",
       "Matsalolin iyali",
       "Matsin karatu",
-      "Cin zarafi daga abokan karatu",
+      "Cin zarafi tsakanin abokan karatu",
       "Matsin zamantakewa",
-      "Girman kai da amincewa da kai",
-      "Ƙalubale na kai",
+      "Ƙimar kai",
+      "Ƙalubalen kai",
       "Kunya",
-      "Yanayi mai wuya na rayuwa"
+      "Yanayi masu wuya"
     ],
-    "womenAreas": [
+    "couplesTitle": "Ma'aurata",
+    "couplesBody": "Aure da rayuwar iyali na iya yin wuyar tattaunawa da gaskiya tare da waɗanda suka fi kusa da kai. Wannan wuri ne inda hakan zai yiwu — tare ko daban.",
+    "couplesAreas": [
       "Matsalolin aure",
-      "Matsalolin dangantaka",
-      "Ƙalubalen sadarwa",
+      "Rashin fahimtar juna",
       "Matsin lamba daga iyali",
       "Damuwa ta tunani",
-      "Lafiyar kai",
-      "Yanayi mai wuya a gida",
-      "Turawa ga ƙwararru masu dacewa"
+      "Ƙuncin kuɗi a gida",
+      "Walwalar kai",
+      "Yanayi masu wuya a gida",
+      "Turawa da ta dace"
     ],
-    "howTitle": "Yadda zama yake",
+    "howTitle": "Yadda Gidauniyar ke aiki",
     "how": [
       {
-        "title": "Shawarwari ɗaya-da-ɗaya",
-        "body": "Tattaunawa ta sirri da ƙwararren mai ba da shawara, fuska da fuska ko ta waya, a lokacin da aka amince a gaba."
+        "title": "Kulawar ƙwararru",
+        "body": "Ƙwararre ne ke tantance fannonin tallafi da yanke shawarwarin kiwon lafiya, kuma yana kula da su."
       },
       {
-        "title": "Bibiya",
-        "body": "Idan zai taimaka, muna shirya ƙarin zama. Ba a yanke komai ba tare da ke ba."
-      },
-      {
-        "title": "Turawa ga ƙwararre",
-        "body": "Inda kulawa ta musamman ita ce amsar da ta dace, muna haɗa ki da ƙwararre ko ƙungiya mai dacewa."
+        "title": "Sirri",
+        "body": "Ba a bayyana abin da aka faɗa. Duk abin da za a taɓa rubutawa ana ajiye shi daban da sashen jama'a na wannan shafin."
       },
       {
         "title": "Ilimi da wayar da kai",
-        "body": "Tarurruka, ziyarar makarantu da kayan koyo da ke sauƙaƙa waɗannan tattaunawa."
+        "body": "Makarantu, shirye-shiryen al'umma da yaƙin neman wayar da kai, tare da tallafi na mutum ɗaya."
+      },
+      {
+        "title": "Turawa",
+        "body": "Idan wani na buƙatar ƙwararren taimako ko na shari'a, Gidauniyar tana faɗa tare da turawa gaba maimakon riƙe shi."
       }
     ],
-    "limitsTitle": "Abin da ba mu ba",
-    "limitsBody": "Gidauniyar ba hidimar gaggawa ba ce kuma ba ta iya ba da amsa ta rikici na awa 24, magani, ko wakilcin shari'a. Idan kina cikin haɗari nan take, don Allah ki yi amfani da shafin gaggawa.",
-    "cta": "Nemi shawarwari"
+    "limitsTitle": "Abin da Gidauniyar ba ita ba ce",
+    "limitsBody": "Gidauniyar Heart2Heart ba hidimar gaggawa ba ce kuma ba ta aiki cikin awa 24. A cikin haɗari nan take, a tuntuɓi 'yan sanda ko asibitin da ke kusa — shafin gaggawa yana lissafa lambobin da aka tabbatar.",
+    "cta": "Tuntuɓi Gidauniyar"
   },
   "counselling": {
     "landingTitle": "Nemi shawarwari",
     "landingLede": "Wannan fom na sirri ne. Yana zuwa ga ma'aikatan shawarwari na Gidauniyar kaɗai — babu wani da zai gani, kuma ba ya bayyana a gidan yanar gizo na jama'a.",
     "chooseCategory": "Wanne ya fi bayyana ki?",
     "categoryHint": "Wannan yana taimaka mana mu haɗa ki da tallafin da ya dace. Za ki iya canza shi daga baya.",
-    "girlCard": "Ni 'yar makarantar sakandare ce",
+    "girlCard": "Ni matashi ne / matashiya ce",
     "girlCardBody": "Tallafi kan matsin karatu, abokantaka, iyali, cin zarafi, amincewa da kai da duk abin da ke damun ki.",
     "womanCard": "Ni mace mai aure ce",
     "womanCardBody": "Tallafi kan aure, matsin iyali, sadarwa, lafiyar tunani da yanayi mai wuya a gida.",
@@ -498,7 +557,7 @@
     "emailTitle": "Imel"
   },
   "footer": {
-    "tagline": "Shawarwari da tallafi na tunani cikin tausayi ga 'yan matan sakandare da mata masu aure.",
+    "tagline": "Shawarwari, ilimi da tallafin al'umma ga matasa, samari da ma'aurata.",
     "explore": "Bincika",
     "support": "Tallafi",
     "legal": "Shari'a",
@@ -614,12 +673,12 @@
   },
   "enums": {
     "category": {
-      "SCHOOL_GIRL": "'Yar makarantar sakandare",
-      "MARRIED_WOMAN": "Mace mai aure"
+      "TEEN_YOUTH": "'Yar makarantar sakandare",
+      "MARRIED_COUPLE": "Ma'aurata"
     },
     "categoryShort": {
-      "SCHOOL_GIRL": "'Yar makaranta",
-      "MARRIED_WOMAN": "Mace mai aure"
+      "TEEN_YOUTH": "'Yar makaranta",
+      "MARRIED_COUPLE": "Ma'aurata"
     },
     "ageRange": {
       "UNDER_13": "Ƙasa da 13",
