@@ -10,8 +10,18 @@ cp .env.example .env.local
 npm run dev            # http://localhost:3000
 ```
 
-Node 20.9+ (see `.nvmrc` and `engines`). Pinning it matters: a build that works
-locally and fails on deploy is usually two different Node versions.
+Node 20.9+ (see `.nvmrc` and `engines`).
+
+`NEXT_PUBLIC_SITE_URL` is optional. If it is set, a bare hostname is fine —
+`heart2heart.ng` is normalised to `https://heart2heart.ng`. If it is unset,
+empty or unparseable the app falls back to the Vercel deployment URL and then to
+localhost, and warns. **It can no longer break the build**, which it previously
+did: `new URL()` throws without a scheme, that call sat inside
+`generateMetadata`, and `generateMetadata` runs for every page during static
+generation — so one missing `https://` killed the deployment with
+`Error occurred prerendering page "/en/about"`, naming a page that had nothing
+to do with it and redacting the real message. `scripts/env.mjs` covers the
+inputs a deployment dashboard actually produces.
 
 ---
 
@@ -281,7 +291,11 @@ npm run test:a11y      # axe-core WCAG 2.1 AA, 25 pages × both themes
 npm run test:gaps      # vertical-whitespace audit
 npm run test:hydration # server HTML vs hydrated DOM
 npm run test:tokens    # the two dark-token blocks have not drifted
+npm run test:env       # no dashboard-shaped env value can break the build
 ```
+
+`npm run verify` runs the static half of that (typecheck, lint, tokens, env,
+build) and needs no server.
 
 `scripts/smoke.mjs` is written against invariants rather than fixed starting
 states — the demo store lives in the server process, so a case advanced by one

@@ -8,8 +8,7 @@ import { getDictionary } from "@/lib/i18n/dictionary";
 import { isLocale, locales, localeDirection, type Locale } from "@/lib/i18n/config";
 import { ServiceWorker } from "@/components/pwa/service-worker";
 import { ThemeProvider, themeScript } from "@/components/layout/theme";
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+import { siteUrl } from "@/lib/site-url";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -24,7 +23,7 @@ export async function generateMetadata({
   const dict = getDictionary(isLocale(locale) ? locale : "en");
 
   return {
-    metadataBase: new URL(siteUrl),
+    metadataBase: siteUrl,
     title: {
       default: `${dict.meta.name} — ${dict.meta.tagline}`,
       template: `%s · ${dict.meta.name}`,
