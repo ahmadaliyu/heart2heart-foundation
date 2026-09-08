@@ -43,7 +43,8 @@
     "upcoming": "Upcoming",
     "verified": "Verified",
     "themeDark": "Switch to dark mode",
-    "themeLight": "Switch to light mode"
+    "themeLight": "Switch to light mode",
+    "themeToggle": "Switch theme"
   },
   "nav": {
     "home": "Home",

@@ -44,7 +44,8 @@
     "upcoming": "Masu zuwa",
     "verified": "An tabbatar",
     "themeDark": "Sauya zuwa yanayin duhu",
-    "themeLight": "Sauya zuwa yanayin haske"
+    "themeLight": "Sauya zuwa yanayin haske",
+    "themeToggle": "Sauya yanayin gani"
   },
   "nav": {
     "home": "Gida",

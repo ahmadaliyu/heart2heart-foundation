@@ -158,6 +158,15 @@ touches the toggle, and remembers their choice afterwards. Colour transitions
 are switched on one frame later, so opening the site in dark mode does not
 animate in from white.
 
+**Nothing in `ThemeToggle` may depend on the theme until it has mounted.** The
+server cannot know the reader's theme, so it renders a neutral state; `mounted`
+starts `false` on both sides, which makes the hydration render identical to the
+server HTML *by construction*. This is not belt-and-braces: `theme` comes from a
+provider high in the tree, and with selective hydration the provider's effect
+can commit *before* the button hydrates, so the button would hydrate against an
+already-updated context. Deriving `title`/`aria-label` straight from `theme` did
+exactly that and produced a genuine, intermittent attribute mismatch.
+
 `npm run test:a11y` audits **both themes**, and asserts that the theme actually
 applied before trusting the result — otherwise the dark pass would silently
 become a second light pass that always agrees.
@@ -232,8 +241,9 @@ builds only.
 npm run verify        # typecheck + lint + production build
 npm run build && npm start &
 npm run test:smoke    # end-to-end: intake → case ref → portal review
-npm run test:a11y     # axe-core WCAG 2.1 AA, 25 pages × both themes
-npm run test:gaps     # vertical-whitespace audit
+npm run test:a11y      # axe-core WCAG 2.1 AA, 25 pages × both themes
+npm run test:gaps      # vertical-whitespace audit
+npm run test:hydration # server HTML vs hydrated DOM
 ```
 
 `scripts/smoke.mjs` walks the real journey: a beneficiary completes the intake
@@ -247,8 +257,15 @@ the status. 32 checks.
 real accessibility problems, so this is a floor: keyboard and screen-reader
 testing on the counselling flow still has to be done by a person.
 
-`scripts/gaps.mjs` reports vertical dead space. `scripts/shots.mjs` takes
-screenshots for design review.
+`scripts/gaps.mjs` reports vertical dead space.
+
+`scripts/hydration.mjs` compares the server HTML against the hydrated DOM,
+element by element, and reports attribute differences. React only warns about a
+hydration mismatch if you happen to load the page in the state that triggers
+one, which is a bad way to find them: this makes the divergence visible whether
+or not React noticed. It found a real one in the theme toggle (below).
+
+`scripts/shots.mjs` takes screenshots for design review.
 
 ---
 

@@ -107,13 +107,27 @@ export function ThemeToggle({
 
   useEffect(() => setMounted(true), []);
 
-  const next = theme === "dark" ? "light" : "dark";
-  const label = t(next === "dark" ? "common.themeDark" : "common.themeLight");
+  /**
+   * NOTHING rendered here may depend on `theme` until `mounted` is true.
+   *
+   * The server cannot know the reader's theme, so it always renders the
+   * pre-mount output. `mounted` starts false on both sides, which makes the
+   * hydration render identical to the server HTML *by construction* — not just
+   * in the common case. That matters because `theme` comes from a provider
+   * higher in the tree: with selective hydration, the provider's effect can
+   * commit before this button hydrates, and this subtree would then hydrate
+   * against an already-updated context. Deriving `title`/`aria-label` straight
+   * from `theme` did exactly that, and produced a real attribute mismatch.
+   */
+  const label = mounted
+    ? t(theme === "dark" ? "common.themeLight" : "common.themeDark")
+    : t("common.themeToggle");
 
   return (
     <button
       type="button"
-      onClick={() => setTheme(next)}
+      data-theme-toggle=""
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       title={label}
       aria-label={label}
       className={cn(
@@ -124,9 +138,6 @@ export function ThemeToggle({
         className,
       )}
     >
-      {/* Before hydration the stored theme is unknown, so both icons would be a
-          guess. The sun is rendered as a neutral placeholder and swapped once
-          the real value is in hand — the swap is invisible at this size. */}
       {mounted && theme === "dark" ? (
         <Sun aria-hidden="true" className="size-4" />
       ) : (

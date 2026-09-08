@@ -12,6 +12,7 @@
     "test:smoke": "node scripts/smoke.mjs",
     "test:a11y": "node scripts/a11y.mjs",
     "test:gaps": "node scripts/gaps.mjs",
+    "test:hydration": "node scripts/hydration.mjs",
     "verify": "npm run typecheck && npm run lint && npm run build"
   },
   "dependencies": {

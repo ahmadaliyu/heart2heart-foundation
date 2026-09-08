@@ -68,10 +68,21 @@ async function audit(url) {
   // Contrast is theme-dependent, so assert the theme actually took effect
   // rather than trusting that it did — a silent failure here would turn the
   // dark pass into a second light pass that always agrees.
-  const applied = await page.evaluate(() =>
-    document.documentElement.getAttribute("data-theme"),
-  );
-  if (applied !== theme) {
+  //
+  // Waited for rather than sampled: the attribute is set by an inline script
+  // during parsing, and evaluating once right after navigation can land in the
+  // gap before it runs. Sampling made this report a phantom failure roughly one
+  // run in fifty.
+  try {
+    await page.waitForFunction(
+      (want) => document.documentElement.getAttribute("data-theme") === want,
+      theme,
+      { timeout: 5000 },
+    );
+  } catch {
+    const applied = await page.evaluate(() =>
+      document.documentElement.getAttribute("data-theme"),
+    );
     console.log(`\n[${theme}] ${url}\n  theme did not apply (data-theme=${applied})`);
     total += 1;
     return;
