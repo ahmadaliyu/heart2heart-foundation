@@ -24,11 +24,7 @@ page.on("console", (m) => {
   if (m.type() === "error") errors.push(m.text());
 });
 page.on("response", (r) => {
-  // The status endpoint answers 404 for a wrong access code by design — that
-  // is the check below, not a fault.
-  if (r.status() >= 400 && !r.url().includes("/api/counselling/status")) {
-    badResponses.push(`${r.status()} ${r.url()}`);
-  }
+  if (r.status() >= 400) badResponses.push(`${r.status()} ${r.url()}`);
 });
 
 /* ------------------------------- intake flow ------------------------------ */
@@ -106,21 +102,26 @@ check("intake: access code issued", /^[A-Z2-9]{6}$/.test(accessCode), accessCode
 
 /* ------------------------------ status lookup ----------------------------- */
 
+// Nothing is stored in this build, so the reference just issued is not
+// findable — the lookup answers for the sample pair in src/lib/demo.ts.
+const SAMPLE_REF = "AAGF-2026-000001";
+const SAMPLE_CODE = "K7HMQ4";
+
 await page.goto(`${BASE}/en/counselling/status`, { waitUntil: "networkidle" });
-await page.getByLabel(/Case reference/i).fill(caseRef);
-await page.getByLabel(/Access code/i).fill(accessCode);
+await page.getByLabel(/Case reference/i).fill(SAMPLE_REF);
+await page.getByLabel(/Access code/i).fill(SAMPLE_CODE);
 await page.getByRole("button", { name: /Check status/i }).click();
 await page.waitForSelector("text=Request status", { timeout: 10000 });
 check(
-  "status lookup: correct reference and code returns the status",
-  await page.getByText(/waiting to be reviewed/i).isVisible(),
+  "status lookup: sample reference and code returns the status",
+  await page.getByText(SAMPLE_REF).first().isVisible(),
 );
 
 await page.goto(`${BASE}/en/counselling/status`, { waitUntil: "networkidle" });
-await page.getByLabel(/Case reference/i).fill(caseRef);
+await page.getByLabel(/Case reference/i).fill(SAMPLE_REF);
 await page.getByLabel(/Access code/i).fill("WRONG1");
 await page.getByRole("button", { name: /Check status/i }).click();
-await page.waitForTimeout(800);
+await page.waitForTimeout(1200);
 check(
   "status lookup: wrong code is rejected",
   await page.getByText(/couldn't find a request/i).isVisible(),
@@ -152,19 +153,21 @@ check(
   page.url(),
 );
 
-await page.goto(`${BASE}/en/portal/requests/${caseRef}`, { waitUntil: "networkidle" });
+// Seeded request 3 is the one left at REQUESTED with a safeguarding flag.
+const SEEDED_REF = `AAGF-${new Date().getFullYear()}-000003`;
+await page.goto(`${BASE}/en/portal/requests/${SEEDED_REF}`, { waitUntil: "networkidle" });
 check(
-  "portal: the new request is visible to staff",
-  await page.getByText(caseRef).first().isVisible(),
+  "portal: a pending request is visible to staff",
+  await page.getByText(SEEDED_REF).first().isVisible(),
 );
 check(
   "portal: contact details are masked by default",
-  !(await page.getByText("+234 800 111 2222").count()),
+  !(await page.getByText("+234 809 000 0033").count()),
 );
 await page.getByRole("button", { name: /Reveal contact details/i }).click();
 check(
   "portal: contact details reveal on request",
-  await page.getByText("+234 800 111 2222").isVisible(),
+  await page.getByText("+234 809 000 0033").isVisible(),
 );
 
 // Status machine: only legal transitions are offered.
@@ -187,9 +190,9 @@ check(
 
 /* ------------------------------ admin surfaces ---------------------------- */
 
-await page.goto(`${BASE}/en/portal/login`, { waitUntil: "networkidle" });
-await page.evaluate(() => fetch("/api/portal/session", { method: "DELETE" }));
-await page.reload({ waitUntil: "networkidle" });
+await page.getByRole("button", { name: /Sign out/i }).first().click();
+await page.waitForURL(/portal\/login/, { timeout: 15000 });
+check("portal: sign out returns to the login screen", true);
 await page.getByRole("button", { name: /Hauwa Bello/i }).click();
 await page.waitForURL(/portal\/dashboard/, { timeout: 15000 });
 

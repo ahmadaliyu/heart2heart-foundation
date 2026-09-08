@@ -10,6 +10,9 @@ cp .env.example .env.local
 npm run dev            # http://localhost:3000
 ```
 
+Node 20.9+ (see `.nvmrc` and `engines`). Pinning it matters: a build that works
+locally and fails on deploy is usually two different Node versions.
+
 ---
 
 ## What is here
@@ -21,11 +24,18 @@ npm run dev            # http://localhost:3000
 | Counselling | `/[locale]/counselling` | Category choice → 6-step private intake → case reference |
 | Status lookup | `/[locale]/counselling/status` | Reference + access code, no account needed |
 | Staff portal | `/[locale]/portal` | Dashboard, requests, appointments, cases, CMS, events, donations, emergency resources, users, settings |
-| API | `/api/*` | Route handlers standing in for the NestJS API |
 
 Sign in to the portal at `/en/portal/login`. The demo build has no password
 check — pick an account. **Hauwa Bello** is an administrator, **Dr. Amina
 Yusuf** is the therapist; the two see different navigation and different data.
+
+> **There is no API in this build.** Every form resolves locally against dummy
+> data and nothing is recorded: submitting the intake form issues a case
+> reference that will not appear in the portal, and the contact and donation
+> forms send nothing. `src/lib/demo.ts` is the seam — four functions, each
+> already shaped like the endpoint that will replace it, so connecting the
+> NestJS API touches no screen. Sign-in is the one exception: it uses a Server
+> Action so the session cookie can stay `httpOnly`.
 
 ---
 
@@ -194,10 +204,18 @@ legal transition. The portal renders action buttons *from* that graph and the
 server action re-checks it, so a button can never put a case into a state the
 Foundation's process does not allow — a replayed form post included.
 
-**3. Data access goes through one module.** Screens import from `src/lib/data`
-and never from a fixture file. The in-memory store implements the same shapes
-the NestJS API is expected to return, so replacing it means changing those
-functions to `fetch` calls and touching no screen.
+**3. Data access goes through two modules, and only two.** Server-rendered
+screens import from `src/lib/data` (the in-memory fixtures); anything a form
+submits goes through `src/lib/demo.ts`. Neither is imported from a fixture file
+directly, so connecting the real API means editing those functions and nothing
+else.
+
+**Cover art is abstract on purpose.** Stock photography of distressed women is
+the last thing this audience should meet before asking for help, so article and
+video covers are generated brand shapes — the mark's two crossing ribbons at
+texture scale — produced by `scripts/covers.py` and stable per slug. Real
+photography can replace them file for file; the constraint that should survive
+is the subject matter, not the format.
 
 **4. Accessibility is a build output.** `npm run test:a11y` runs axe-core
 (WCAG 2.1 A + AA) across 25 pages — both locales, the signed-in portal, and
@@ -273,7 +291,10 @@ or not React noticed. It found a real one in the theme toggle (below).
 
 These are marked in the code at the point they matter.
 
-1. **Authentication.** `src/lib/session.ts` is a demo stand-in that verifies
+0. **The API itself.** `src/lib/demo.ts` answers every form locally. Connect
+   NestJS there.
+1. **Authentication.** `src/lib/session.ts` and
+   `src/app/[locale]/portal/session-actions.ts` are demo stand-ins that verify
    nothing. The real implementation needs argon2id password hashing, a
    rate-limited login endpoint, signed rotating session cookies, a short idle
    timeout, a second factor for accounts that read clinical notes, and an
@@ -308,7 +329,6 @@ src/
       (site)/            public website
       counselling/       private intake — own chrome, noindex, no-store
       portal/            staff portal — (app) group is session-gated
-    api/                 route handlers (stand-in for the NestJS API)
     globals.css          design tokens, @font-face, utilities, motion
   components/
     brand/               the mark and lockup
@@ -317,14 +337,16 @@ src/
   lib/
     i18n/                locale config, dictionaries, server + client translators
     data/                demo store — the single data access point
+    demo.ts              THE BACKEND SEAM — every form resolves here
     status.ts            appointment/case transition graph
     case-ref.ts          AAGF-YYYY-NNNNNN references and access codes
     validation.ts        zod schemas shared by the form and the API
     session.ts           DEMO session — replace before launch
   messages/              en.json, ha.json
 public/
-  brand/  fonts/  sw.js  manifest.webmanifest
-scripts/                 smoke.mjs, a11y.mjs, shots.mjs
+  brand/  covers/  fonts/  sw.js  manifest.webmanifest
+scripts/                 smoke.mjs, a11y.mjs, hydration.mjs, gaps.mjs,
+                         covers.py, shots.mjs
 ```
 
 ## Stack

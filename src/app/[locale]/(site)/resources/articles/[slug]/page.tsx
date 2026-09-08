@@ -83,6 +83,17 @@ export default async function ArticlePage({
           </div>
         </header>
 
+        {/* Cover, bleeding the full width and overlapping the header edge so
+            the article opens on the image rather than on another band. */}
+        <div className="container-page max-w-4xl">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={article.image}
+            alt=""
+            className="-mt-6 aspect-16/7 w-full rounded-panel border border-line object-cover shadow-md"
+          />
+        </div>
+
         <div className="container-page max-w-3xl py-12">
           <div className="space-y-6 text-[1.0625rem] leading-[1.75] text-ink">
             {article.body.map((paragraph, index) => (

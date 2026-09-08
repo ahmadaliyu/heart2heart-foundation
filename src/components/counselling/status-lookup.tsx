@@ -11,40 +11,35 @@ import { Card } from "@/components/ui/card";
 import { Alert } from "@/components/ui/alert";
 import { Field, TextInput } from "@/components/ui/field";
 import { StatusBadge } from "@/components/portal/status-badge";
-import type { AppointmentStatus } from "@/lib/types";
 import { formatDateTime } from "@/lib/utils";
-
-interface Result {
-  caseRef: string;
-  status: AppointmentStatus;
-  updatedAt: string;
-}
+import {
+  lookupCaseStatus,
+  SAMPLE_ACCESS_CODE,
+  SAMPLE_CASE_REF,
+  type CaseStatusResult,
+} from "@/lib/demo";
 
 export function StatusLookup() {
   const { locale, t } = useI18n();
   const [caseRef, setCaseRef] = useState("");
   const [accessCode, setAccessCode] = useState("");
   const [state, setState] = useState<"idle" | "checking" | "found" | "not-found">("idle");
-  const [result, setResult] = useState<Result | null>(null);
+  const [result, setResult] = useState<CaseStatusResult | null>(null);
 
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
     setState("checking");
 
     try {
-      const response = await fetch("/api/counselling/status", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ caseRef, accessCode }),
-      });
-
-      if (!response.ok) {
+      // No API in this build — see src/lib/demo.ts. The lookup resolves
+      // against a pair of sample cases; anything else reports not found.
+      const found = await lookupCaseStatus(caseRef, accessCode);
+      if (!found) {
         setState("not-found");
         setResult(null);
         return;
       }
-
-      setResult((await response.json()) as Result);
+      setResult(found);
       setState("found");
     } catch {
       setState("not-found");
@@ -91,6 +86,14 @@ export function StatusLookup() {
           <Search aria-hidden="true" className="size-4" />
           {state === "checking" ? t("common.loading") : t("counselling.status.check")}
         </Button>
+
+        {/* Remove with the demo data once the API is connected. */}
+        <p className="text-center text-xs text-ink-faint">
+          {t("counselling.status.demoHint", {
+            ref: SAMPLE_CASE_REF,
+            code: SAMPLE_ACCESS_CODE,
+          })}
+        </p>
       </Card>
 
       {state === "not-found" ? (

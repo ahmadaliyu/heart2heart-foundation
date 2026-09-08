@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Alert } from "@/components/ui/alert";
 import { Field, TextInput } from "@/components/ui/field";
 import { initials } from "@/lib/utils";
+import { signIn } from "@/app/[locale]/portal/session-actions";
 
 export function LoginForm({ accounts }: { accounts: StaffUser[] }) {
   const { locale, t } = useI18n();
@@ -18,17 +19,13 @@ export function LoginForm({ accounts }: { accounts: StaffUser[] }) {
   const [pending, setPending] = useState<string | null>(null);
   const [error, setError] = useState(false);
 
-  async function signIn(staffId: string) {
+  async function chooseAccount(staffId: string) {
     setPending(staffId);
     setError(false);
 
-    const response = await fetch("/api/portal/session", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ staffId }),
-    });
+    const result = await signIn(staffId);
 
-    if (!response.ok) {
+    if (!result.ok) {
       setError(true);
       setPending(null);
       return;
@@ -98,7 +95,7 @@ export function LoginForm({ accounts }: { accounts: StaffUser[] }) {
           <li key={account.id}>
             <button
               type="button"
-              onClick={() => signIn(account.id)}
+              onClick={() => chooseAccount(account.id)}
               disabled={pending !== null}
               className="group/acc flex w-full items-center gap-3.5 rounded-2xl border border-line p-3.5 text-left transition-all duration-250 hover:-translate-y-0.5 hover:border-plum-300 hover:shadow-sm disabled:opacity-60"
             >

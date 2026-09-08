@@ -6,6 +6,7 @@ import { HeartHandshake, Lock } from "lucide-react";
 
 import { useI18n } from "@/lib/i18n/client";
 import { localePath } from "@/lib/i18n/config";
+import { submitDonation } from "@/lib/demo";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Field, Select, TextInput } from "@/components/ui/field";
@@ -49,20 +50,9 @@ export function DonateForm() {
 
     setSubmitting(true);
     try {
-      const response = await fetch("/api/donations", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          amount: effectiveAmount * 100, // kobo
-          donorName: anonymous ? "Anonymous" : name.trim(),
-          donorEmail: email.trim() || undefined,
-          anonymous,
-          recurring: frequency === "MONTHLY",
-          designation,
-        }),
-      });
-      if (!response.ok) throw new Error("failed");
-      const data = (await response.json()) as { reference: string };
+      // No API and no payment provider in this build — see src/lib/demo.ts.
+      // Nothing is charged and no donation is recorded.
+      const data = await submitDonation();
       router.push(
         `${localePath(locale, "/donate/thank-you")}?ref=${encodeURIComponent(data.reference)}`,
       );

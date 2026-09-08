@@ -14,10 +14,14 @@ import type { Translator } from "@/lib/i18n/translate";
 import { cn, formatDate, formatTime } from "@/lib/utils";
 
 /**
- * There is deliberately no photography anywhere in these cards. Stock imagery
- * of distressed women is the last thing this audience needs to meet before
- * asking for help, so the cards carry themselves on type, space and one
- * accent rule that draws on hover.
+ * Cover art is abstract, and deliberately so.
+ *
+ * Stock photography of distressed women is the last thing this audience should
+ * meet before asking for help, so the covers are generated brand shapes — the
+ * mark's two crossing ribbons at texture scale — rather than pictures of
+ * people. Each is derived from the item's slug, so it is stable and distinct.
+ * Real photography can replace them file for file; the constraint that should
+ * survive is the subject matter, not the format.
  */
 export function ArticleCard({
   article,
@@ -39,11 +43,36 @@ export function ArticleCard({
         size === "lg" ? "p-7 sm:p-9" : "p-6",
       )}
     >
-      {/* Accent rule along the top edge, drawn on hover. */}
-      <span
-        aria-hidden="true"
-        className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-linear-to-r from-amber-400 to-plum-500 transition-transform duration-500 ease-[var(--ease-out-soft)] group-hover:scale-x-100"
-      />
+      {/* The cover bleeds to the card's edges, so its negative margins have to
+          cancel exactly the padding this size sets above. */}
+      <div
+        className={cn(
+          "relative overflow-hidden border-b border-line",
+          size === "lg" ? "-mx-7 -mt-7 mb-7 sm:-mx-9 sm:-mt-9 sm:mb-8" : "-mx-6 -mt-6 mb-6",
+        )}
+      >
+        {/* A real <img>, not a CSS background: the cover is content, so it
+            belongs in the DOM where assistive tech, print and lazy loading can
+            all reach it. next/image is skipped deliberately — these are SVGs,
+            which it cannot optimise, and avoiding it keeps `sharp` out of the
+            dependency tree. */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={article.image}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          className={cn(
+            "block w-full object-cover transition-transform duration-700 ease-[var(--ease-out-soft)] group-hover:scale-[1.04]",
+            size === "lg" ? "aspect-16/9" : "aspect-16/10",
+          )}
+        />
+        {/* Accent rule along the bottom edge of the cover, drawn on hover. */}
+        <span
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-linear-to-r from-amber-400 to-plum-500 transition-transform duration-500 ease-[var(--ease-out-soft)] group-hover:scale-x-100"
+        />
+      </div>
 
       <div className="flex items-center justify-between gap-3">
         <span className="eyebrow text-accent">
@@ -169,12 +198,25 @@ export function VideoCard({
     <Card as="article" interactive className="group flex flex-col overflow-hidden">
       <div
         aria-hidden="true"
-        className="relative flex aspect-16/10 items-center justify-center bg-night-rich"
+        className="relative flex aspect-16/10 items-center justify-center overflow-hidden bg-night"
       >
-        <span className="flex size-14 items-center justify-center rounded-full bg-white/12 backdrop-blur transition-transform duration-400 ease-[var(--ease-out-soft)] group-hover:scale-110">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={video.image}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 size-full object-cover transition-transform duration-700 ease-[var(--ease-out-soft)] group-hover:scale-[1.05]"
+        />
+        {/* Darkened towards the bottom so the duration stays legible whatever
+            the thumbnail behind it does. */}
+        <span className="absolute inset-0 bg-linear-to-t from-black/55 via-transparent to-transparent" />
+        {/* Solid dark rather than translucent white: a frosted button vanishes
+            on a pale thumbnail, and the covers vary from near-white to night. */}
+        <span className="relative flex size-14 items-center justify-center rounded-full bg-night/70 ring-1 ring-white/25 backdrop-blur-sm transition-all duration-400 ease-[var(--ease-out-soft)] group-hover:scale-110 group-hover:bg-night/85">
           <Play className="ml-0.5 size-5 fill-white text-white" />
         </span>
-        <span className="eyebrow absolute bottom-4 right-4 rounded-full bg-black/40 px-2.5 py-1 text-white">
+        <span className="eyebrow absolute bottom-4 right-4 rounded-full bg-black/55 px-2.5 py-1 text-white backdrop-blur-sm">
           {video.durationMinutes} min
         </span>
       </div>

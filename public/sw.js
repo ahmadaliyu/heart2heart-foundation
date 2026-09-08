@@ -30,7 +30,6 @@ const PRECACHE = [
 const NEVER_CACHE = [
   /\/counselling(\/|$)/,
   /\/portal(\/|$)/,
-  /^\/api\//,
 ];
 
 function isConfidential(url) {

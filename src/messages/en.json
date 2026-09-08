@@ -357,7 +357,8 @@
         "NO_SHOW": "The session was missed. You are welcome to arrange another.",
         "FOLLOW_UP": "A follow-up has been arranged.",
         "CLOSED": "This case is closed. You can always start a new request."
-      }
+      },
+      "demoHint": "Demo build — try reference {ref} with code {code}."
     },
     "errors": {
       "preferredNameRequired": "Please give us a name to use — any name is fine.",

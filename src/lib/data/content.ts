@@ -9,6 +9,7 @@ import { daysFromNow } from "@/lib/data/helpers";
 export const articles: Article[] = [
   {
     slug: "when-you-cannot-name-what-you-feel",
+    image: "/covers/when-you-cannot-name-what-you-feel.svg",
     title: "When you can't name what you feel",
     excerpt:
       "Not every difficult feeling arrives with a label. Here is how to start describing it, to yourself first and then to someone else.",
@@ -29,6 +30,7 @@ export const articles: Article[] = [
   },
   {
     slug: "talking-to-your-husband-when-conversations-keep-going-wrong",
+    image: "/covers/talking-to-your-husband-when-conversations-keep-going-wrong.svg",
     title: "When the same conversation keeps going wrong",
     excerpt:
       "Most couples do not argue about many things. They argue about the same few things, in the same way. Changing the shape of the conversation often matters more than winning it.",
@@ -49,6 +51,7 @@ export const articles: Article[] = [
   },
   {
     slug: "school-pressure-and-what-actually-helps",
+    image: "/covers/school-pressure-and-what-actually-helps.svg",
     title: "School pressure, and what actually helps",
     excerpt:
       "Exams, expectations and everyone seeming to cope better than you. A practical look at what is really going on and what makes it lighter.",
@@ -69,6 +72,7 @@ export const articles: Article[] = [
   },
   {
     slug: "what-a-healthy-relationship-actually-looks-like",
+    image: "/covers/what-a-healthy-relationship-actually-looks-like.svg",
     title: "What a healthy relationship actually looks like",
     excerpt:
       "Beyond \"he doesn't hit me\". The everyday signs that a relationship is good for you — and the ones that say it isn't.",
@@ -90,6 +94,7 @@ export const articles: Article[] = [
   },
   {
     slug: "how-to-support-a-girl-who-is-struggling",
+    image: "/covers/how-to-support-a-girl-who-is-struggling.svg",
     title: "How to support a girl who is struggling",
     excerpt:
       "For parents, teachers and older sisters: what to say, what not to say, and what to do when she won't talk to you.",
@@ -110,6 +115,7 @@ export const articles: Article[] = [
   },
   {
     slug: "saying-what-you-mean",
+    image: "/covers/saying-what-you-mean.svg",
     title: "Saying what you mean without starting a fight",
     excerpt: "Four sentence patterns that make hard conversations easier to start and easier to finish.",
     body: [
@@ -129,6 +135,7 @@ export const articles: Article[] = [
   },
   {
     slug: "rebuilding-confidence-after-a-hard-year",
+    image: "/covers/rebuilding-confidence-after-a-hard-year.svg",
     title: "Rebuilding confidence after a hard year",
     excerpt: "Confidence is not a personality trait you were born with or without. It is rebuilt in small, specific pieces.",
     body: [
@@ -148,6 +155,7 @@ export const articles: Article[] = [
   },
   {
     slug: "when-family-pressure-becomes-too-much",
+    image: "/covers/when-family-pressure-becomes-too-much.svg",
     title: "When family pressure becomes too much",
     excerpt: "Expectations from parents and in-laws are real, and so are your limits. Holding both is possible.",
     body: [
@@ -167,6 +175,7 @@ export const articles: Article[] = [
   },
   {
     slug: "understanding-anxiety",
+    image: "/covers/understanding-anxiety.svg",
     title: "Understanding anxiety in everyday language",
     excerpt: "What anxiety is, what it is not, and why it makes ordinary tasks feel enormous.",
     body: [
@@ -189,6 +198,7 @@ export const articles: Article[] = [
 export const videos: VideoResource[] = [
   {
     id: "vid_1",
+    image: "/covers/vid_1.svg",
     title: "What happens in a counselling session",
     description:
       "A short walkthrough of what to expect the first time you sit down with a counsellor — who is in the room, how long it lasts, and what you do not have to talk about.",
@@ -199,6 +209,7 @@ export const videos: VideoResource[] = [
   },
   {
     id: "vid_2",
+    image: "/covers/vid_2.svg",
     title: "Speak up: our schools awareness campaign",
     description:
       "Students from three secondary schools in Abuja talk about the pressures they face and what made it easier to ask for help.",
@@ -209,6 +220,7 @@ export const videos: VideoResource[] = [
   },
   {
     id: "vid_3",
+    image: "/covers/vid_3.svg",
     title: "Marriage, communication and expectations",
     description:
       "A conversation with Dr. Amina Yusuf on the patterns that come up most often in counselling with married women.",
@@ -219,6 +231,7 @@ export const videos: VideoResource[] = [
   },
   {
     id: "vid_4",
+    image: "/covers/vid_4.svg",
     title: "Inside a school outreach day",
     description: "What the Foundation's team does when they visit a school, from assembly to small-group sessions.",
     durationMinutes: 4,
@@ -228,6 +241,7 @@ export const videos: VideoResource[] = [
   },
   {
     id: "vid_5",
+    image: "/covers/vid_5.svg",
     title: "Recognising the signs in someone you love",
     description: "For parents and guardians: what changes are worth paying attention to, and how to open the conversation.",
     durationMinutes: 11,

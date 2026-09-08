@@ -2,6 +2,9 @@
   "name": "heart2heart-foundation",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20.9 <23"
+  },
   "description": "Heart2Heart Foundation Digital Platform \u2014 privacy-focused counselling, education and support for secondary-school girls and married women.",
   "scripts": {
     "dev": "next dev",

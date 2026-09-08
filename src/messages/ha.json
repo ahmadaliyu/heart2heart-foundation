@@ -358,7 +358,8 @@
         "NO_SHOW": "An rasa zaman. Kina maraba da shirya wani.",
         "FOLLOW_UP": "An shirya bibiya.",
         "CLOSED": "An rufe wannan shari'a. Kullum za ki iya fara sabuwar buƙata."
-      }
+      },
+      "demoHint": "Gwaji ne — gwada lamba {ref} da lambar shiga {code}."
     },
     "errors": {
       "preferredNameRequired": "Don Allah ki ba mu suna da za mu yi amfani da shi — kowane suna ya dace.",

@@ -6,6 +6,7 @@ import { Send } from "lucide-react";
 import { useT } from "@/lib/i18n/client";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { submitContactMessage } from "@/lib/demo";
 import { Alert } from "@/components/ui/alert";
 import { Field, Select, TextArea, TextInput } from "@/components/ui/field";
 
@@ -24,12 +25,9 @@ export function ContactForm() {
     setState("sending");
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(Object.fromEntries(form.entries())),
-      });
-      if (!response.ok) throw new Error("failed");
+      // No API in this build — see src/lib/demo.ts. The message is not sent
+      // or stored anywhere.
+      await submitContactMessage(Object.fromEntries(form.entries()));
       setState("sent");
       element.reset();
     } catch {

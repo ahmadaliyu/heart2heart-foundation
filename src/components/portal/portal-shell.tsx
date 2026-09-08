@@ -22,6 +22,7 @@ import {
 import { Logo } from "@/components/brand/logo";
 import { LocaleSwitcher } from "@/components/layout/locale-switcher";
 import { ThemeToggle } from "@/components/layout/theme";
+import { signOut } from "@/app/[locale]/portal/session-actions";
 import { useI18n } from "@/lib/i18n/client";
 import { localePath, stripLocale } from "@/lib/i18n/config";
 import type { StaffUser } from "@/lib/types";
@@ -110,8 +111,8 @@ export function PortalShell({
 
   useEffect(() => setOpen(false), [pathname]);
 
-  async function signOut() {
-    await fetch("/api/portal/session", { method: "DELETE" });
+  async function endSession() {
+    await signOut();
     router.push(localePath(locale, "/portal/login"));
     router.refresh();
   }
@@ -205,7 +206,7 @@ export function PortalShell({
           </span>
           <button
             type="button"
-            onClick={signOut}
+            onClick={endSession}
             className="shrink-0 rounded-lg p-2 text-plum-300 transition-colors hover:bg-white/10 hover:text-white"
           >
             <span className="sr-only">{t("portal.nav.signOut")}</span>

@@ -184,6 +184,8 @@ export type ArticleCategory = (typeof articleCategories)[number];
 export interface Article {
   slug: string;
   title: string;
+  /** Cover art. Placeholder SVGs live in /public/covers — see scripts/covers.py. */
+  image: string;
   excerpt: string;
   body: string[];
   category: ArticleCategory;
@@ -198,6 +200,8 @@ export interface Article {
 export interface VideoResource {
   id: string;
   title: string;
+  /** Thumbnail. Placeholder SVGs live in /public/covers. */
+  image: string;
   description: string;
   durationMinutes: number;
   kind: "EDUCATIONAL" | "AWARENESS" | "EXPERT" | "FOUNDATION";

@@ -40,7 +40,6 @@ const confidentialPaths = [
   "/:locale(en|ha)/counselling/:path*",
   "/:locale(en|ha)/portal",
   "/:locale(en|ha)/portal/:path*",
-  "/api/:path*",
 ];
 
 const nextConfig: NextConfig = {

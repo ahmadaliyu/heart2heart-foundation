@@ -28,6 +28,7 @@ import { Alert } from "@/components/ui/alert";
 import { Field, Select, TextArea, TextInput } from "@/components/ui/field";
 import { CheckboxRow, ChoiceCard, ChoicePills } from "@/components/ui/choice";
 import { cn, formatDate, formatSlot } from "@/lib/utils";
+import { submitCounsellingRequest, type SubmittedRequest } from "@/lib/demo";
 
 const SLOTS = [9 * 60, 10 * 60, 11 * 60, 12 * 60, 14 * 60, 15 * 60, 16 * 60];
 
@@ -76,11 +77,6 @@ interface FormState {
   consentGiven: boolean;
 }
 
-interface Submitted {
-  caseRef: string;
-  accessCode: string;
-}
-
 function todayISO() {
   const d = new Date();
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
@@ -123,7 +119,7 @@ export function IntakeForm({
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
-  const [submitted, setSubmitted] = useState<Submitted | null>(null);
+  const [submitted, setSubmitted] = useState<SubmittedRequest | null>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
 
   const step = STEPS[stepIndex];
@@ -220,31 +216,32 @@ export function IntakeForm({
     setFormError(null);
 
     try {
-      const response = await fetch("/api/counselling/requests", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          preferredName: form.preferredName.trim(),
-          category: form.category,
-          ageRange: form.ageRange,
-          supportAreas: form.supportAreas,
-          reason: form.reason.trim(),
-          contactMethod: form.contactMethod,
-          contactValue: form.contactValue.trim(),
-          contactNotes: form.contactNotes.trim() || undefined,
-          safeToContact: form.safeToContact || undefined,
-          preferredLanguage: form.preferredLanguage,
-          preferredDate: form.preferredDate,
-          preferredTimeSlot: form.preferredTimeSlot,
-          consentGiven: true,
-          safeguardingFlag: form.safetyAnswer === "YES",
-          guardianAware:
-            form.guardianAware === "" ? undefined : form.guardianAware === "YES",
-        }),
-      });
+      // No API in this build — see src/lib/demo.ts. The answers below are
+      // held in component state only and are discarded when this page closes;
+      // the reference issued here is not recorded and will not appear in the
+      // portal. The request body the real endpoint expects is assembled in
+      // `payload` so the contract stays visible at the call site.
+      const payload = {
+        preferredName: form.preferredName.trim(),
+        category: form.category,
+        ageRange: form.ageRange,
+        supportAreas: form.supportAreas,
+        reason: form.reason.trim(),
+        contactMethod: form.contactMethod,
+        contactValue: form.contactValue.trim(),
+        contactNotes: form.contactNotes.trim() || undefined,
+        safeToContact: form.safeToContact || undefined,
+        preferredLanguage: form.preferredLanguage,
+        preferredDate: form.preferredDate,
+        preferredTimeSlot: form.preferredTimeSlot,
+        consentGiven: true,
+        safeguardingFlag: form.safetyAnswer === "YES",
+        guardianAware:
+          form.guardianAware === "" ? undefined : form.guardianAware === "YES",
+      } satisfies Record<string, unknown>;
+      void payload;
 
-      if (!response.ok) throw new Error("request failed");
-      const data = (await response.json()) as Submitted;
+      const data = await submitCounsellingRequest();
       setSubmitted(data);
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch {
@@ -911,7 +908,7 @@ function Stepper({
  * browser history and referrer headers) and never written to browser storage.
  * The trade-off — a refresh loses them — is stated plainly on the page.
  */
-function SubmittedPanel({ result }: { result: Submitted }) {
+function SubmittedPanel({ result }: { result: SubmittedRequest }) {
   const { locale, t } = useI18n();
   const [copied, setCopied] = useState(false);
 
