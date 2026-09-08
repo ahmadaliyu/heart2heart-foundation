@@ -17,7 +17,13 @@ const toBadgeTone: Record<string, BadgeTone> = {
 export function StatusBadge({ status }: { status: AppointmentStatus }) {
   const t = useT();
   return (
-    <Badge tone={toBadgeTone[statusTone[status]] ?? "neutral"}>
+    <Badge
+      tone={toBadgeTone[statusTone[status]] ?? "neutral"}
+      // A stable hook for the end-to-end test, which has to read the current
+      // status rather than assume one: the demo store persists for the life of
+      // the server process, so a case does not reset between runs.
+      data-status-badge={status}
+    >
       {t(`enums.status.${status}`)}
     </Badge>
   );

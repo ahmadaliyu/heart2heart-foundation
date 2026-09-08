@@ -294,6 +294,73 @@
   --shadow-glow: 0 0 0 1px rgb(232 163 61 / 0.34), 0 18px 40px -18px rgb(232 163 61 / 0.4);
 }
 
+/* The same values again, for a reader whose system asks for dark and who
+ * has not chosen otherwise. This is not belt-and-braces: it means the dark
+ * theme is correct from the first byte of CSS, with no JavaScript involved,
+ * so the inline script only ever has to handle an *explicit* override. That
+ * removes the flash risk from script timing entirely.
+ *
+ * The two blocks must stay identical. `npm run test:tokens` fails the build
+ * if they drift. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+  color-scheme: dark;
+
+  --color-canvas: #140b1c;
+  --color-surface: #1e1329;
+  --color-lilac: #191022;
+  --color-cream: #201525; /* the warm band, warm-shifted rather than lilac */
+  --color-sand: #2a1c2c;
+  --color-sunken: #100a17;
+
+  --color-ink: #f3eef8;
+  --color-ink-muted: #b9afc7;
+  --color-ink-faint: #9a90a8; /* 5.2:1 on canvas */
+  --color-ink-inverse: #1a1024;
+
+  --color-heading: #f6f1fa;
+  --color-brand: #c8a9e0; /* 7.4:1 on canvas */
+  --color-brand-strong: #ddc8ee;
+  --color-accent: #f0c274; /* 9.1:1 on canvas */
+
+  --color-tint: #241733;
+  --color-tint-strong: #2e1e40;
+  --color-tint-line: #3d2a52;
+  --color-tint-ink: #ede4f5;
+
+  --color-line: #2f2140;
+  --color-line-strong: #40304f;
+  --color-line-dark: #4a3760;
+
+  --color-success: #4fae76;
+  --color-success-ink: #86dba7;
+  --color-success-soft: #10281a;
+  --color-warning: #dc9433;
+  --color-warning-ink: #f2bf70;
+  --color-warning-soft: #2c1e0d;
+  --color-danger: #d1594f;
+  --color-danger-ink: #f5a49b;
+  --color-danger-soft: #2c1512;
+  --color-info: #4b93bd;
+  --color-info-ink: #8ecbee;
+  --color-info-soft: #0d2432;
+
+  /* The emergency crimson is a FILL that carries white text, and the "call
+     the helpline" button reverses it on white. Lightening it for the dark
+     theme broke both directions at once, so it stays put — only the tinted
+     panel behind it moves. */
+  --color-emergency-soft: #2c1210;
+
+  /* Shadows read as depth against black only when they are much darker and
+     paired with a lighter surface. */
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.4);
+  --shadow-sm: 0 2px 6px -1px rgb(0 0 0 / 0.5), 0 1px 3px -1px rgb(0 0 0 / 0.4);
+  --shadow-md: 0 10px 24px -8px rgb(0 0 0 / 0.6), 0 3px 8px -4px rgb(0 0 0 / 0.45);
+  --shadow-lg: 0 24px 48px -16px rgb(0 0 0 / 0.7), 0 8px 20px -10px rgb(0 0 0 / 0.5);
+  --shadow-glow: 0 0 0 1px rgb(232 163 61 / 0.34), 0 18px 40px -18px rgb(232 163 61 / 0.4);
+  }
+}
+
 /* ==========================================================================
    BASE
    ========================================================================== */
@@ -320,10 +387,13 @@
     font-feature-settings: "kern", "liga", "calt";
   }
 
-  /* Theme transition. Applied only once the toggle has run, so the very
-     first paint is instant and does not animate from the wrong colours. */
-  html.theme-ready body,
-  html.theme-ready body * {
+  /* Theme transition.
+     No gating class is needed: a CSS transition does not run on an element's
+     first computed style, and the inline script resolves the theme before
+     anything is painted. So the first paint is instant either way, and this
+     only ever animates a deliberate toggle. */
+  body,
+  body * {
     transition:
       background-color 220ms var(--ease-out-soft),
       border-color 220ms var(--ease-out-soft),

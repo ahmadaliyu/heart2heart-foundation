@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { ComponentPropsWithoutRef, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 export type BadgeTone =
@@ -32,14 +32,16 @@ export function Badge({
   children,
   className,
   icon,
+  ...props
 }: {
   tone?: BadgeTone;
   children: ReactNode;
   className?: string;
   icon?: ReactNode;
-}) {
+} & Omit<ComponentPropsWithoutRef<"span">, "className" | "children">) {
   return (
     <span
+      {...props}
       className={cn(
         "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-semibold",
         tones[tone],

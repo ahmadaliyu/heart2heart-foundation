@@ -37,15 +37,12 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<Theme>("light");
 
   useEffect(() => {
+    // Sync React's copy of the value the inline script already resolved.
+    // Nothing else is written to <html> here: every attribute this component
+    // adds to a server-rendered element is a hydration mismatch waiting to
+    // happen, and `data-theme` is the only one worth paying for.
     const attr = document.documentElement.getAttribute("data-theme");
     setThemeState(attr === "dark" ? "dark" : "light");
-
-    // Colour transitions are switched on only after the first paint, so
-    // loading the page in dark mode does not animate in from white.
-    const raf = requestAnimationFrame(() =>
-      document.documentElement.classList.add("theme-ready"),
-    );
-    return () => cancelAnimationFrame(raf);
   }, []);
 
   // Follow the operating system until the reader makes a choice of their own.

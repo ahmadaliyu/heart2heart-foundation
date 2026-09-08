@@ -16,7 +16,8 @@
     "test:a11y": "node scripts/a11y.mjs",
     "test:gaps": "node scripts/gaps.mjs",
     "test:hydration": "node scripts/hydration.mjs",
-    "verify": "npm run typecheck && npm run lint && npm run build"
+    "test:tokens": "node scripts/tokens.mjs",
+    "verify": "npm run typecheck && npm run lint && npm run test:tokens && npm run build"
   },
   "dependencies": {
     "@eslint/eslintrc": "^3.3.7",

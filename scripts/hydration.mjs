@@ -63,7 +63,7 @@ async function scan(page, url, theme) {
       if (name !== "class") return false;
       const only = (x, y) => x.split(/\s+/).filter((c) => c && !y.split(/\s+/).includes(c));
       const changed = [...only(after, before), ...only(before, after)];
-      return changed.every((c) => c === "is-in" || c === "theme-ready");
+      return changed.every((c) => c === "is-in");
     };
 
     const walk = (root) => {
@@ -73,28 +73,54 @@ async function scan(page, url, theme) {
       return out;
     };
 
-    // Scoped to <body>. The framework injects its own <link>/<style>/<script>
-    // into <head> during hydration, which is expected and not a mismatch.
-    //
-    // The theme toggle is the one element allowed to differ: it cannot know the
-    // reader's theme on the server, so it renders a neutral state and swaps
-    // after mount. That swap is deliberate — what matters is that its
-    // *hydration* render matches, which it does because everything
-    // theme-dependent in it is gated on a `mounted` flag that starts false on
-    // both sides.
-    // Framework plumbing: the runtime moves and appends its own script and
-    // style nodes during hydration. None of it is app UI, and none of it can
-    // be the source of an attribute mismatch on rendered markup.
+    const found = [];
+
+    // <html>'s own attributes. An earlier version of this script skipped the
+    // whole document element and only walked <body>, which hid a real mismatch
+    // for days: the theme script adds attributes to <html>, and one of them
+    // was a class nothing needed. `data-theme` is the single allowed exception
+    // — the server cannot know the reader's theme, and every no-flash theme
+    // implementation sets it before hydration.
+    {
+      const before = new Map([...ssr.documentElement.attributes].map((a) => [a.name, a.value]));
+      const after = new Map([...document.documentElement.attributes].map((a) => [a.name, a.value]));
+      for (const name of new Set([...before.keys(), ...after.keys()])) {
+        if (name === "data-theme") continue;
+        if (before.get(name) === after.get(name)) continue;
+        found.push({
+          tag: "html",
+          attr: name,
+          server: before.get(name) ?? null,
+          client: after.get(name) ?? null,
+          near: "(document element)",
+        });
+      }
+    }
+
+    // <head> is deliberately NOT compared. The framework owns it — it hoists,
+    // dedupes and appends its own script, link and style nodes there during
+    // hydration, and a naive comparison reports that as dozens of mismatches.
+    // The check that actually catches theme bugs is the <html> attribute one
+    // above; the fix for a mismatch attributed to a <head> child is to move the
+    // element out of <head> rather than to detect it here.
+
+    // The theme toggle is the one element in <body> allowed to differ: it
+    // cannot know the theme on the server, so it renders a neutral state and
+    // swaps after mount. What matters is that its *hydration* render matches,
+    // which it does because everything theme-dependent in it is gated on a
+    // `mounted` flag that starts false on both sides.
+    // Framework plumbing inside <body>: React's streaming TEMPLATE
+    // placeholders (present on the server, gone after hydration) and the flight
+    // -data SCRIPT tags the runtime appends. Neither is app markup.
     const PLUMBING = new Set([
-      "SCRIPT", "LINK", "STYLE", "TEMPLATE", "NOSCRIPT", "NEXT-ROUTE-ANNOUNCER",
-      // React 19 hoists document metadata, so <title>/<meta> can sit in <body>
-      // in the live DOM and in <head> in the server HTML. Not app markup.
-      "TITLE", "META", "BASE",
+      "TEMPLATE", "SCRIPT", "LINK", "STYLE", "NOSCRIPT",
+      // React 19 hoists document metadata, so these can land in <body> in the
+      // live DOM while the server put them in <head>.
+      "TITLE", "META", "BASE", "NEXT-ROUTE-ANNOUNCER",
     ]);
     const skip = (el) => PLUMBING.has(el.tagName) || el.closest("[data-theme-toggle]");
     const live = walk(document.body).filter((el) => !skip(el));
     const server = walk(ssr.body).filter((el) => !skip(el));
-    const found = [];
 
     for (let i = 0; i < Math.min(live.length, server.length); i++) {
       const L = live[i];

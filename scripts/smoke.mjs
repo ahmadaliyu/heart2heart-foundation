@@ -171,22 +171,54 @@ check(
 );
 
 // Status machine: only legal transitions are offered.
-const offered = await page
-  .locator("form button[type=submit]")
-  .allInnerTexts();
+//
+// Written against the invariant rather than a fixed starting status. The demo
+// store lives in the server process, so advancing a case here persists for the
+// life of that process — asserting "REQUESTED offers Under review" passes on a
+// fresh server and fails on the second run. What actually needs to hold is
+// that the buttons on offer are always the legal moves from wherever the case
+// currently is, which is true every run.
+const LEGAL = {
+  Requested: ["Under review", "Not taken forward"],
+  "Under review": ["Approved", "Not taken forward"],
+  Approved: ["Schedule", "Not taken forward"],
+  Scheduled: ["Confirmed", "Reschedule", "Cancelled"],
+  Confirmed: ["Completed", "Did not attend", "Reschedule", "Cancelled"],
+  Completed: ["Follow-up", "Referral", "Close case"],
+  "Follow-up": ["Completed", "Close case", "Referral"],
+};
+
+const statusNow = (await page.locator("[data-status-badge]").first().innerText().catch(() => ""))
+  .trim();
+const offered = (await page.locator("form button[type=submit]").allInnerTexts())
+  .map((s) => s.trim())
+  .filter((s) => s && s !== "Save");
+
+const legal = LEGAL[statusNow];
 check(
-  "portal: only legal transitions offered from REQUESTED",
-  offered.some((x) => /Under review/i.test(x)) &&
-    !offered.some((x) => /^Completed$/i.test(x)),
+  `portal: transitions offered from ${statusNow || "(unknown)"} are all legal`,
+  Boolean(legal) && offered.every((o) => legal.some((l) => o.toLowerCase().includes(l.toLowerCase()))),
+  `status=${statusNow} offered=[${offered.join(", ")}] legal=[${(legal || []).join(", ")}]`,
+);
+
+// Completing a case that has not been scheduled is the illegal move that
+// matters most — it would mark a session held that never happened.
+check(
+  "portal: a case cannot jump straight to Completed",
+  ["Requested", "Under review", "Approved"].includes(statusNow)
+    ? !offered.some((x) => /^completed$/i.test(x))
+    : true,
   offered.join(", "),
 );
 
-await page.getByRole("button", { name: /Under review/i }).click();
-await page.waitForTimeout(1500);
-check(
-  "portal: status advanced to Under review",
-  (await page.locator("body").innerText()).includes("Under review"),
-);
+// Advance by whichever legal move is on offer, and confirm it took.
+if (offered.length) {
+  const move = offered[0];
+  await page.getByRole("button", { name: move, exact: false }).first().click();
+  await page.waitForTimeout(1800);
+  const after = (await page.locator("[data-status-badge]").first().innerText().catch(() => "")).trim();
+  check("portal: the status advanced", after !== statusNow, `${statusNow} -> ${after}`);
+}
 
 /* ------------------------------ admin surfaces ---------------------------- */
 

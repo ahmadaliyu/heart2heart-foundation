@@ -94,10 +94,6 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} dir={localeDirection[locale]} suppressHydrationWarning>
       <head>
-        {/* Resolves the theme before first paint. Must stay the first thing in
-            <head> — anything above it can paint in the wrong theme. */}
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-
         {/* The faces above the fold. The rest load on demand. */}
         <link
           rel="preload"
@@ -114,7 +110,24 @@ export default async function LocaleLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body className="min-h-dvh antialiased">
+      <body className="min-h-dvh antialiased" suppressHydrationWarning>
+        {/*
+          Resolves the theme before first paint.
+
+          It lives here, as the first thing in <body>, and NOT in <head>.
+          React 19 hoists and dedupes the scripts and links inside a
+          server-rendered <head>, so an inline <script> there is liable to be
+          reordered between the server HTML and the client — which surfaces as
+          a hydration mismatch attributed to that script. As the first child of
+          <body> it is an ordinary element React renders identically on both
+          sides, and it still runs before any of the page is painted.
+
+          It sets data-theme on <html>, which the server cannot know; that is
+          what `suppressHydrationWarning` on <html> is for, and it is the one
+          mismatch a no-flash theme implementation cannot avoid.
+        */}
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+
         <ThemeProvider>
           <I18nProvider locale={locale} messages={messages as unknown as Record<string, unknown>}>
             {children}

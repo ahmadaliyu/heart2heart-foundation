@@ -161,12 +161,30 @@ tokens are split into two kinds:
   on a permanently-white pill therefore takes `text-plum-900`, never
   `text-heading`.
 
-An inline script in `<head>` resolves the theme before first paint and stamps
-`data-theme` on `<html>`, so there is no light flash and the CSS only has to
-match one selector. The page follows the operating system until the reader
-touches the toggle, and remembers their choice afterwards. Colour transitions
-are switched on one frame later, so opening the site in dark mode does not
-animate in from white.
+**How the theme is resolved, and why it is arranged this way.**
+
+The dark palette is declared **twice** in `globals.css` — once under
+`[data-theme="dark"]`, once under `prefers-color-scheme`. That duplication is
+the point: a reader whose system asks for dark gets the right theme from the
+first byte of CSS, with no JavaScript involved at all. `npm run test:tokens`
+fails if the two blocks drift.
+
+The inline script therefore only has to handle an **explicit** override, and it
+stamps `data-theme` on `<html>` before first paint.
+
+That script lives as the first child of **`<body>`, not `<head>`.** React 19
+hoists and dedupes the scripts and links inside a server-rendered `<head>`, so
+an inline `<script>` there can be reordered between the server HTML and the
+client — which surfaces as a hydration mismatch attributed to that script. As
+the first child of `<body>` it is an ordinary element React renders identically
+on both sides.
+
+`data-theme` on `<html>` is the one mismatch that cannot be avoided — the server
+cannot know the reader's theme — and `suppressHydrationWarning` on `<html>` is
+what it is for. Nothing else writes to `<html>`: an earlier version also added a
+`theme-ready` class to gate colour transitions, which turned out to be
+unnecessary (a CSS transition does not run on an element's first computed style)
+and was a second mismatch for no benefit.
 
 **Nothing in `ThemeToggle` may depend on the theme until it has mounted.** The
 server cannot know the reader's theme, so it renders a neutral state; `mounted`
@@ -262,9 +280,14 @@ npm run test:smoke    # end-to-end: intake → case ref → portal review
 npm run test:a11y      # axe-core WCAG 2.1 AA, 25 pages × both themes
 npm run test:gaps      # vertical-whitespace audit
 npm run test:hydration # server HTML vs hydrated DOM
+npm run test:tokens    # the two dark-token blocks have not drifted
 ```
 
-`scripts/smoke.mjs` walks the real journey: a beneficiary completes the intake
+`scripts/smoke.mjs` is written against invariants rather than fixed starting
+states — the demo store lives in the server process, so a case advanced by one
+run is still advanced on the next. It asserts that the transitions on offer are
+always the legal moves from wherever a case currently is, which holds every run.
+It walks the real journey: a beneficiary completes the intake
 form, receives a case reference, checks their own status (and is correctly
 refused with a wrong code), then a therapist signs in, finds the request, is
 blocked from admin-only pages, reveals the masked contact details and advances
@@ -281,7 +304,13 @@ testing on the counselling flow still has to be done by a person.
 element by element, and reports attribute differences. React only warns about a
 hydration mismatch if you happen to load the page in the state that triggers
 one, which is a bad way to find them: this makes the divergence visible whether
-or not React noticed. It found a real one in the theme toggle (below).
+or not React noticed.
+
+It checks **`<html>`'s own attributes** as well as `<body>`. An earlier version
+walked `<body>` only, and that blind spot hid a real mismatch for two rounds —
+so the omission is now called out in the script itself. `<head>` is deliberately
+not compared: the framework owns it, and the fix for a mismatch attributed to a
+`<head>` child is to move the element out of `<head>`, not to detect it.
 
 `scripts/shots.mjs` takes screenshots for design review.
 
