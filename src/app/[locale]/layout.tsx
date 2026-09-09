@@ -1,8 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 
-// Next.js bundles this side-effect CSS import; TypeScript has no module declaration for it.
-// @ts-ignore
 import "@/app/globals.css";
 
 import { I18nProvider } from "@/lib/i18n/client";

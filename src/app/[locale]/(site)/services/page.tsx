@@ -72,7 +72,7 @@ export default async function ServicesPage({
 
   return (
     <>
-      <PageHeader
+      <PageHeader image="/images/community.jpg"
         eyebrow={t("nav.services")}
         title={t("services.title")}
         lede={t("services.lede")}
@@ -83,7 +83,7 @@ export default async function ServicesPage({
       </PageHeader>
 
       {/* ------------------------------------------------- areas of work */}
-      <Section>
+      <Section id="areas">
         <div className="container-page">
           <SectionHeading
             eyebrow={t("services.areasEyebrow")}
@@ -138,7 +138,7 @@ export default async function ServicesPage({
       </Section>
 
       {/* ---------------------------------------------------- audiences */}
-      <Section tone="surface" className="border-y border-line">
+      <Section id="audiences" tone="surface" className="border-y border-line">
         <div className="container-page">
           <SectionHeading
             eyebrow={t("services.audiencesEyebrow")}
@@ -189,7 +189,7 @@ export default async function ServicesPage({
       </Section>
 
       {/* --------------------------------------------------- how we work */}
-      <Section>
+      <Section id="how">
         <div className="container-page">
           <SectionHeading eyebrow={t("about.approachTitle")} title={t("services.howTitle")} />
 
@@ -229,3 +229,5 @@ export default async function ServicesPage({
     </>
   );
 }
+
+

@@ -2,180 +2,233 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import { ArrowRight, Menu, X } from "lucide-react";
-
+import { useEffect, useRef, useState } from "react";
+import { ArrowRight, ChevronDown, Menu, Search, X } from "lucide-react";
 import { Logo } from "@/components/brand/logo";
 import { LocaleSwitcher } from "@/components/layout/locale-switcher";
-import { ThemeToggle } from "@/components/layout/theme";
-import { ButtonLink, buttonClass, iconShift } from "@/components/ui/button";
-import { useScrolled } from "@/components/motion";
 import { useI18n } from "@/lib/i18n/client";
 import { localePath, stripLocale } from "@/lib/i18n/config";
-import { cn } from "@/lib/utils";
-import { features } from "@/lib/features";
 
-/**
- * Six items, deliberately — the brief rules out crowded navigation, and the
- * one action that matters is a button, not a link lost among the others.
- */
-const NAV = [
-  { href: "/about", key: "nav.about" },
-  { href: "/services", key: "nav.services" },
-  { href: "/resources", key: "nav.resources" },
-  { href: "/events", key: "nav.events" },
-  { href: "/donate", key: "nav.donate" },
-  { href: "/contact", key: "nav.contact" },
+const navigation = [
+  {
+    href: "/about",
+    key: "nav.about",
+    description: "about.lede",
+    links: [
+      ["/about", "about.missionTitle"],
+      ["/about#team", "about.teamTitle"],
+      ["/safeguarding", "footer.safeguarding"],
+      ["/privacy", "footer.privacy"],
+    ],
+  },
+  {
+    href: "/services",
+    key: "nav.services",
+    description: "services.lede",
+    links: [
+      ["/services#areas", "services.areasTitle"],
+      ["/services#audiences", "services.audiencesTitle"],
+      ["/services#how", "services.howTitle"],
+    ],
+  },
+  {
+    href: "/resources",
+    key: "nav.resources",
+    description: "resources.lede",
+    links: [
+      ["/resources#articles", "resources.articles"],
+      ["/resources#videos", "resources.videos"],
+      ["/resources#materials", "resources.materials"],
+    ],
+  },
+  {
+    href: "/events",
+    key: "nav.events",
+    description: "events.lede",
+    links: [
+      ["/events", "events.upcoming"],
+      ["/events?period=past", "events.past"],
+    ],
+  },
+  {
+    href: "/contact",
+    key: "nav.contact",
+    description: "home.ctaBody",
+    links: [],
+  },
+  {
+    href: "/donate",
+    key: "home.donateCta",
+    description: "home.donateBody",
+    links: [],
+  },
 ] as const;
 
 export function SiteHeader() {
   const { locale, t } = useI18n();
   const pathname = usePathname();
-  const current = stripLocale(pathname);
-  const scrolled = useScrolled(20);
-  const [open, setOpen] = useState(false);
-
-  // The home page opens on a night-ground hero, so the header starts
-  // transparent there and only takes a surface once the reader scrolls past it.
-  const overHero = current === "/" && !scrolled && !open;
-
-  useEffect(() => setOpen(false), [pathname]);
+  const [mobile, setMobile] = useState(false);
+  const [expanded, setExpanded] = useState<string | null>(null);
+  const header = useRef<HTMLElement>(null);
+  const menuButton = useRef<HTMLButtonElement>(null);
+  const close = () => {
+    setExpanded(null);
+    setMobile(false);
+  };
+  useEffect(close, [pathname]);
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [open]);
-
-  const isActive = (href: string) => current === href || current.startsWith(`${href}/`);
-
+    function dismiss(event: PointerEvent) {
+      if (!header.current?.contains(event.target as Node)) close();
+    }
+    document.addEventListener("pointerdown", dismiss);
+    return () => document.removeEventListener("pointerdown", dismiss);
+  }, []);
+  const selected = navigation.find((item) => item.href === expanded);
   return (
     <header
-      className={cn(
-        "sticky top-0 z-40 transition-all duration-400 ease-[var(--ease-out-soft)]",
-        overHero
-          ? "border-b border-transparent bg-transparent"
-          : "border-b border-line bg-surface/85 shadow-xs backdrop-blur-xl",
-      )}
+      ref={header}
+      className="bpa-header"
+      onKeyDown={(event) => {
+        if (event.key === "Escape") {
+          close();
+          menuButton.current?.focus();
+        }
+      }}
     >
-      <div className="container-page flex h-18 items-center justify-between gap-6">
+      <div className="bpa-container bpa-topbar">
         <Link
           href={localePath(locale, "/")}
-          className="shrink-0"
           aria-label={t("meta.name")}
+          onClick={close}
         >
-          <Logo size="sm" reversed={overHero} showSubtitle={false} />
+          <Logo size="md" />
         </Link>
-
-        <nav aria-label="Main" className="hidden items-center xl:flex">
-          {NAV.map((item) => (
-            <Link
-              key={item.href}
-              href={localePath(locale, item.href)}
-              aria-current={isActive(item.href) ? "page" : undefined}
-              className={cn(
-                "underline-grow rounded-md px-3 py-2 text-sm font-semibold transition-colors duration-250",
-                overHero
-                  ? "text-white/80 hover:text-white aria-[current=page]:text-white"
-                  : "text-ink-muted hover:text-heading aria-[current=page]:text-heading",
-              )}
-            >
-              {t(item.key)}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-2.5">
-          <ThemeToggle
-            tone={overHero ? "dark" : "light"}
-            className="hidden sm:inline-flex"
-          />
-
-          <LocaleSwitcher
-            tone={overHero ? "dark" : "light"}
-            className="hidden sm:inline-flex"
-          />
-
-          {features.counselling ? (
-            <ButtonLink
-              href={localePath(locale, "/counselling")}
-              size="sm"
-              variant={overHero ? "inverse" : "primary"}
-              className="hidden sm:inline-flex"
-            >
-              {t("nav.getSupport")}
-              <ArrowRight aria-hidden="true" className={cn("size-3.5", iconShift)} />
-            </ButtonLink>
-          ) : null}
-
-          <button
-            type="button"
-            onClick={() => setOpen((value) => !value)}
-            aria-expanded={open}
-            aria-controls="mobile-nav"
-            className={cn(
-              "inline-flex size-11 items-center justify-center rounded-full border transition-colors xl:hidden",
-              overHero
-                ? "border-white/25 text-white hover:bg-white/10"
-                : "border-line-strong text-ink hover:bg-tint",
-            )}
+        <div className="bpa-utilities">
+          <Link
+            className="utility-pill utility-primary"
+            href={localePath(locale, "/emergency")}
           >
-            <span className="sr-only">{t("common.menu")}</span>
-            {open ? (
-              <X aria-hidden="true" className="size-5" />
-            ) : (
-              <Menu aria-hidden="true" className="size-5" />
-            )}
-          </button>
+            {t("nav.emergency")}
+          </Link>
+          <Link className="utility-pill" href={localePath(locale, "/contact")}>
+            {t("nav.contact")}
+          </Link>
+          <Link
+            className="utility-search"
+            href={localePath(locale, "/search")}
+            aria-label={t("common.search")}
+          >
+            <Search size={23} />
+          </Link>
+          <LocaleSwitcher />
         </div>
+        <button
+          ref={menuButton}
+          className="bpa-menu-toggle"
+          aria-label={mobile ? t("common.close") : t("common.menu")}
+          aria-expanded={mobile}
+          aria-controls="site-navigation"
+          onClick={() => {
+            setMobile(!mobile);
+            setExpanded(null);
+          }}
+        >
+          {mobile ? <X /> : <Menu />}
+        </button>
       </div>
-
-      {/* Mobile sheet. Items stagger in so the panel feels opened rather than
-          switched on. */}
-      {open ? (
-        <div id="mobile-nav" className="border-t border-line bg-surface xl:hidden">
-          <nav aria-label="Main" className="container-page flex flex-col py-5">
-            {NAV.map((item, index) => (
-              <Link
-                key={item.href}
-                href={localePath(locale, item.href)}
-                aria-current={isActive(item.href) ? "page" : undefined}
-                style={{ animationDelay: `${index * 45}ms` }}
-                className={cn(
-                  "enter flex items-center justify-between border-b border-line py-4 font-display text-xl transition-colors",
-                  isActive(item.href) ? "text-brand-strong" : "text-ink hover:text-brand-strong",
-                )}
-              >
-                {t(item.key)}
-                <ArrowRight aria-hidden="true" className="size-4 text-plum-400" />
-              </Link>
-            ))}
-
-            {features.counselling ? (
-              <Link
-                href={localePath(locale, "/counselling")}
-                style={{ animationDelay: "290ms" }}
-                className={buttonClass({
-                  size: "lg",
-                  fullWidth: true,
-                  className: "enter mt-6",
-                })}
-              >
-                {t("nav.getSupport")}
-                <ArrowRight aria-hidden="true" className="size-4" />
-              </Link>
-            ) : null}
-
-            <div className="mt-5 flex items-center justify-between gap-4">
-              <span className="eyebrow text-ink-faint">{t("meta.langLabel")}</span>
-              <div className="flex items-center gap-2.5">
-                <LocaleSwitcher />
-                <ThemeToggle />
+      <div
+        className={"bpa-navigation " + (mobile ? "is-open" : "")}
+        id="site-navigation"
+      >
+        <nav className="bpa-container" aria-label={t("common.menu")}>
+          {navigation.map((item) => (
+            <div className="bpa-nav-item" key={item.href}>
+              {item.links.length ? (
+                <button
+                  aria-expanded={expanded === item.href}
+                  aria-controls={"menu-" + item.key}
+                  className={
+                    stripLocale(pathname).startsWith(item.href)
+                      ? "is-current"
+                      : ""
+                  }
+                  onClick={() =>
+                    setExpanded(expanded === item.href ? null : item.href)
+                  }
+                >
+                  {t(item.key)}
+                  <ChevronDown size={15} />
+                </button>
+              ) : (
+                <Link
+                  href={localePath(locale, item.href)}
+                  onClick={close}
+                  aria-current={
+                    stripLocale(pathname) === item.href ? "page" : undefined
+                  }
+                >
+                  {t(item.key)}
+                </Link>
+              )}
+              {item.links.length > 0 && expanded === item.href && (
+                <div className="bpa-mobile-subnav">
+                  <Link href={localePath(locale, item.href)} onClick={close}>
+                    {t("common.viewAll")} <ArrowRight size={16} />
+                  </Link>
+                  {item.links.map(([href, key]) => (
+                    <Link
+                      key={href}
+                      href={localePath(locale, href)}
+                      onClick={close}
+                    >
+                      {t(key)}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+          <div className="bpa-mobile-utilities">
+            <Link href={localePath(locale, "/emergency")} onClick={close}>
+              {t("nav.emergency")}
+            </Link>
+            <Link href={localePath(locale, "/search")} onClick={close}>
+              {t("common.search")}
+            </Link>
+            <LocaleSwitcher />
+          </div>
+        </nav>
+      </div>
+      {selected && (
+        <div className="bpa-mega" id={"menu-" + selected.key}>
+          <div className="bpa-container">
+            <div className="bpa-mega-feature">
+              <div>
+                <h2>{t(selected.key)}</h2>
+                <p>{t(selected.description)}</p>
+                <Link
+                  className="bpa-button"
+                  href={localePath(locale, selected.href)}
+                  onClick={close}
+                >
+                  {t("common.learnMore")} <ArrowRight size={16} />
+                </Link>
               </div>
             </div>
-          </nav>
+            <div className="bpa-mega-links">
+              {selected.links.map(([href, key]) => (
+                <Link
+                  href={localePath(locale, href)}
+                  key={href}
+                  onClick={close}
+                >
+                  {t(key)} <ArrowRight size={16} />
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
-      ) : null}
+      )}
     </header>
   );
 }

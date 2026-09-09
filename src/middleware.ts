@@ -1,7 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { defaultLocale, locales } from "@/lib/i18n/config";
 
-const PUBLIC_FILE = /\.(?:svg|png|jpg|jpeg|gif|webp|ico|webmanifest|txt|xml|js|css|woff2?)$/i;
+const PUBLIC_FILE = /\.(?:svg|png|jpg|jpeg|gif|webp|ico|webmanifest|txt|xml|js|css|woff2?|ttf|otf)$/i;
 
 function pickLocale(request: NextRequest): string {
   // An explicit choice always wins over the browser's guess.

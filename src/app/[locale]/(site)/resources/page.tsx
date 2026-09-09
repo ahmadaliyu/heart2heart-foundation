@@ -35,7 +35,7 @@ export default async function ResourcesPage({
 
   return (
     <>
-      <PageHeader title={t("resources.title")} lede={t("resources.lede")}>
+      <PageHeader image="/images/community.jpg" title={t("resources.title")} lede={t("resources.lede")}>
         <nav aria-label={t("resources.title")} className="flex flex-wrap gap-2">
           {jump.map((item) => (
             <a
@@ -91,3 +91,4 @@ export default async function ResourcesPage({
     </>
   );
 }
+

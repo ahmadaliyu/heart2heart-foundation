@@ -28,7 +28,7 @@ export default async function DonatePage({
 
   return (
     <>
-      <PageHeader title={t("donate.title")} lede={t("donate.lede")} />
+      <PageHeader image="/images/together.jpg" title={t("donate.title")} lede={t("donate.lede")} />
 
       <div className="container-page grid gap-10 py-12 lg:grid-cols-[1fr_1.1fr] lg:gap-14 lg:py-16">
         <div>
@@ -69,3 +69,4 @@ export default async function DonatePage({
     </>
   );
 }
+

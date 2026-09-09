@@ -2,7 +2,14 @@ import type { ComponentProps, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { Reveal } from "@/components/motion";
 
-type Tone = "default" | "surface" | "lilac" | "cream" | "sunken" | "night" | "wash";
+type Tone =
+  | "default"
+  | "surface"
+  | "lilac"
+  | "cream"
+  | "sunken"
+  | "night"
+  | "wash";
 
 const tones: Record<Tone, string> = {
   default: "",
@@ -37,7 +44,9 @@ export function Section({
   size = "md",
   ...props
 }: ComponentProps<"section"> & { tone?: Tone; size?: Size }) {
-  return <section className={cn(sizes[size], tones[tone], className)} {...props} />;
+  return (
+    <section className={cn(sizes[size], tones[tone], className)} {...props} />
+  );
 }
 
 /** Small mono label with an amber tick. The section marker of the system. */
@@ -83,7 +92,11 @@ export function SectionHeading({
 }) {
   return (
     <Reveal
-      className={cn("max-w-2xl", align === "center" && "mx-auto text-center", className)}
+      className={cn(
+        "max-w-2xl",
+        align === "center" && "mx-auto text-center",
+        className,
+      )}
     >
       {eyebrow ? (
         <Eyebrow
@@ -94,12 +107,20 @@ export function SectionHeading({
         </Eyebrow>
       ) : null}
       <Tag
-        className={cn(Tag === "h1" ? "text-display" : "text-title", onDark && "text-white")}
+        className={cn(
+          Tag === "h1" ? "text-display" : "text-title",
+          onDark && "text-white",
+        )}
       >
         {title}
       </Tag>
       {body ? (
-        <p className={cn("mt-5 text-lead", onDark ? "text-plum-200" : "text-ink-muted")}>
+        <p
+          className={cn(
+            "mt-5 text-lead",
+            onDark ? "text-plum-200" : "text-ink-muted",
+          )}
+        >
           {body}
         </p>
       ) : null}
@@ -113,37 +134,44 @@ export function PageHeader({
   title,
   lede,
   children,
+  image,
 }: {
   eyebrow?: ReactNode;
   title: ReactNode;
   lede?: ReactNode;
   children?: ReactNode;
+  image?: string;
 }) {
   return (
-    <header className="relative overflow-hidden border-b border-line bg-wash">
-      <div className="container-page relative py-12 sm:py-16">
-        {eyebrow ? (
-          <div className="enter">
-            <Eyebrow className="mb-6">{eyebrow}</Eyebrow>
-          </div>
-        ) : null}
-        <h1 className="enter max-w-4xl text-display" style={{ animationDelay: "60ms" }}>
-          {title}
-        </h1>
-        {lede ? (
-          <p
-            className="enter mt-6 max-w-2xl text-lead text-ink-muted"
-            style={{ animationDelay: "120ms" }}
-          >
-            {lede}
-          </p>
-        ) : null}
-        {children ? (
-          <div className="enter mt-9" style={{ animationDelay: "180ms" }}>
-            {children}
-          </div>
-        ) : null}
+    <header className="bpa-page-header">
+      {image && (
+        <div className="bpa-breadcrumb container-page">
+          <span>Heart2Heart</span>
+          <span aria-hidden="true">/</span>
+          <span>{eyebrow ?? title}</span>
+        </div>
+      )}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      {image && (
+        <img
+          className="bpa-page-photo"
+          src={image}
+          alt=""
+          width={1600}
+          height={600}
+          fetchPriority="high"
+        />
+      )}
+      <div className="bpa-page-title">
+        {eyebrow && image && <span className="bpa-page-label">{eyebrow}</span>}
+        <h1>{title}</h1>
       </div>
+      {(lede || children) && (
+        <div className="container-page bpa-page-intro">
+          {lede && <p>{lede}</p>}
+          {children && <div>{children}</div>}
+        </div>
+      )}
     </header>
   );
 }

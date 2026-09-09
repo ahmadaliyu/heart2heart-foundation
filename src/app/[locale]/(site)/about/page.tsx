@@ -44,7 +44,7 @@ export default async function AboutPage({
 
   return (
     <>
-      <PageHeader eyebrow={t("nav.about")} title={t("about.title")} lede={t("about.lede")} />
+      <PageHeader image="/images/community.jpg" eyebrow={t("nav.about")} title={t("about.title")} lede={t("about.lede")} />
 
       {/* ------------------------------------------------ mission & vision
           The two most quotable sentences the Foundation has, so they get the
@@ -187,7 +187,7 @@ export default async function AboutPage({
       </Section>
 
       {/* ----------------------------------------------------------- team */}
-      <Section tone="sunken" className="border-y border-line">
+      <Section id="team" tone="sunken" className="border-y border-line">
         <div className="container-page">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,26rem)_1fr] lg:gap-16">
             <SectionHeading
@@ -249,3 +249,4 @@ export default async function AboutPage({
     </>
   );
 }
+

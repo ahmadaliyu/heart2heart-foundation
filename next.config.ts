@@ -43,6 +43,8 @@ const confidentialPaths = [
 ];
 
 const nextConfig: NextConfig = {
+  // Isolate preview output when another checkout session is already running.
+  distDir: process.env.H2H_DIST_DIR || ".next",
   reactStrictMode: true,
   poweredByHeader: false,
   // Hosts allowed to serve imagery. Covers are plain <img> today, so this only
