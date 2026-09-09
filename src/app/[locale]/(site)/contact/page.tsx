@@ -31,7 +31,7 @@ export default async function ContactPage({
 
   return (
     <>
-      <PageHeader image="/images/conversation.jpg" title={t("contact.title")} lede={t("contact.lede")} />
+      <PageHeader image="/images/support.jpg" title={t("contact.title")} lede={t("contact.lede")} />
 
       <div className="container-page grid gap-10 py-12 lg:grid-cols-[1fr_1.2fr] lg:gap-14 lg:py-16">
         <div className="space-y-6">
