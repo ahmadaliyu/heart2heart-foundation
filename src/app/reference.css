@@ -1101,7 +1101,9 @@
 .hero-play:hover { transform: scale(1.08); box-shadow: 0 0 0 20px #ffffff15; }
 .video-dialog { position: fixed; inset: 0; margin: auto; width: min(960px,92vw); max-height: 90dvh; overflow: auto; background: #062e42; color: white; padding: 50px 16px 20px; border: 0; }
 .video-dialog::backdrop { background: #001822e8; }
-.video-dialog iframe { width: 100%; aspect-ratio: 16/9; border: 0; }
+.video-dialog iframe { width: 100%; aspect-ratio: 16/9; max-height: calc(90dvh - 150px); border: 0; }
+.video-alternative { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 16px; margin-bottom: 18px; }
+.video-dialog .video-alternative a { margin: 0; padding: 8px 14px; border: 1px solid #ffffff80; border-radius: 3px; }
 .video-dialog a { display: inline-block; margin-top: 15px; }
 .video-close { position: absolute; right: 14px; top: 12px; }
 .partner-section { padding-block: 70px; text-align: center; }
