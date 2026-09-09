@@ -170,8 +170,7 @@
 }
 .bpa-nav-item > :is(button, a):hover,
 .bpa-nav-item > button[aria-expanded="true"],
-.bpa-nav-item .is-current,
-.bpa-nav-item [aria-current="page"] {
+.bpa-nav-item .is-current {
   color: var(--bpa-red);
   border-bottom-color: var(--bpa-red);
 }

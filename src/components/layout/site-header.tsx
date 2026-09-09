@@ -95,6 +95,10 @@ export function SiteHeader() {
     };
   }, [close, cancelClose]);
   const selected = navigation.find((item) => item.href === expanded);
+  // While a menu is open, it owns the highlight instead of the loaded route.
+  const activeHref = expanded ?? navigation.find((item) =>
+    stripLocale(pathname).startsWith(item.href),
+  )?.href;
   return (
     <header
       ref={header}
@@ -114,7 +118,9 @@ export function SiteHeader() {
         }
       }}
     >
-      <div className="bpa-container bpa-topbar">
+      <div className="bpa-container bpa-topbar" onMouseEnter={() => {
+        if (desktopHover()) { cancelClose(); setExpanded(null); }
+      }}>
         <Link
           href={localePath(locale, "/")}
           aria-label={t("meta.name")}
@@ -168,7 +174,7 @@ export function SiteHeader() {
                   aria-expanded={expanded === item.href}
                   aria-controls={"menu-" + item.key}
                   className={
-                    stripLocale(pathname).startsWith(item.href)
+                    activeHref === item.href
                       ? "is-current"
                       : ""
                   }
@@ -185,6 +191,7 @@ export function SiteHeader() {
               ) : (
                 <Link
                   href={localePath(locale, item.href)}
+                  className={activeHref === item.href ? "is-current" : ""}
                   onClick={close}
                   aria-current={
                     stripLocale(pathname) === item.href ? "page" : undefined
@@ -223,7 +230,7 @@ export function SiteHeader() {
         </nav>
       </div>
       {selected && (
-        <div className="bpa-mega" id={"menu-" + selected.key} onMouseEnter={cancelClose}>
+        <div key={selected.href} className="bpa-mega" id={"menu-" + selected.key} onMouseEnter={cancelClose}>
           <div className="bpa-container">
             <div className="bpa-mega-feature">
               <div>
