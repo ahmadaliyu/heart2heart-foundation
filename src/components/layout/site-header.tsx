@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowRight, ChevronDown, Menu, Search, X } from "lucide-react";
 import { Logo } from "@/components/brand/logo";
 import { LocaleSwitcher } from "@/components/layout/locale-switcher";
@@ -67,28 +67,45 @@ const navigation = [
 export function SiteHeader() {
   const { locale, t } = useI18n();
   const pathname = usePathname();
+  const router = useRouter();
   const [mobile, setMobile] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
   const header = useRef<HTMLElement>(null);
   const menuButton = useRef<HTMLButtonElement>(null);
-  const close = () => {
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const desktopHover = () => window.matchMedia("(hover: hover) and (min-width: 1024px)").matches;
+  const cancelClose = useCallback(() => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    closeTimer.current = null;
+  }, []);
+  const close = useCallback(() => {
+    cancelClose();
     setExpanded(null);
     setMobile(false);
-  };
-  useEffect(close, [pathname]);
+  }, [cancelClose]);
+  useEffect(close, [pathname, close]);
   useEffect(() => {
     function dismiss(event: PointerEvent) {
       if (!header.current?.contains(event.target as Node)) close();
     }
     document.addEventListener("pointerdown", dismiss);
-    return () => document.removeEventListener("pointerdown", dismiss);
-  }, []);
+    return () => {
+      document.removeEventListener("pointerdown", dismiss);
+      cancelClose();
+    };
+  }, [close, cancelClose]);
   const selected = navigation.find((item) => item.href === expanded);
   return (
     <header
       ref={header}
       className="bpa-header"
-      onMouseLeave={() => { if (window.matchMedia("(hover: hover) and (min-width: 1024px)").matches) setExpanded(null); }}
+      onMouseEnter={cancelClose}
+      onMouseLeave={() => {
+        if (desktopHover()) {
+          cancelClose();
+          closeTimer.current = setTimeout(() => setExpanded(null), 250);
+        }
+      }}
       onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setExpanded(null); }}
       onKeyDown={(event) => {
         if (event.key === "Escape") {
@@ -145,7 +162,7 @@ export function SiteHeader() {
         <nav className="bpa-container" aria-label={t("common.menu")}>
           {navigation.map((item) => (
             <div className="bpa-nav-item" key={item.href}
-              onMouseEnter={() => { if (window.matchMedia("(hover: hover) and (min-width: 1024px)").matches) setExpanded(item.links.length ? item.href : null); }}>
+              onMouseEnter={() => { if (desktopHover()) { cancelClose(); setExpanded(item.href); } }}>
               {item.links.length ? (
                 <button
                   aria-expanded={expanded === item.href}
@@ -155,9 +172,12 @@ export function SiteHeader() {
                       ? "is-current"
                       : ""
                   }
-                  onClick={() =>
-                    setExpanded(expanded === item.href ? null : item.href)
-                  }
+                  onClick={() => {
+                    if (desktopHover()) {
+                      close();
+                      router.push(localePath(locale, item.href));
+                    } else setExpanded(expanded === item.href ? null : item.href);
+                  }}
                 >
                   {t(item.key)}
                   <ChevronDown size={15} />
@@ -203,7 +223,7 @@ export function SiteHeader() {
         </nav>
       </div>
       {selected && (
-        <div className="bpa-mega" id={"menu-" + selected.key}>
+        <div className="bpa-mega" id={"menu-" + selected.key} onMouseEnter={cancelClose}>
           <div className="bpa-container">
             <div className="bpa-mega-feature">
               <div>

@@ -1,5 +1,7 @@
 # Photography
 
+- contact-table.jpg: https://unsplash.com/photos/d6-bg-lCvZY — Ninthgrid, Lagos, Nigeria; Unsplash License. Illustrative group meeting around a table.
+
 - school.jpg: https://unsplash.com/photos/VC6MGt9ZoBA (Unsplash License).
 - support.jpg: https://unsplash.com/photos/JYQrknAbFNM (Unsplash License).
 - confidence.jpg: https://unsplash.com/photos/rEBd3_2M-FU (Unsplash License).
