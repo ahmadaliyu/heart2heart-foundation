@@ -88,6 +88,8 @@ export function SiteHeader() {
     <header
       ref={header}
       className="bpa-header"
+      onMouseLeave={() => { if (window.matchMedia("(hover: hover) and (min-width: 1024px)").matches) setExpanded(null); }}
+      onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setExpanded(null); }}
       onKeyDown={(event) => {
         if (event.key === "Escape") {
           close();
@@ -142,7 +144,8 @@ export function SiteHeader() {
       >
         <nav className="bpa-container" aria-label={t("common.menu")}>
           {navigation.map((item) => (
-            <div className="bpa-nav-item" key={item.href}>
+            <div className="bpa-nav-item" key={item.href}
+              onMouseEnter={() => { if (window.matchMedia("(hover: hover) and (min-width: 1024px)").matches) setExpanded(item.links.length ? item.href : null); }}>
               {item.links.length ? (
                 <button
                   aria-expanded={expanded === item.href}

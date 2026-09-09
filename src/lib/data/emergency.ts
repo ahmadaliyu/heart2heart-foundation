@@ -17,8 +17,7 @@ export const emergencyContacts: EmergencyContact[] = [
     name: "Heart2Heart Foundation counselling line",
     description:
       "Speak to a member of the Foundation team during working hours. Not a 24-hour service.",
-    phone: "+234 800 000 0000",
-    whatsapp: "+234 800 000 0000",
+    phone: "08034709661",
     hours: "Monday to Friday, 9:00 am – 5:00 pm",
     scope: "FOUNDATION",
     category: "GENERAL",

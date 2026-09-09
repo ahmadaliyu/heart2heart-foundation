@@ -198,6 +198,7 @@ export interface Article {
 }
 
 export interface VideoResource {
+  youtubeId: string;
   id: string;
   title: string;
   /** Thumbnail. Placeholder SVGs live in /public/covers. */

@@ -1,10 +1,11 @@
 /* eslint-disable @next/next/no-img-element -- Local compressed images have explicit dimensions and native lazy loading. */
 import Link from "next/link";
-import { ArrowRight, HeartHandshake } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { getTranslations } from "@/lib/i18n/server";
 import { localePath } from "@/lib/i18n/config";
 import { FeaturedSlider } from "@/components/home/featured-slider";
 import { ProgramPanel } from "@/components/home/program-panel";
+import { HeroVideo } from "@/components/home/hero-video";
 import { CountUp } from "@/components/motion";
 
 export default async function HomePage({
@@ -19,26 +20,26 @@ export default async function HomePage({
       title: t("services.youthTitle"),
       body: t("services.youthBody"),
       href: path("/services#audiences"),
-      image: "/images/community.jpg",
+      image: "/images/school.jpg",
     },
     {
       title: t("services.couplesTitle"),
       body: t("services.couplesBody"),
       href: path("/services#audiences"),
-      image: "/images/conversation.jpg",
+      image: "/images/couple.jpg",
     },
     {
       title: t("home.steps.three.title"),
       body: t("home.eventsBody"),
       href: path("/events"),
-      image: "/images/together.jpg",
+      image: "/images/family.jpg",
     },
   ];
   return (
     <>
       <section className="bpa-hero">
         <img
-          src="/images/women-community.jpg"
+          src="https://i.ytimg.com/vi/BvpmZktlBFs/maxresdefault.jpg"
           alt=""
           width={1920}
           height={2880}
@@ -46,9 +47,7 @@ export default async function HomePage({
         />
         <div className="hero-shade" />
         <div className="bpa-hero-content">
-          <span className="hero-emblem" aria-hidden="true">
-            <HeartHandshake size={30} strokeWidth={1.5} />
-          </span>
+          <HeroVideo />
           <h1>{t("home.heroTitle")}</h1>
           <div className="hero-actions">
             <Link className="bpa-button" href={path("/about")}>
@@ -151,10 +150,19 @@ export default async function HomePage({
           <ArrowRight size={17} />
         </Link>
       </section>
+      <section className="bpa-container partner-section">
+        <div className="bpa-section-heading"><p>Connections that matter</p><h2>Potential partners in Nigeria</h2></div>
+        <p>Organisations working in mental health and wellbeing. Partnerships are not yet confirmed.</p>
+        <div className="partner-grid">
+          <a href="https://mentallyaware.org/" target="_blank" rel="noopener noreferrer"><strong>MANI</strong><span>Mentally Aware Nigeria Initiative</span></a>
+          <a href="https://www.shewriteswoman.org/" target="_blank" rel="noopener noreferrer"><strong>She Writes Woman</strong><span>Mental health advocacy</span></a>
+          <a href="https://www.nigerianmentalhealth.org/" target="_blank" rel="noopener noreferrer"><strong>Nigerian Mental Health</strong><span>A community of practice</span></a>
+        </div>
+      </section>
       <section className="bpa-cta">
         <div className="cta-photo">
           <img
-            src="/images/together.jpg"
+            src="/images/support.jpg"
             alt=""
             loading="lazy"
             width={1200}

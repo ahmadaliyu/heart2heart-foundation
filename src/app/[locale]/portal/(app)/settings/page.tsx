@@ -33,7 +33,7 @@ export default async function SettingsPage({
             <label className="block text-xs font-semibold uppercase tracking-wide text-ink-faint">
               {t("contact.officeTitle")}
               <TextInput
-                defaultValue="Foundation Centre, Wuse II, Abuja"
+                defaultValue="Kaduna, Nigeria"
                 className="mt-1.5"
               />
             </label>

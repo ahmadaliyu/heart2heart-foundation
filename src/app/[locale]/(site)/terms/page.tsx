@@ -13,7 +13,7 @@ export default async function TermsPage({
   const sections = [
     {
       title: "Who we are",
-      body: "This website and progressive web app are operated by Heart2Heart Foundation, Abuja, Nigeria. Using the site means accepting these terms.",
+      body: "This website and progressive web app are operated by Heart2Heart Foundation, Kaduna, Nigeria. Using the site means accepting these terms.",
     },
     {
       title: "What this service is",

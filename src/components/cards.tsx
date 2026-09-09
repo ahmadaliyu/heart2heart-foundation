@@ -195,7 +195,7 @@ export function VideoCard({
   t: Translator;
 }) {
   return (
-    <Card as="article" interactive className="group flex flex-col overflow-hidden">
+    <Card as="article" interactive className="group relative flex flex-col overflow-hidden">
       <div
         aria-hidden="true"
         className="relative flex aspect-16/10 items-center justify-center overflow-hidden bg-night"
@@ -225,7 +225,7 @@ export function VideoCard({
         <span className="eyebrow text-accent">
           {t(`enums.videoKind.${video.kind}`)}
         </span>
-        <h3 className="mt-3 text-lg leading-snug tracking-[-0.02em]">{video.title}</h3>
+        <h3 className="mt-3 text-lg leading-snug tracking-[-0.02em]"><a href={`https://www.youtube.com/watch?v=${video.youtubeId}`} target="_blank" rel="noopener noreferrer" className="after:absolute after:inset-0">{video.title}<span className="sr-only"> — YouTube (opens in a new tab)</span></a></h3>
         <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-muted">
           {video.description}
         </p>

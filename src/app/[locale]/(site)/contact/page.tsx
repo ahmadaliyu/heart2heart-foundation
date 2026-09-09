@@ -66,7 +66,7 @@ export default async function ContactPage({
                 {
                   icon: MapPin,
                   label: t("contact.officeTitle"),
-                  value: "Foundation Centre, Wuse II, Abuja, Nigeria",
+                  value: "Kaduna, Nigeria",
                 },
                 line
                   ? {
@@ -82,6 +82,7 @@ export default async function ContactPage({
                       ),
                     }
                   : null,
+                ...["08029175028", "08132943547"].map(phone => ({ icon: Phone, label: `${t("contact.phoneTitle")} · ${phone}`, value: <a href={`tel:${phone}`}>{phone}</a> })),
                 {
                   icon: Mail,
                   label: t("contact.emailTitle"),

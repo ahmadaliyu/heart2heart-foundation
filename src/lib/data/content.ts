@@ -9,7 +9,7 @@ import { daysFromNow } from "@/lib/data/helpers";
 export const articles: Article[] = [
   {
     slug: "when-you-cannot-name-what-you-feel",
-    image: "/images/conversation.jpg",
+    image: "/images/reflection.jpg",
     title: "When you can't name what you feel",
     excerpt:
       "Not every difficult feeling arrives with a label. Here is how to start describing it, to yourself first and then to someone else.",
@@ -21,7 +21,7 @@ export const articles: Article[] = [
       "Then tell one person. It does not have to be the full picture and it does not have to be someone in your family. Saying \"I have not felt right for a while and I don't know why\" is a complete sentence, and it is enough to start with a counsellor.",
     ],
     category: "EMOTIONAL_WELLBEING",
-    author: "Dr. Amina Yusuf",
+    author: "Heart2Heart Foundation",
     readingMinutes: 4,
     status: "PUBLISHED",
     featured: true,
@@ -30,7 +30,7 @@ export const articles: Article[] = [
   },
   {
     slug: "talking-to-your-husband-when-conversations-keep-going-wrong",
-    image: "/images/conversation.jpg",
+    image: "/images/couple.jpg",
     title: "When the same conversation keeps going wrong",
     excerpt:
       "Most couples do not argue about many things. They argue about the same few things, in the same way. Changing the shape of the conversation often matters more than winning it.",
@@ -42,7 +42,7 @@ export const articles: Article[] = [
       "Some patterns do not shift on their own, and that is not a failure. A counsellor is not there to judge a marriage. They are there to help two people hear each other, which is much harder to do alone than most of us expect.",
     ],
     category: "MARRIAGE",
-    author: "Dr. Amina Yusuf",
+    author: "Heart2Heart Foundation",
     readingMinutes: 5,
     status: "PUBLISHED",
     featured: true,
@@ -51,7 +51,7 @@ export const articles: Article[] = [
   },
   {
     slug: "school-pressure-and-what-actually-helps",
-    image: "/images/conversation.jpg",
+    image: "/images/school.jpg",
     title: "School pressure, and what actually helps",
     excerpt:
       "Exams, expectations and everyone seeming to cope better than you. A practical look at what is really going on and what makes it lighter.",
@@ -72,7 +72,7 @@ export const articles: Article[] = [
   },
   {
     slug: "what-a-healthy-relationship-actually-looks-like",
-    image: "/images/conversation.jpg",
+    image: "/images/connection.jpg",
     title: "What a healthy relationship actually looks like",
     excerpt:
       "Beyond \"he doesn't hit me\". The everyday signs that a relationship is good for you — and the ones that say it isn't.",
@@ -85,7 +85,7 @@ export const articles: Article[] = [
       "If reading this made you uneasy, that is information. Talking it through with someone outside the situation is not disloyal.",
     ],
     category: "HEALTHY_RELATIONSHIPS",
-    author: "Dr. Amina Yusuf",
+    author: "Heart2Heart Foundation",
     readingMinutes: 5,
     status: "PUBLISHED",
     featured: false,
@@ -94,7 +94,7 @@ export const articles: Article[] = [
   },
   {
     slug: "how-to-support-a-girl-who-is-struggling",
-    image: "/images/conversation.jpg",
+    image: "/images/support.jpg",
     title: "How to support a girl who is struggling",
     excerpt:
       "For parents, teachers and older sisters: what to say, what not to say, and what to do when she won't talk to you.",
@@ -126,7 +126,7 @@ export const articles: Article[] = [
       "Then stop talking. The silence after a clear request is uncomfortable, and it is where the other person actually thinks.",
     ],
     category: "COMMUNICATION",
-    author: "Dr. Amina Yusuf",
+    author: "Heart2Heart Foundation",
     readingMinutes: 3,
     status: "PUBLISHED",
     featured: false,
@@ -135,7 +135,7 @@ export const articles: Article[] = [
   },
   {
     slug: "rebuilding-confidence-after-a-hard-year",
-    image: "/images/conversation.jpg",
+    image: "/images/confidence.jpg",
     title: "Rebuilding confidence after a hard year",
     excerpt: "Confidence is not a personality trait you were born with or without. It is rebuilt in small, specific pieces.",
     body: [
@@ -146,7 +146,7 @@ export const articles: Article[] = [
       "If the flatness does not lift over weeks, or you find yourself avoiding people entirely, please talk to someone qualified. That is not weakness — it is the same as seeing a doctor about a pain that won't go.",
     ],
     category: "SELF_ESTEEM",
-    author: "Dr. Amina Yusuf",
+    author: "Heart2Heart Foundation",
     readingMinutes: 4,
     status: "PUBLISHED",
     featured: false,
@@ -155,7 +155,7 @@ export const articles: Article[] = [
   },
   {
     slug: "when-family-pressure-becomes-too-much",
-    image: "/images/conversation.jpg",
+    image: "/images/family.jpg",
     title: "When family pressure becomes too much",
     excerpt: "Expectations from parents and in-laws are real, and so are your limits. Holding both is possible.",
     body: [
@@ -175,7 +175,7 @@ export const articles: Article[] = [
   },
   {
     slug: "understanding-anxiety",
-    image: "/images/conversation.jpg",
+    image: "/images/calm.jpg",
     title: "Understanding anxiety in everyday language",
     excerpt: "What anxiety is, what it is not, and why it makes ordinary tasks feel enormous.",
     body: [
@@ -186,7 +186,7 @@ export const articles: Article[] = [
       "Anxiety responds well to treatment. If it is shaping your decisions, it is worth talking to a qualified professional.",
     ],
     category: "MENTAL_HEALTH_AWARENESS",
-    author: "Dr. Amina Yusuf",
+    author: "Heart2Heart Foundation",
     readingMinutes: 5,
     status: "DRAFT",
     featured: false,
@@ -197,58 +197,38 @@ export const articles: Article[] = [
 
 export const videos: VideoResource[] = [
   {
-    id: "vid_1",
-    image: "/images/conversation.jpg",
-    title: "What happens in a counselling session",
-    description:
-      "A short walkthrough of what to expect the first time you sit down with a counsellor — who is in the room, how long it lasts, and what you do not have to talk about.",
-    durationMinutes: 6,
-    kind: "EDUCATIONAL",
-    status: "PUBLISHED",
-    publishedAt: daysFromNow(-18, 10),
+    "id": "vid_1",
+    "youtubeId": "BvpmZktlBFs",
+    "title": "There is no shame in taking care of your mental health",
+    "description": "Sangu Delle shares his experience of confronting mental health stigma in Ghana. A TED talk.",
+    "durationMinutes": 9,
+    "kind": "AWARENESS",
+    "image": "https://i.ytimg.com/vi/BvpmZktlBFs/hqdefault.jpg",
+    "status": "PUBLISHED",
+    "publishedAt": "2017-03-31"
   },
   {
-    id: "vid_2",
-    image: "/images/conversation.jpg",
-    title: "Speak up: our schools awareness campaign",
-    description:
-      "Students from three secondary schools in Abuja talk about the pressures they face and what made it easier to ask for help.",
-    durationMinutes: 9,
-    kind: "AWARENESS",
-    status: "PUBLISHED",
-    publishedAt: daysFromNow(-32, 12),
+    "id": "vid_2",
+    "youtubeId": "1qq7lDL-bzY",
+    "title": "Why students should have mental health days",
+    "description": "Hailey Hardcastle discusses school pressure and making space for student wellbeing. A TED talk.",
+    "durationMinutes": 8,
+    "kind": "EDUCATIONAL",
+    "image": "https://i.ytimg.com/vi/1qq7lDL-bzY/hqdefault.jpg",
+    "status": "PUBLISHED",
+    "publishedAt": "2020-05-11"
   },
   {
-    id: "vid_3",
-    image: "/images/conversation.jpg",
-    title: "Marriage, communication and expectations",
-    description:
-      "A conversation with Dr. Amina Yusuf on the patterns that come up most often in counselling with married women.",
-    durationMinutes: 22,
-    kind: "EXPERT",
-    status: "PUBLISHED",
-    publishedAt: daysFromNow(-45, 14),
-  },
-  {
-    id: "vid_4",
-    image: "/images/conversation.jpg",
-    title: "Inside a school outreach day",
-    description: "What the Foundation's team does when they visit a school, from assembly to small-group sessions.",
-    durationMinutes: 4,
-    kind: "FOUNDATION",
-    status: "PUBLISHED",
-    publishedAt: daysFromNow(-60, 11),
-  },
-  {
-    id: "vid_5",
-    image: "/images/conversation.jpg",
-    title: "Recognising the signs in someone you love",
-    description: "For parents and guardians: what changes are worth paying attention to, and how to open the conversation.",
-    durationMinutes: 11,
-    kind: "EDUCATIONAL",
-    status: "REVIEW",
-    publishedAt: daysFromNow(-3, 9),
-  },
+    "id": "vid_3",
+    "youtubeId": "ON4iy8hq2hM",
+    "title": "The difference between healthy and unhealthy love",
+    "description": "Katie Hood explores how to recognise healthier patterns in relationships. A TED talk.",
+    "durationMinutes": 12,
+    "kind": "EXPERT",
+    "image": "https://i.ytimg.com/vi/ON4iy8hq2hM/hqdefault.jpg",
+    "status": "PUBLISHED",
+    "publishedAt": "2019-06-11"
+  }
 ];
 
 export const materials: MaterialResource[] = [

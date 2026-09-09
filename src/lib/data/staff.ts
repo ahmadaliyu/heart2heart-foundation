@@ -9,16 +9,16 @@ import { daysFromNow, hoursFromNow } from "@/lib/data/helpers";
 export const staff: StaffUser[] = [
   {
     id: "usr_admin",
-    name: "Hauwa Bello",
+    name: "Ahmad Aliyu",
     email: "admin@heart2heart.ng",
     role: "ADMIN",
-    title: "Programme Administrator",
+    title: "Chief Technology Officer",
     active: true,
     lastActiveAt: hoursFromNow(-1),
   },
   {
     id: "usr_therapist_1",
-    name: "Dr. Amina Yusuf",
+    name: "Asmau Abdu Gambo",
     email: "therapist@heart2heart.ng",
     role: "THERAPIST",
     title: "Lead Counselling Psychologist",
@@ -31,7 +31,7 @@ export const staff: StaffUser[] = [
     email: "outreach@heart2heart.ng",
     role: "ADMIN",
     title: "Outreach & Events Coordinator",
-    active: true,
+    active: false,
     lastActiveAt: daysFromNow(-2, 16),
   },
   {
