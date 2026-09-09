@@ -446,10 +446,14 @@
   line-height: 1.4;
 }
 .program-image {
+  position: relative;
   min-width: 0;
+  min-height: 0;
   overflow: hidden;
 }
 .program-image img {
+  position: absolute;
+  inset: 0;
   height: 100%;
   width: 100%;
   object-fit: cover;
